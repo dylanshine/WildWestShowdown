@@ -84,7 +84,7 @@
         <!--Join A Game-->
         <scene sceneID="ATl-Ve-9Vg">
             <objects>
-                <viewController title="Join A Game" id="YkX-qD-k9z" sceneMemberID="viewController">
+                <viewController title="Join A Game" id="YkX-qD-k9z" customClass="JoinGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N0j-yu-CZj"/>
                         <viewControllerLayoutGuide type="bottom" id="IyL-RU-nxz"/>
@@ -92,6 +92,17 @@
                     <view key="view" contentMode="scaleToFill" id="1fC-wu-hGE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tO-r4-Rtd">
+                                <rect key="frame" x="123" y="269" width="74" height="30"/>
+                                <state key="normal" title="Join Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="joinGameButtonPressed:" destination="YkX-qD-k9z" eventType="touchUpInside" id="Hev-g2-4rN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="R3f-Ui-vgy"/>
@@ -111,7 +122,7 @@
         <!--Create A Game-->
         <scene sceneID="aBB-9j-bhM">
             <objects>
-                <viewController title="Create A Game" id="hoK-MC-JNB" sceneMemberID="viewController">
+                <viewController title="Create A Game" id="hoK-MC-JNB" customClass="CreateGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PGe-zq-z70"/>
                         <viewControllerLayoutGuide type="bottom" id="352-za-cbN"/>
@@ -119,6 +130,17 @@
                     <view key="view" contentMode="scaleToFill" id="BGF-wf-k6i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43n-fO-IQ6">
+                                <rect key="frame" x="115" y="269" width="91" height="30"/>
+                                <state key="normal" title="Create Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createGameButtonPressed:" destination="hoK-MC-JNB" eventType="touchUpInside" id="s2C-QF-851"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="vhy-f7-VJe"/>

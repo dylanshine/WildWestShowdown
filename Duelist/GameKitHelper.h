@@ -17,6 +17,7 @@ extern NSString *const PresentAuthenticationViewController;
 @interface GameKitHelper : NSObject
 @property (nonatomic, readonly) UIViewController *authenticationViewController;
 @property (nonatomic, readonly) NSError *lastError;
+@property (nonatomic, readonly) BOOL isEnabled;
 
 +(instancetype)sharedGameKitHelper;
 - (void)authenticateLocalPlayer;

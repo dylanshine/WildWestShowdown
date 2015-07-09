@@ -7,6 +7,7 @@
 //
 
 #import "GameKitHelper.h"
+#import "MultipeerConnectivityHelper.h"
 
 
 
@@ -14,7 +15,7 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
 @interface GameKitHelper()
 
 
-@property (nonatomic) BOOL enableGameCenter;
+@property (nonatomic, readwrite) BOOL isEnabled;
 
 @end
 
@@ -33,7 +34,7 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
 
 - (instancetype)init {
     if (self = [super init]) {
-        _enableGameCenter = YES;
+        _isEnabled = YES;
     }
     return self;
 }
@@ -47,9 +48,11 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
         if (viewController != nil) {
             [self setAuthenticationViewController:viewController];
         } else if ([GKLocalPlayer localPlayer].isAuthenticated) {
-            self.enableGameCenter = YES;
+            self.isEnabled = YES;
+            [[MultipeerConnectivityHelper sharedMCHelper] setupPeerWithDisplayName:[GKLocalPlayer localPlayer].displayName];
         } else {
-            self.enableGameCenter = NO;
+            self.isEnabled = NO;
+            [[MultipeerConnectivityHelper sharedMCHelper] setupPeerWithDisplayName:[UIDevice currentDevice].name];
         }
     };
 }
