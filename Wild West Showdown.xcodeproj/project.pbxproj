@@ -14,6 +14,9 @@
 		FC2B6F441B4DEEBD0053D83D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC2B6F431B4DEEBD0053D83D /* Images.xcassets */; };
 		FC2B6F471B4DEEBD0053D83D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2B6F451B4DEEBD0053D83D /* LaunchScreen.xib */; };
 		FC2B6F531B4DEEBD0053D83D /* DuelistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F521B4DEEBD0053D83D /* DuelistTests.m */; };
+		FC2B6F5D1B4DF3DA0053D83D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2B6F5C1B4DF3DA0053D83D /* GameKit.framework */; };
+		FC2B6F611B4DF6C20053D83D /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */; };
+		FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F631B4E02960053D83D /* MainNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FC2B6F331B4DEEBD0053D83D /* Duelist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Duelist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC2B6F331B4DEEBD0053D83D /* Wild West Showdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wild West Showdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2B6F371B4DEEBD0053D83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2B6F381B4DEEBD0053D83D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FC2B6F3A1B4DEEBD0053D83D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,9 +40,14 @@
 		FC2B6F411B4DEEBD0053D83D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC2B6F431B4DEEBD0053D83D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FC2B6F461B4DEEBD0053D83D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		FC2B6F4C1B4DEEBD0053D83D /* DuelistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuelistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC2B6F4C1B4DEEBD0053D83D /* Wild West ShowdownTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wild West ShowdownTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2B6F511B4DEEBD0053D83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2B6F521B4DEEBD0053D83D /* DuelistTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DuelistTests.m; sourceTree = "<group>"; };
+		FC2B6F5C1B4DF3DA0053D83D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		FC2B6F5F1B4DF6C20053D83D /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
+		FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
+		FC2B6F621B4E02960053D83D /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		FC2B6F631B4E02960053D83D /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2B6F5D1B4DF3DA0053D83D /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +72,8 @@
 		FC2B6F2A1B4DEEBD0053D83D = {
 			isa = PBXGroup;
 			children = (
-				FC2B6F351B4DEEBD0053D83D /* Duelist */,
+				FC2B6F5C1B4DF3DA0053D83D /* GameKit.framework */,
+				FC2B6F351B4DEEBD0053D83D /* Wild West Showdown */,
 				FC2B6F4F1B4DEEBD0053D83D /* DuelistTests */,
 				FC2B6F341B4DEEBD0053D83D /* Products */,
 			);
@@ -72,24 +82,28 @@
 		FC2B6F341B4DEEBD0053D83D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC2B6F331B4DEEBD0053D83D /* Duelist.app */,
-				FC2B6F4C1B4DEEBD0053D83D /* DuelistTests.xctest */,
+				FC2B6F331B4DEEBD0053D83D /* Wild West Showdown.app */,
+				FC2B6F4C1B4DEEBD0053D83D /* Wild West ShowdownTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FC2B6F351B4DEEBD0053D83D /* Duelist */ = {
+		FC2B6F351B4DEEBD0053D83D /* Wild West Showdown */ = {
 			isa = PBXGroup;
 			children = (
+				FC2B6F5E1B4DF68D0053D83D /* GameKit */,
 				FC2B6F3A1B4DEEBD0053D83D /* AppDelegate.h */,
 				FC2B6F3B1B4DEEBD0053D83D /* AppDelegate.m */,
 				FC2B6F3D1B4DEEBD0053D83D /* MenuViewController.h */,
 				FC2B6F3E1B4DEEBD0053D83D /* MenuViewController.m */,
+				FC2B6F621B4E02960053D83D /* MainNavigationController.h */,
+				FC2B6F631B4E02960053D83D /* MainNavigationController.m */,
 				FC2B6F401B4DEEBD0053D83D /* Main.storyboard */,
 				FC2B6F431B4DEEBD0053D83D /* Images.xcassets */,
 				FC2B6F451B4DEEBD0053D83D /* LaunchScreen.xib */,
 				FC2B6F361B4DEEBD0053D83D /* Supporting Files */,
 			);
+			name = "Wild West Showdown";
 			path = Duelist;
 			sourceTree = "<group>";
 		};
@@ -119,12 +133,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FC2B6F5E1B4DF68D0053D83D /* GameKit */ = {
+			isa = PBXGroup;
+			children = (
+				FC2B6F5F1B4DF6C20053D83D /* GameKitHelper.h */,
+				FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */,
+			);
+			name = GameKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FC2B6F321B4DEEBD0053D83D /* Duelist */ = {
+		FC2B6F321B4DEEBD0053D83D /* Wild West Showdown */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC2B6F561B4DEEBD0053D83D /* Build configuration list for PBXNativeTarget "Duelist" */;
+			buildConfigurationList = FC2B6F561B4DEEBD0053D83D /* Build configuration list for PBXNativeTarget "Wild West Showdown" */;
 			buildPhases = (
 				FC2B6F2F1B4DEEBD0053D83D /* Sources */,
 				FC2B6F301B4DEEBD0053D83D /* Frameworks */,
@@ -134,14 +157,14 @@
 			);
 			dependencies = (
 			);
-			name = Duelist;
+			name = "Wild West Showdown";
 			productName = Duelist;
-			productReference = FC2B6F331B4DEEBD0053D83D /* Duelist.app */;
+			productReference = FC2B6F331B4DEEBD0053D83D /* Wild West Showdown.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FC2B6F4B1B4DEEBD0053D83D /* DuelistTests */ = {
+		FC2B6F4B1B4DEEBD0053D83D /* Wild West ShowdownTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC2B6F591B4DEEBD0053D83D /* Build configuration list for PBXNativeTarget "DuelistTests" */;
+			buildConfigurationList = FC2B6F591B4DEEBD0053D83D /* Build configuration list for PBXNativeTarget "Wild West ShowdownTests" */;
 			buildPhases = (
 				FC2B6F481B4DEEBD0053D83D /* Sources */,
 				FC2B6F491B4DEEBD0053D83D /* Frameworks */,
@@ -152,9 +175,9 @@
 			dependencies = (
 				FC2B6F4E1B4DEEBD0053D83D /* PBXTargetDependency */,
 			);
-			name = DuelistTests;
+			name = "Wild West ShowdownTests";
 			productName = DuelistTests;
-			productReference = FC2B6F4C1B4DEEBD0053D83D /* DuelistTests.xctest */;
+			productReference = FC2B6F4C1B4DEEBD0053D83D /* Wild West ShowdownTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -168,6 +191,12 @@
 				TargetAttributes = {
 					FC2B6F321B4DEEBD0053D83D = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 6FWSRPXBW6;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					FC2B6F4B1B4DEEBD0053D83D = {
 						CreatedOnToolsVersion = 6.4;
@@ -175,7 +204,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FC2B6F2E1B4DEEBD0053D83D /* Build configuration list for PBXProject "Duelist" */;
+			buildConfigurationList = FC2B6F2E1B4DEEBD0053D83D /* Build configuration list for PBXProject "Wild West Showdown" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -188,8 +217,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FC2B6F321B4DEEBD0053D83D /* Duelist */,
-				FC2B6F4B1B4DEEBD0053D83D /* DuelistTests */,
+				FC2B6F321B4DEEBD0053D83D /* Wild West Showdown */,
+				FC2B6F4B1B4DEEBD0053D83D /* Wild West ShowdownTests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,9 +248,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2B6F611B4DF6C20053D83D /* GameKitHelper.m in Sources */,
 				FC2B6F3F1B4DEEBD0053D83D /* MenuViewController.m in Sources */,
 				FC2B6F3C1B4DEEBD0053D83D /* AppDelegate.m in Sources */,
 				FC2B6F391B4DEEBD0053D83D /* main.m in Sources */,
+				FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +269,7 @@
 /* Begin PBXTargetDependency section */
 		FC2B6F4E1B4DEEBD0053D83D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FC2B6F321B4DEEBD0053D83D /* Duelist */;
+			target = FC2B6F321B4DEEBD0053D83D /* Wild West Showdown */;
 			targetProxy = FC2B6F4D1B4DEEBD0053D83D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -347,9 +378,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Duelist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Wild West Showdown";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -357,9 +392,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Duelist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Wild West Showdown";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -377,7 +416,7 @@
 				);
 				INFOPLIST_FILE = DuelistTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Wild West ShowdownTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Duelist.app/Duelist";
 			};
 			name = Debug;
@@ -392,7 +431,7 @@
 				);
 				INFOPLIST_FILE = DuelistTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Wild West ShowdownTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Duelist.app/Duelist";
 			};
 			name = Release;
@@ -400,7 +439,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FC2B6F2E1B4DEEBD0053D83D /* Build configuration list for PBXProject "Duelist" */ = {
+		FC2B6F2E1B4DEEBD0053D83D /* Build configuration list for PBXProject "Wild West Showdown" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC2B6F541B4DEEBD0053D83D /* Debug */,
@@ -409,21 +448,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC2B6F561B4DEEBD0053D83D /* Build configuration list for PBXNativeTarget "Duelist" */ = {
+		FC2B6F561B4DEEBD0053D83D /* Build configuration list for PBXNativeTarget "Wild West Showdown" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC2B6F571B4DEEBD0053D83D /* Debug */,
 				FC2B6F581B4DEEBD0053D83D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		FC2B6F591B4DEEBD0053D83D /* Build configuration list for PBXNativeTarget "DuelistTests" */ = {
+		FC2B6F591B4DEEBD0053D83D /* Build configuration list for PBXNativeTarget "Wild West ShowdownTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC2B6F5A1B4DEEBD0053D83D /* Debug */,
 				FC2B6F5B1B4DEEBD0053D83D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

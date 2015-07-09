@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Duelist.xcodeproj">
+      location = "self:/Users/dylan/Desktop/Duelist/Wild West Showdown.xcodeproj">
    </FileRef>
 </Workspace>

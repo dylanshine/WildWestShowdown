@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Cw-YsM">
-                                <rect key="frame" x="118" y="217" width="85" height="30"/>
+                                <rect key="frame" x="118" y="191" width="85" height="30"/>
                                 <state key="normal" title="How To Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YL8-FO-zQX">
-                                <rect key="frame" x="108" y="255" width="105" height="30"/>
+                                <rect key="frame" x="108" y="229" width="105" height="30"/>
                                 <state key="normal" title="Create A Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-qX-zsE">
-                                <rect key="frame" x="116" y="293" width="89" height="30"/>
+                                <rect key="frame" x="116" y="267" width="89" height="30"/>
                                 <state key="normal" title="Join A Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -45,14 +45,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wox-4y-st5">
-                                <rect key="frame" x="114" y="331" width="92" height="30"/>
+                                <rect key="frame" x="114" y="305" width="92" height="30"/>
                                 <state key="normal" title="Pratice Mode">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duelist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYr-hc-1qe">
-                                <rect key="frame" x="86" y="90" width="149" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wild West Showdown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYr-hc-1qe">
+                                <rect key="frame" x="27" y="90" width="268" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -70,7 +70,7 @@
                             <constraint firstItem="QHZ-qX-zsE" firstAttribute="top" secondItem="YL8-FO-zQX" secondAttribute="bottom" constant="8" id="e4n-gY-qPe"/>
                             <constraint firstItem="QHZ-qX-zsE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="100" id="esi-gO-Ic5"/>
                             <constraint firstItem="DYr-hc-1qe" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="26" id="gWY-Lu-BjJ"/>
-                            <constraint firstAttribute="centerX" secondItem="DYr-hc-1qe" secondAttribute="centerX" id="jDj-R3-k0l"/>
+                            <constraint firstAttribute="centerX" secondItem="DYr-hc-1qe" secondAttribute="centerX" constant="-1" id="jDj-R3-k0l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YL8-FO-zQX" secondAttribute="trailing" constant="91" id="ocn-wv-Peg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wox-4y-st5" secondAttribute="trailing" constant="98" id="pfe-rB-MaE"/>
                         </constraints>
@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="1362" y="677"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="gvJ-A2-7tX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OY8-cf-lAI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OY8-cf-lAI" customClass="MainNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1yr-5x-btL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
