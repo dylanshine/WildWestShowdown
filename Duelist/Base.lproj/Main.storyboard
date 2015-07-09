@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OY8-cf-lAI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Menu View Controller-->
@@ -13,13 +14,141 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Cw-YsM">
+                                <rect key="frame" x="118" y="217" width="85" height="30"/>
+                                <state key="normal" title="How To Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ePu-st-aEn" kind="modal" identifier="howToPlay" id="1Rk-tc-pOM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YL8-FO-zQX">
+                                <rect key="frame" x="108" y="255" width="105" height="30"/>
+                                <state key="normal" title="Create A Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="hoK-MC-JNB" kind="push" id="48T-HP-ve5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-qX-zsE">
+                                <rect key="frame" x="116" y="293" width="89" height="30"/>
+                                <state key="normal" title="Join A Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="YkX-qD-k9z" kind="push" id="3bD-UK-Nan"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wox-4y-st5">
+                                <rect key="frame" x="114" y="331" width="92" height="30"/>
+                                <state key="normal" title="Pratice Mode">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duelist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYr-hc-1qe">
+                                <rect key="frame" x="86" y="90" width="149" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YL8-FO-zQX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="92" id="1Hp-Rl-cdK"/>
+                            <constraint firstItem="YL8-FO-zQX" firstAttribute="top" secondItem="7mx-Cw-YsM" secondAttribute="bottom" constant="8" id="2VW-t2-UhM"/>
+                            <constraint firstItem="7mx-Cw-YsM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="102" id="Cdo-dm-8z8"/>
+                            <constraint firstItem="Wox-4y-st5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="98" id="G8l-Sy-kAu"/>
+                            <constraint firstItem="Wox-4y-st5" firstAttribute="top" secondItem="QHZ-qX-zsE" secondAttribute="bottom" constant="8" id="H6Z-Ts-xlj"/>
+                            <constraint firstItem="7mx-Cw-YsM" firstAttribute="top" secondItem="DYr-hc-1qe" secondAttribute="bottom" constant="67" id="ZqC-K2-8dn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7mx-Cw-YsM" secondAttribute="trailing" constant="101" id="aoY-Eq-Q4j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QHZ-qX-zsE" secondAttribute="trailing" constant="99" id="bHs-gI-B6R"/>
+                            <constraint firstItem="QHZ-qX-zsE" firstAttribute="top" secondItem="YL8-FO-zQX" secondAttribute="bottom" constant="8" id="e4n-gY-qPe"/>
+                            <constraint firstItem="QHZ-qX-zsE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="100" id="esi-gO-Ic5"/>
+                            <constraint firstItem="DYr-hc-1qe" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="26" id="gWY-Lu-BjJ"/>
+                            <constraint firstAttribute="centerX" secondItem="DYr-hc-1qe" secondAttribute="centerX" id="jDj-R3-k0l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YL8-FO-zQX" secondAttribute="trailing" constant="91" id="ocn-wv-Peg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wox-4y-st5" secondAttribute="trailing" constant="98" id="pfe-rB-MaE"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="rbX-6n-VNK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="912" y="964"/>
+        </scene>
+        <!--Join A Game-->
+        <scene sceneID="ATl-Ve-9Vg">
+            <objects>
+                <viewController title="Join A Game" id="YkX-qD-k9z" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N0j-yu-CZj"/>
+                        <viewControllerLayoutGuide type="bottom" id="IyL-RU-nxz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1fC-wu-hGE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="R3f-Ui-vgy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hhm-Mw-ByD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1362" y="1298"/>
+        </scene>
+        <!--How To Play-->
+        <scene sceneID="a8H-OP-Qcc">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="How To Play" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ePu-st-aEn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0fg-O7-EpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1362" y="65"/>
+        </scene>
+        <!--Create A Game-->
+        <scene sceneID="aBB-9j-bhM">
+            <objects>
+                <viewController title="Create A Game" id="hoK-MC-JNB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PGe-zq-z70"/>
+                        <viewControllerLayoutGuide type="bottom" id="352-za-cbN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BGF-wf-k6i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vhy-f7-VJe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n4C-hz-s6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1362" y="677"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gvJ-A2-7tX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OY8-cf-lAI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1yr-5x-btL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="8SP-b3-7V4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pum-sx-Vqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="964"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
