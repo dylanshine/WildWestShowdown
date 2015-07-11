@@ -18,8 +18,6 @@
 		FC2B6F611B4DF6C20053D83D /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */; };
 		FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F631B4E02960053D83D /* MainNavigationController.m */; };
 		FCBC47B11B4E2A4C00B26900 /* MultipeerConnectivityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC47B01B4E2A4C00B26900 /* MultipeerConnectivityHelper.m */; };
-		FCBC47B41B4E2D0B00B26900 /* CreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC47B31B4E2D0B00B26900 /* CreateGameViewController.m */; };
-		FCBC47B71B4E325C00B26900 /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC47B61B4E325C00B26900 /* JoinGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +51,6 @@
 		FC2B6F631B4E02960053D83D /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		FCBC47AF1B4E2A4C00B26900 /* MultipeerConnectivityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerConnectivityHelper.h; sourceTree = "<group>"; };
 		FCBC47B01B4E2A4C00B26900 /* MultipeerConnectivityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerConnectivityHelper.m; sourceTree = "<group>"; };
-		FCBC47B21B4E2D0B00B26900 /* CreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGameViewController.h; sourceTree = "<group>"; };
-		FCBC47B31B4E2D0B00B26900 /* CreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGameViewController.m; sourceTree = "<group>"; };
-		FCBC47B51B4E325C00B26900 /* JoinGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGameViewController.h; sourceTree = "<group>"; };
-		FCBC47B61B4E325C00B26900 /* JoinGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,16 +96,10 @@
 			children = (
 				FCBC47AE1B4E2A2D00B26900 /* Multipeer Connectivity */,
 				FC2B6F5E1B4DF68D0053D83D /* GameKit */,
-				FC2B6F3A1B4DEEBD0053D83D /* AppDelegate.h */,
-				FC2B6F3B1B4DEEBD0053D83D /* AppDelegate.m */,
 				FC2B6F3D1B4DEEBD0053D83D /* MenuViewController.h */,
 				FC2B6F3E1B4DEEBD0053D83D /* MenuViewController.m */,
 				FC2B6F621B4E02960053D83D /* MainNavigationController.h */,
 				FC2B6F631B4E02960053D83D /* MainNavigationController.m */,
-				FCBC47B21B4E2D0B00B26900 /* CreateGameViewController.h */,
-				FCBC47B31B4E2D0B00B26900 /* CreateGameViewController.m */,
-				FCBC47B51B4E325C00B26900 /* JoinGameViewController.h */,
-				FCBC47B61B4E325C00B26900 /* JoinGameViewController.m */,
 				FC2B6F401B4DEEBD0053D83D /* Main.storyboard */,
 				FC2B6F431B4DEEBD0053D83D /* Images.xcassets */,
 				FC2B6F451B4DEEBD0053D83D /* LaunchScreen.xib */,
@@ -124,6 +112,8 @@
 		FC2B6F361B4DEEBD0053D83D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FC2B6F3A1B4DEEBD0053D83D /* AppDelegate.h */,
+				FC2B6F3B1B4DEEBD0053D83D /* AppDelegate.m */,
 				FC2B6F371B4DEEBD0053D83D /* Info.plist */,
 				FC2B6F381B4DEEBD0053D83D /* main.m */,
 			);
@@ -275,9 +265,7 @@
 				FC2B6F3F1B4DEEBD0053D83D /* MenuViewController.m in Sources */,
 				FCBC47B11B4E2A4C00B26900 /* MultipeerConnectivityHelper.m in Sources */,
 				FC2B6F3C1B4DEEBD0053D83D /* AppDelegate.m in Sources */,
-				FCBC47B71B4E325C00B26900 /* JoinGameViewController.m in Sources */,
 				FC2B6F391B4DEEBD0053D83D /* main.m in Sources */,
-				FCBC47B41B4E2D0B00B26900 /* CreateGameViewController.m in Sources */,
 				FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

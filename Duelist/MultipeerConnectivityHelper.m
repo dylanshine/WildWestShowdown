@@ -30,7 +30,7 @@
 }
 
 - (void)setupBrowser {
-    self.browser = [[MCBrowserViewController alloc] initWithServiceType:@"WWS" session:_session];
+    self.browser = [[MCBrowserViewController alloc] initWithServiceType:@"WWS" session:self.session];
 }
 
 - (void)advertiseSelf:(BOOL)advertise {
