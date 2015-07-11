@@ -225,8 +225,75 @@
                     <view key="view" contentMode="scaleToFill" id="Ucg-dC-i3k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you ready?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAO-Ud-W7Z">
+                                <rect key="frame" x="71" y="79" width="178" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXF-Bi-5PZ">
+                                <rect key="frame" x="110" y="142" width="101" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Ready?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="readyButtonPressed:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="661-gM-hSp"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2w-0Z-Ae5">
+                                <rect key="frame" x="110" y="185" width="48" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Fire">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fireButtonPressed:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="SYc-re-cJD"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-pj-oCO">
+                                <rect key="frame" x="110" y="291" width="93" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Reload">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reloadButtonPressed:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="Q6e-BY-Gvv"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5d-Sd-1mf">
+                                <rect key="frame" x="110" y="235" width="169" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Pull Hammer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pullHammerButtonPressed:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="qod-cf-D5P"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dXF-Bi-5PZ" firstAttribute="top" secondItem="AAO-Ud-W7Z" secondAttribute="bottom" constant="31" id="2K8-9e-qnD"/>
+                            <constraint firstItem="AAO-Ud-W7Z" firstAttribute="top" secondItem="rWv-xS-zqY" secondAttribute="bottom" constant="59" id="2n8-gv-QIk"/>
+                            <constraint firstAttribute="centerX" secondItem="M5d-Sd-1mf" secondAttribute="centerX" constant="-34.5" id="9aX-sm-h7p"/>
+                            <constraint firstItem="J2w-0Z-Ae5" firstAttribute="top" secondItem="dXF-Bi-5PZ" secondAttribute="bottom" constant="-5" id="De4-bX-TSd"/>
+                            <constraint firstItem="Bya-pj-oCO" firstAttribute="top" secondItem="M5d-Sd-1mf" secondAttribute="bottom" constant="8" id="Kxy-UT-FCh"/>
+                            <constraint firstAttribute="centerX" secondItem="J2w-0Z-Ae5" secondAttribute="centerX" constant="26" id="V1C-Yf-HWV"/>
+                            <constraint firstAttribute="centerX" secondItem="Bya-pj-oCO" secondAttribute="centerX" constant="3.5" id="chM-5T-MQt"/>
+                            <constraint firstAttribute="centerX" secondItem="AAO-Ud-W7Z" secondAttribute="centerX" id="no6-V2-XJo"/>
+                            <constraint firstAttribute="centerX" secondItem="dXF-Bi-5PZ" secondAttribute="centerX" id="teC-zd-CSn"/>
+                            <constraint firstItem="M5d-Sd-1mf" firstAttribute="top" secondItem="J2w-0Z-Ae5" secondAttribute="bottom" constant="2" id="wwR-YJ-Ifs"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fireButton" destination="J2w-0Z-Ae5" id="GTx-At-SCR"/>
+                        <outlet property="pullHammerButton" destination="M5d-Sd-1mf" id="toI-OI-DLZ"/>
+                        <outlet property="readyButton" destination="dXF-Bi-5PZ" id="pep-iz-Z79"/>
+                        <outlet property="reloadButton" destination="Bya-pj-oCO" id="YAk-hg-K5u"/>
+                        <outlet property="statusLabel" destination="AAO-Ud-W7Z" id="C3i-UF-4Cg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ck7-YK-XeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -257,6 +324,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pum-sx-Vqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="400" y="964"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5gd-KN-0n8">
+            <objects>
+                <viewController id="kga-9F-ANA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qOk-G4-CbM"/>
+                        <viewControllerLayoutGuide type="bottom" id="V1h-ga-BjL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VWu-Hr-Vl3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DxR-rd-pKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
