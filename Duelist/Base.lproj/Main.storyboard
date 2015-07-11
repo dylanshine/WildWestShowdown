@@ -119,7 +119,7 @@
         <!--Join Game View Controller-->
         <scene sceneID="jDV-lV-VrF">
             <objects>
-                <viewController title="Join Game View Controller" id="yGk-Er-oYB" sceneMemberID="viewController">
+                <viewController title="Join Game View Controller" id="yGk-Er-oYB" customClass="JoinGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jh5-qe-t4z"/>
                         <viewControllerLayoutGuide type="bottom" id="VZa-Ba-psc"/>
@@ -128,6 +128,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join A Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvp-88-he8">
+                                <rect key="frame" x="47" y="83" width="226" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jyi-TR-hy4">
                                 <rect key="frame" x="0.0" y="157" width="320" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,12 +147,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join A Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvp-88-he8">
-                                <rect key="frame" x="47" y="83" width="226" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -160,6 +160,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="88u-rT-Kx9"/>
                     <connections>
+                        <outlet property="tableView" destination="jyi-TR-hy4" id="799-Vy-ae7"/>
                         <segue destination="Vlh-ND-4Ja" kind="modal" identifier="joinGameSegue" id="fDE-SK-ZzG"/>
                     </connections>
                 </viewController>
@@ -264,6 +265,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WF5-cD-Knx"/>
+        <segue reference="fDE-SK-ZzG"/>
     </inferredMetricsTieBreakers>
 </document>
