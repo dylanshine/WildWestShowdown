@@ -19,6 +19,8 @@
 		FC2B6F611B4DF6C20053D83D /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */; };
 		FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F631B4E02960053D83D /* MainNavigationController.m */; };
 		FCBC47B11B4E2A4C00B26900 /* MultipeerConnectivityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC47B01B4E2A4C00B26900 /* MultipeerConnectivityHelper.m */; };
+		FCF9963E1B518B8400910B1A /* CreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF9963D1B518B8400910B1A /* CreateGameViewController.m */; };
+		FCF996411B518D8600910B1A /* DuelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996401B518D8600910B1A /* DuelViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		FC2B6F631B4E02960053D83D /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		FCBC47AF1B4E2A4C00B26900 /* MultipeerConnectivityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerConnectivityHelper.h; sourceTree = "<group>"; };
 		FCBC47B01B4E2A4C00B26900 /* MultipeerConnectivityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerConnectivityHelper.m; sourceTree = "<group>"; };
+		FCF9963C1B518B8400910B1A /* CreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGameViewController.h; sourceTree = "<group>"; };
+		FCF9963D1B518B8400910B1A /* CreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGameViewController.m; sourceTree = "<group>"; };
+		FCF9963F1B518D8600910B1A /* DuelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuelViewController.h; sourceTree = "<group>"; };
+		FCF996401B518D8600910B1A /* DuelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuelViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,10 @@
 				FC2B6F3E1B4DEEBD0053D83D /* MenuViewController.m */,
 				FC2B6F621B4E02960053D83D /* MainNavigationController.h */,
 				FC2B6F631B4E02960053D83D /* MainNavigationController.m */,
+				FCF9963C1B518B8400910B1A /* CreateGameViewController.h */,
+				FCF9963D1B518B8400910B1A /* CreateGameViewController.m */,
+				FCF9963F1B518D8600910B1A /* DuelViewController.h */,
+				FCF996401B518D8600910B1A /* DuelViewController.m */,
 				FC2B6F401B4DEEBD0053D83D /* Main.storyboard */,
 				FC2B6F431B4DEEBD0053D83D /* Images.xcassets */,
 				FC2B6F451B4DEEBD0053D83D /* LaunchScreen.xib */,
@@ -320,11 +330,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF996411B518D8600910B1A /* DuelViewController.m in Sources */,
 				FC2B6F611B4DF6C20053D83D /* GameKitHelper.m in Sources */,
 				FC2B6F3F1B4DEEBD0053D83D /* MenuViewController.m in Sources */,
 				FCBC47B11B4E2A4C00B26900 /* MultipeerConnectivityHelper.m in Sources */,
 				FC2B6F3C1B4DEEBD0053D83D /* AppDelegate.m in Sources */,
 				FC2B6F391B4DEEBD0053D83D /* main.m in Sources */,
+				FCF9963E1B518B8400910B1A /* CreateGameViewController.m in Sources */,
 				FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

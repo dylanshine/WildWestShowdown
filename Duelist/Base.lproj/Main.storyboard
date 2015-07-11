@@ -170,7 +170,7 @@
         <!--Create Game View Controller-->
         <scene sceneID="Mhy-mW-8IF">
             <objects>
-                <viewController title="Create Game View Controller" id="kue-Gy-Va7" sceneMemberID="viewController">
+                <viewController title="Create Game View Controller" id="kue-Gy-Va7" customClass="CreateGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NrF-S8-o48"/>
                         <viewControllerLayoutGuide type="bottom" id="PMP-zs-ecR"/>
@@ -188,6 +188,9 @@
                                 <state key="normal" title="Create Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="createButtonPressed:" destination="kue-Gy-Va7" eventType="touchUpInside" id="YxU-S1-IDh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -201,6 +204,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="UTC-bB-tIe"/>
                     <connections>
+                        <outlet property="createButton" destination="dLv-vq-B8F" id="K3u-9c-tc3"/>
+                        <outlet property="pickerView" destination="p8p-bG-cPn" id="j3a-Ja-GyY"/>
                         <segue destination="Vlh-ND-4Ja" kind="modal" identifier="createGameSegue" id="WF5-cD-Knx"/>
                     </connections>
                 </viewController>
@@ -208,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="1787" y="683"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Duel View Controller-->
         <scene sceneID="pqz-kY-fs9">
             <objects>
-                <viewController title="Game View Controller" id="Vlh-ND-4Ja" sceneMemberID="viewController">
+                <viewController title="Duel View Controller" id="Vlh-ND-4Ja" customClass="DuelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rWv-xS-zqY"/>
                         <viewControllerLayoutGuide type="bottom" id="wGn-nU-tuQ"/>
@@ -259,6 +264,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fDE-SK-ZzG"/>
+        <segue reference="WF5-cD-Knx"/>
     </inferredMetricsTieBreakers>
 </document>
