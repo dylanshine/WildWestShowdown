@@ -8,6 +8,10 @@
 
 #import "MultipeerConnectivityHelper.h"
 
+@interface MultipeerConnectivityHelper ()
+@property (nonatomic) NSMutableArray *connectedPeers;
+@end
+
 @implementation MultipeerConnectivityHelper
 
 + (instancetype)sharedMCHelper {
@@ -24,44 +28,63 @@
     self.peerID = [[MCPeerID alloc] initWithDisplayName:displayName];
 }
 
-- (void)setupSession {
-    self.session = [[MCSession alloc] initWithPeer:self.peerID];
+-(void) setupSession {
+    self.session = [[MCSession alloc] initWithPeer:self.peerID securityIdentity:nil encryptionPreference:MCEncryptionNone];
     self.session.delegate = self;
 }
 
-- (void)setupBrowser {
-    self.browser = [[MCBrowserViewController alloc] initWithServiceType:@"WWS" session:self.session];
+-(void) setupServiceBrowser {
+    self.serviceBrowser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.peerID serviceType:@"WWS"];
 }
 
-- (void)advertiseSelf:(BOOL)advertise {
+-(void) advertiseSelf:(BOOL)advertise WithDiscoveryInfo:(NSDictionary *)discoveryInfo {
     if (advertise) {
-        self.advertiser = [[MCAdvertiserAssistant alloc] initWithServiceType:@"WWS" discoveryInfo:nil session:self.session];
-        [self.advertiser start];
-        
+        self.advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.peerID discoveryInfo:discoveryInfo serviceType:@"Demo"];
+        self.advertiser.delegate = self;
+        [self.advertiser startAdvertisingPeer];
     } else {
-        [self.advertiser stop];
+        [self.advertiser stopAdvertisingPeer];
         self.advertiser = nil;
     }
+    
+}
+
+-(void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void (^)(BOOL, MCSession *))invitationHandler {
+    
+    if ([self.connectedPeers containsObject:peerID]) {
+        invitationHandler(NO, nil);
+        return;
+    }
+    
+    [self.connectedPeers addObject:peerID];
+    invitationHandler(YES, self.session);
+    [self.advertiser stopAdvertisingPeer];
+    
 }
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
-    NSDictionary *userInfo = @{ @"peerID": peerID,
-                                @"state" : @(state) };
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"WWS_DidChangeStateNotification"
-                                                            object:nil
-                                                          userInfo:userInfo];
-    });
+    
+    if (state == MCSessionStateConnected) {
+        NSDictionary *userInfo = @{ @"peerID": peerID,
+                                    @"state" : @(state) };
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"PeerConnected"
+                                                                object:nil
+                                                              userInfo:userInfo];
+        });
+        
+    }
+    
 }
 
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
-    
     NSDictionary *userInfo = @{ @"data": data,
                                 @"peerID": peerID };
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"WWS_DidReceiveDataNotification"
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MessageReceived"
                                                             object:nil
                                                           userInfo:userInfo];
     });
@@ -78,6 +101,14 @@
 
 - (void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID {
     
+}
+
+- (NSMutableArray *)connectedPeers {
+    if (!_connectedPeers) {
+        _connectedPeers = [[NSMutableArray alloc] init];
+    }
+    
+    return _connectedPeers;
 }
 
 
