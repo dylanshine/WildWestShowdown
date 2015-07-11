@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A2311718D330DCDA40DC36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 793936D5D4651350C6CD7F32 /* libPods.a */; };
 		FC2B6F391B4DEEBD0053D83D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F381B4DEEBD0053D83D /* main.m */; };
 		FC2B6F3C1B4DEEBD0053D83D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F3B1B4DEEBD0053D83D /* AppDelegate.m */; };
 		FC2B6F3F1B4DEEBD0053D83D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F3E1B4DEEBD0053D83D /* MenuViewController.m */; };
@@ -31,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		793936D5D4651350C6CD7F32 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBFB2747077DD5FC74E743C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E30B7A6AEBA72A274FF04768 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FC2B6F331B4DEEBD0053D83D /* Wild West Showdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wild West Showdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2B6F371B4DEEBD0053D83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2B6F381B4DEEBD0053D83D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC2B6F5D1B4DF3DA0053D83D /* GameKit.framework in Frameworks */,
+				14A2311718D330DCDA40DC36 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +77,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F1B17747D6F2DA325D0B688 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				793936D5D4651350C6CD7F32 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F100636C57AC75B7E257830F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E30B7A6AEBA72A274FF04768 /* Pods.debug.xcconfig */,
+				BBFB2747077DD5FC74E743C2 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FC2B6F2A1B4DEEBD0053D83D = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +101,8 @@
 				FC2B6F351B4DEEBD0053D83D /* Wild West Showdown */,
 				FC2B6F4F1B4DEEBD0053D83D /* DuelistTests */,
 				FC2B6F341B4DEEBD0053D83D /* Products */,
+				F100636C57AC75B7E257830F /* Pods */,
+				5F1B17747D6F2DA325D0B688 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC2B6F561B4DEEBD0053D83D /* Build configuration list for PBXNativeTarget "Wild West Showdown" */;
 			buildPhases = (
+				8382CD992D62608656F8EB58 /* Check Pods Manifest.lock */,
 				FC2B6F2F1B4DEEBD0053D83D /* Sources */,
 				FC2B6F301B4DEEBD0053D83D /* Frameworks */,
 				FC2B6F311B4DEEBD0053D83D /* Resources */,
+				F53510759A7F11542B3BFAAC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,6 +281,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8382CD992D62608656F8EB58 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F53510759A7F11542B3BFAAC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FC2B6F2F1B4DEEBD0053D83D /* Sources */ = {
@@ -390,6 +449,7 @@
 		};
 		FC2B6F571B4DEEBD0053D83D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E30B7A6AEBA72A274FF04768 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -404,6 +464,7 @@
 		};
 		FC2B6F581B4DEEBD0053D83D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBFB2747077DD5FC74E743C2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

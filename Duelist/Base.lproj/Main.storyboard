@@ -160,7 +160,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="88u-rT-Kx9"/>
                     <connections>
-                        <segue destination="Vlh-ND-4Ja" kind="modal" id="fDE-SK-ZzG"/>
+                        <segue destination="Vlh-ND-4Ja" kind="modal" identifier="joinGameSegue" id="fDE-SK-ZzG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8F-v2-GlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,7 +201,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="UTC-bB-tIe"/>
                     <connections>
-                        <segue destination="Vlh-ND-4Ja" kind="modal" id="WF5-cD-Knx"/>
+                        <segue destination="Vlh-ND-4Ja" kind="modal" identifier="createGameSegue" id="WF5-cD-Knx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abL-IT-CJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
