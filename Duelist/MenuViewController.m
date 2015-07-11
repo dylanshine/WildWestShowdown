@@ -7,6 +7,7 @@
 //
 
 #import "MenuViewController.h"
+#import "MultipeerConnectivityHelper.h"
 
 @interface MenuViewController ()
 
@@ -17,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[MultipeerConnectivityHelper sharedMCHelper] advertiseSelf:NO WithDiscoveryInfo:nil];
 }
 
 - (void)didReceiveMemoryWarning {
