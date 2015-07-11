@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="912" y="964"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Lobby View Controller-->
         <scene sceneID="k9a-kx-rFw">
             <objects>
-                <viewController id="hrZ-wm-FkJ" sceneMemberID="viewController">
+                <viewController id="hrZ-wm-FkJ" customClass="GameLobbyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nma-Oc-09z"/>
                         <viewControllerLayoutGuide type="bottom" id="bbj-F9-Zxc"/>

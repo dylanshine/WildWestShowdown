@@ -23,6 +23,7 @@
 		FCF996411B518D8600910B1A /* DuelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996401B518D8600910B1A /* DuelViewController.m */; };
 		FCF996441B518E1100910B1A /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996431B518E1100910B1A /* JoinGameViewController.m */; };
 		FCF996481B518E7100910B1A /* FoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996471B518E7100910B1A /* FoundPlayer.m */; };
+		FCF9964B1B51901000910B1A /* GameLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF9964A1B51901000910B1A /* GameLobbyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		FCF996431B518E1100910B1A /* JoinGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGameViewController.m; sourceTree = "<group>"; };
 		FCF996461B518E7100910B1A /* FoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundPlayer.h; sourceTree = "<group>"; };
 		FCF996471B518E7100910B1A /* FoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundPlayer.m; sourceTree = "<group>"; };
+		FCF996491B51901000910B1A /* GameLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLobbyViewController.h; sourceTree = "<group>"; };
+		FCF9964A1B51901000910B1A /* GameLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLobbyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				FC2B6F3E1B4DEEBD0053D83D /* MenuViewController.m */,
 				FC2B6F621B4E02960053D83D /* MainNavigationController.h */,
 				FC2B6F631B4E02960053D83D /* MainNavigationController.m */,
+				FCF996491B51901000910B1A /* GameLobbyViewController.h */,
+				FCF9964A1B51901000910B1A /* GameLobbyViewController.m */,
 				FCF9963C1B518B8400910B1A /* CreateGameViewController.h */,
 				FCF9963D1B518B8400910B1A /* CreateGameViewController.m */,
 				FCF996421B518E1100910B1A /* JoinGameViewController.h */,
@@ -352,6 +357,7 @@
 				FC2B6F611B4DF6C20053D83D /* GameKitHelper.m in Sources */,
 				FC2B6F3F1B4DEEBD0053D83D /* MenuViewController.m in Sources */,
 				FCBC47B11B4E2A4C00B26900 /* MultipeerConnectivityHelper.m in Sources */,
+				FCF9964B1B51901000910B1A /* GameLobbyViewController.m in Sources */,
 				FC2B6F3C1B4DEEBD0053D83D /* AppDelegate.m in Sources */,
 				FCF996481B518E7100910B1A /* FoundPlayer.m in Sources */,
 				FC2B6F391B4DEEBD0053D83D /* main.m in Sources */,

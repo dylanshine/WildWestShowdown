@@ -1,23 +1,24 @@
 //
-//  ViewController.m
-//  Duelist
+//  GameLobbyViewController.m
+//  Wild West Showdown
 //
-//  Created by Dylan Shine on 7/8/15.
+//  Created by Dylan Shine on 7/11/15.
 //  Copyright (c) 2015 Dylan Shine. All rights reserved.
 //
 
-#import "MenuViewController.h"
+#import "GameLobbyViewController.h"
 #import "MultipeerConnectivityHelper.h"
 
-@interface MenuViewController ()
-
-@end
-
-@implementation MenuViewController
+@implementation GameLobbyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[MultipeerConnectivityHelper sharedMCHelper] advertiseSelf:NO WithDiscoveryInfo:nil];
 }
 
 - (void)didReceiveMemoryWarning {
