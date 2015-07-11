@@ -24,6 +24,11 @@
 		FCF996441B518E1100910B1A /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996431B518E1100910B1A /* JoinGameViewController.m */; };
 		FCF996481B518E7100910B1A /* FoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996471B518E7100910B1A /* FoundPlayer.m */; };
 		FCF9964B1B51901000910B1A /* GameLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF9964A1B51901000910B1A /* GameLobbyViewController.m */; };
+		FCF9964E1B51908800910B1A /* GameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF9964D1B51908800910B1A /* GameLogic.m */; };
+		FCF996511B5190DB00910B1A /* fire1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCF996501B5190DB00910B1A /* fire1.wav */; };
+		FCF996551B5190E600910B1A /* dryfire1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCF996521B5190E600910B1A /* dryfire1.wav */; };
+		FCF996561B5190E600910B1A /* pull1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCF996531B5190E600910B1A /* pull1.wav */; };
+		FCF996571B5190E600910B1A /* reload.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCF996541B5190E600910B1A /* reload.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,12 @@
 		FCF996471B518E7100910B1A /* FoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundPlayer.m; sourceTree = "<group>"; };
 		FCF996491B51901000910B1A /* GameLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLobbyViewController.h; sourceTree = "<group>"; };
 		FCF9964A1B51901000910B1A /* GameLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLobbyViewController.m; sourceTree = "<group>"; };
+		FCF9964C1B51908800910B1A /* GameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogic.h; sourceTree = "<group>"; };
+		FCF9964D1B51908800910B1A /* GameLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogic.m; sourceTree = "<group>"; };
+		FCF996501B5190DB00910B1A /* fire1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fire1.wav; sourceTree = "<group>"; };
+		FCF996521B5190E600910B1A /* dryfire1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dryfire1.wav; sourceTree = "<group>"; };
+		FCF996531B5190E600910B1A /* pull1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pull1.wav; sourceTree = "<group>"; };
+		FCF996541B5190E600910B1A /* reload.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = reload.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +144,7 @@
 		FC2B6F351B4DEEBD0053D83D /* Wild West Showdown */ = {
 			isa = PBXGroup;
 			children = (
+				FCF9964F1B5190C400910B1A /* Sounds */,
 				FCF996451B518E5A00910B1A /* Models */,
 				FCBC47AE1B4E2A2D00B26900 /* Multipeer Connectivity */,
 				FC2B6F5E1B4DF68D0053D83D /* GameKit */,
@@ -208,8 +220,21 @@
 			children = (
 				FCF996461B518E7100910B1A /* FoundPlayer.h */,
 				FCF996471B518E7100910B1A /* FoundPlayer.m */,
+				FCF9964C1B51908800910B1A /* GameLogic.h */,
+				FCF9964D1B51908800910B1A /* GameLogic.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FCF9964F1B5190C400910B1A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FCF996501B5190DB00910B1A /* fire1.wav */,
+				FCF996521B5190E600910B1A /* dryfire1.wav */,
+				FCF996531B5190E600910B1A /* pull1.wav */,
+				FCF996541B5190E600910B1A /* reload.mp3 */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,8 +325,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF996511B5190DB00910B1A /* fire1.wav in Resources */,
+				FCF996561B5190E600910B1A /* pull1.wav in Resources */,
 				FC2B6F421B4DEEBD0053D83D /* Main.storyboard in Resources */,
+				FCF996551B5190E600910B1A /* dryfire1.wav in Resources */,
 				FC2B6F471B4DEEBD0053D83D /* LaunchScreen.xib in Resources */,
+				FCF996571B5190E600910B1A /* reload.mp3 in Resources */,
 				FC2B6F441B4DEEBD0053D83D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +392,7 @@
 				FC2B6F391B4DEEBD0053D83D /* main.m in Sources */,
 				FCF996441B518E1100910B1A /* JoinGameViewController.m in Sources */,
 				FCF9963E1B518B8400910B1A /* CreateGameViewController.m in Sources */,
+				FCF9964E1B51908800910B1A /* GameLogic.m in Sources */,
 				FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
