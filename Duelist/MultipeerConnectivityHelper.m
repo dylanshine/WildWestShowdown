@@ -39,7 +39,7 @@
 
 -(void) advertiseSelf:(BOOL)advertise WithDiscoveryInfo:(NSDictionary *)discoveryInfo {
     if (advertise) {
-        self.advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.peerID discoveryInfo:discoveryInfo serviceType:@"Demo"];
+        self.advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.peerID discoveryInfo:discoveryInfo serviceType:@"WWS"];
         self.advertiser.delegate = self;
         [self.advertiser startAdvertisingPeer];
     } else {
