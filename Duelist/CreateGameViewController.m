@@ -17,6 +17,7 @@
 @property (nonatomic) MultipeerConnectivityHelper *mpcHelper;
 @property (nonatomic) NSArray *gameTypes;
 @property (nonatomic) NSArray *numberOfShots;
+@property (nonatomic) NSString *randomStart;
 @end
 
 @implementation CreateGameViewController
@@ -66,8 +67,10 @@
 - (IBAction)createButtonPressed:(id)sender {
     NSInteger row1 = [self.pickerView selectedRowInComponent:0];
     NSInteger row2 = [self.pickerView selectedRowInComponent:1];
+    self.randomStart = [self randomStartTime];
     NSDictionary *discoveryInfo = @{@"gameType":self.gameTypes[row1],
-                                    @"shots":self.numberOfShots[row2]};
+                                    @"shots":self.numberOfShots[row2],
+                                    @"startTime": self.randomStart};
     [self.mpcHelper setupSession];
     [self.mpcHelper advertiseSelf:YES WithDiscoveryInfo:discoveryInfo];
     [SVProgressHUD showWithStatus:@"Waiting For Opponent ... \n Tap To Cancel"maskType:SVProgressHUDMaskTypeBlack];
@@ -78,7 +81,7 @@
 
 - (void)cancelCreateGame:(NSNotification *)notification {
     [self cancelMPC];
-    [SVProgressHUD showErrorWithStatus:@"Cancelled Search"];
+    [SVProgressHUD dismiss];
 }
 
 
@@ -87,6 +90,8 @@
         DuelViewController *destination = segue.destinationViewController;
         destination.gameType = self.gameTypes[[self.pickerView selectedRowInComponent:0]];
         destination.numberOfShots = self.numberOfShots[[self.pickerView selectedRowInComponent:1]];
+        destination.playerNumber = @"1";
+        destination.randomStart = [self.randomStart integerValue];
     }
 }
 
@@ -103,29 +108,13 @@
 }
 
 
+#pragma mark - Random Start Method
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-(NSString *) randomStartTime {
+    NSUInteger lowerBound = 2;
+    NSUInteger upperBound = 6;
+    NSUInteger randomValue = lowerBound + arc4random() % (upperBound - lowerBound);
+    return [NSString stringWithFormat:@"%lu",(unsigned long)randomValue];
+}
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "MainNavigationController.h"
+#import "MultipeerConnectivityHelper.h"
 #import "GameKitHelper.h"
 
 @interface MainNavigationController ()
@@ -17,7 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAuthenticationViewController) name:PresentAuthenticationViewController object:nil];
+    [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
+    
+    if ([GameKitHelper sharedGameKitHelper].isEnabled) {
+        [[MultipeerConnectivityHelper sharedMCHelper] setupPeerWithDisplayName:[GKLocalPlayer localPlayer].displayName];
+    } else {
+        [[MultipeerConnectivityHelper sharedMCHelper] setupPeerWithDisplayName:[UIDevice currentDevice].name];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,8 +36,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAuthenticationViewController) name:PresentAuthenticationViewController object:nil];
-    [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
+   
 }
 
 - (void)showAuthenticationViewController {

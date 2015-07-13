@@ -49,10 +49,8 @@ NSString *const PresentAuthenticationViewController = @"present_authentication_v
             [self setAuthenticationViewController:viewController];
         } else if ([GKLocalPlayer localPlayer].isAuthenticated) {
             self.isEnabled = YES;
-            [[MultipeerConnectivityHelper sharedMCHelper] setupPeerWithDisplayName:[GKLocalPlayer localPlayer].displayName];
         } else {
             self.isEnabled = NO;
-            [[MultipeerConnectivityHelper sharedMCHelper] setupPeerWithDisplayName:[UIDevice currentDevice].name];
         }
     };
 }

@@ -52,6 +52,9 @@
     [SVProgressHUD dismiss];
 }
 
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 
 - (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info {
@@ -100,7 +103,7 @@
 
 
 - (void)cancelCreateGame:(NSNotification *)notification {
-    [SVProgressHUD showErrorWithStatus:@"Cancelled"];
+    [SVProgressHUD dismiss];
 }
 
 
@@ -121,6 +124,8 @@
         FoundPlayer *player = self.foundPlayers[indexPath.row];
         destination.gameType = player.discoveryInfo[@"gameType"];
         destination.numberOfShots = player.discoveryInfo[@"shots"];
+        destination.randomStart = [player.discoveryInfo[@"startTime"] integerValue];
+        destination.playerNumber = @"2";
     }
 }
 
