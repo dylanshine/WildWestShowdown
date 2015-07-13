@@ -35,13 +35,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-   
 }
 
 - (void)showAuthenticationViewController {
     GameKitHelper *gameKitHelper = [GameKitHelper sharedGameKitHelper];
-    
     [self.topViewController presentViewController:gameKitHelper.authenticationViewController animated:YES completion:nil];
     
 }

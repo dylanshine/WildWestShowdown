@@ -17,16 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Cw-YsM">
-                                <rect key="frame" x="238" y="221" width="125" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="How To Play">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ePu-st-aEn" kind="presentation" identifier="howToPlay" id="1Rk-tc-pOM"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YL8-FO-zQX">
                                 <rect key="frame" x="279" y="280" width="43" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -38,7 +28,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wild West Showdown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYr-hc-1qe">
-                                <rect key="frame" x="167" y="90" width="268" height="34"/>
+                                <rect key="frame" x="167" y="90" width="267.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -49,6 +39,19 @@
                                 <state key="normal" title="Settings">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="d3x-Nt-scI" kind="show" id="Nog-fN-KPg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Cw-YsM">
+                                <rect key="frame" x="238" y="232" width="125" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="How To Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ePu-st-aEn" kind="presentation" identifier="howToPlay" id="1Rk-tc-pOM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -58,7 +61,7 @@
                             <constraint firstAttribute="centerX" secondItem="QHZ-qX-zsE" secondAttribute="centerX" id="1pW-jL-KU8"/>
                             <constraint firstItem="YL8-FO-zQX" firstAttribute="top" secondItem="7mx-Cw-YsM" secondAttribute="bottom" constant="8" id="2VW-t2-UhM"/>
                             <constraint firstItem="7mx-Cw-YsM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="222" id="Cdo-dm-8z8"/>
-                            <constraint firstItem="YL8-FO-zQX" firstAttribute="top" secondItem="7mx-Cw-YsM" secondAttribute="bottom" constant="19" id="IeC-Bn-XxH"/>
+                            <constraint firstItem="YL8-FO-zQX" firstAttribute="top" secondItem="7mx-Cw-YsM" secondAttribute="bottom" constant="8" id="IeC-Bn-XxH"/>
                             <constraint firstAttribute="centerX" secondItem="YL8-FO-zQX" secondAttribute="centerX" id="Tm4-ML-xzG"/>
                             <constraint firstItem="7mx-Cw-YsM" firstAttribute="top" secondItem="DYr-hc-1qe" secondAttribute="bottom" constant="97.5" id="ZqC-K2-8dn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7mx-Cw-YsM" secondAttribute="trailing" constant="221" id="aoY-Eq-Q4j"/>
@@ -138,6 +141,47 @@
             </objects>
             <point key="canvasLocation" x="2623.125" y="1018.3098591549295"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="LE4-wI-H3x">
+            <objects>
+                <viewController id="d3x-Nt-scI" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nDO-8g-9hg"/>
+                        <viewControllerLayoutGuide type="bottom" id="EYr-pX-F9y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k77-3I-SNO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-wP-8yk">
+                                <rect key="frame" x="276" y="168" width="51" height="31"/>
+                                <connections>
+                                    <action selector="musicSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="GI0-A6-DZX"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwX-ei-QSS">
+                                <rect key="frame" x="261" y="124" width="79" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="3Zp-wP-8yk" secondAttribute="centerX" id="5Ns-Bm-ZGD"/>
+                            <constraint firstItem="3Zp-wP-8yk" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="8d1-EJ-qE3"/>
+                            <constraint firstAttribute="centerX" secondItem="JwX-ei-QSS" secondAttribute="centerX" id="O33-Kz-u48"/>
+                            <constraint firstItem="JwX-ei-QSS" firstAttribute="top" secondItem="nDO-8g-9hg" secondAttribute="bottom" constant="60" id="qVM-oX-BS1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="soundSwitch" destination="3Zp-wP-8yk" id="fKJ-yn-5uh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3aJ-SY-dbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2623" y="1789"/>
+        </scene>
         <!--Join Game View Controller-->
         <scene sceneID="jDV-lV-VrF">
             <objects>
@@ -151,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join A Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvp-88-he8">
-                                <rect key="frame" x="187" y="83" width="226" height="48"/>
+                                <rect key="frame" x="187" y="83" width="225.5" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -216,9 +260,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8p-bG-cPn">
-                                <rect key="frame" x="0.0" y="118" width="600" height="162"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLv-vq-B8F">
                                 <rect key="frame" x="184" y="318" width="232" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -229,6 +270,9 @@
                                     <action selector="createButtonPressed:" destination="kue-Gy-Va7" eventType="touchUpInside" id="YxU-S1-IDh"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8p-bG-cPn">
+                                <rect key="frame" x="0.0" y="118" width="600" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -344,13 +388,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Time: 1:25 Seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dq5-nL-MTC">
-                                <rect key="frame" x="160" y="80" width="279" height="29"/>
+                                <rect key="frame" x="160" y="80" width="278.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameOfPlayer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="She-L7-Mmo">
-                                <rect key="frame" x="223" y="117" width="153" height="29"/>
+                                <rect key="frame" x="223" y="117" width="152.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

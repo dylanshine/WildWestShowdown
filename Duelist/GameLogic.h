@@ -18,6 +18,7 @@
 -(void)pullHammer;
 -(void)reload;
 -(NSString *)accuracyString;
-- (void)startDuelAtRandomTimeWithCompletion:(void (^)())completion;
+-(void)startDuelAtRandomTimeWithCompletion:(void (^)())completion;
 -(BOOL)opponentIsDead;
+-(float)gameDurationTime;
 @end

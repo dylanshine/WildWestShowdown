@@ -7,10 +7,9 @@
 //
 
 #import "BackgroundMusicPlayer.h"
-#import <AVFoundation/AVFoundation.h>
 
-@interface BackgroundMusicPlayer() <AVAudioPlayerDelegate>
-@property (nonatomic) AVAudioPlayer *player;
+@interface BackgroundMusicPlayer()
+
 @end
 
 @implementation BackgroundMusicPlayer
@@ -26,18 +25,36 @@
 }
 
 -(void)setupPlayer {
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"TumbleweedTown" ofType:@"mp3"];
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"tumbleTownShorten" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
     self.player.numberOfLoops = -1;
 }
 
 -(void)play {
-    [self.player play];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.player play];
+    });
 }
 
 -(void)stop {
-    [self.player stop];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self doVolumeFade];
+    });
+}
+
+-(void)doVolumeFade
+{
+    if (self.player.volume > 0.1) {
+        self.player.volume = self.player.volume - 0.1;
+        [self performSelector:@selector(doVolumeFade) withObject:nil afterDelay:0.2];
+    } else {
+        // Stop and get the sound ready for playing again
+        [self.player stop];
+        self.player.currentTime = 0;
+        [self.player prepareToPlay];
+        self.player.volume = 1.0;
+    }
 }
 
 @end

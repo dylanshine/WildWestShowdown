@@ -15,6 +15,7 @@
 @property (nonatomic) BOOL isCocked;
 @property (nonatomic) NSUInteger bullets;
 @property (nonatomic) NSUInteger startTime;
+@property (nonatomic) NSDate *gameBegin;
 @end
 
 @implementation GameLogic
@@ -65,8 +66,12 @@
 -(void)reload {
     if (self.bullets == 0) {
         [self playSound:[[NSBundle mainBundle] pathForResource:@"reload" ofType:@"mp3"]];
-        self.bullets = 6;
+        [self performSelector:@selector(bulletsToSix) withObject:nil afterDelay:3.7];
     }
+}
+
+-(void)bulletsToSix {
+    self.bullets = 6;
 }
 
 -(BOOL)opponentIsDead {
@@ -97,7 +102,7 @@
     
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     [self playSound:[[NSBundle mainBundle] pathForResource:@"draw" ofType:@"wav"]];
-
+    self.gameBegin = [NSDate date];
     completion();
 }
 
@@ -136,6 +141,10 @@
         NSString *accuracyString = [NSString stringWithFormat:@"Accuracy: %.02f%%", (self.shotsLanded / self.shotsTaken) * 100.0];
         return accuracyString;
     }
+}
+
+-(float)gameDurationTime {
+    return [self.gameBegin timeIntervalSinceNow] * -1.0;
 }
 
 @end

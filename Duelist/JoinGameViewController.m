@@ -84,7 +84,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playerCell" forIndexPath:indexPath];
     
     FoundPlayer *player = self.foundPlayers[indexPath.row];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = player.peerID.displayName;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", player.discoveryInfo[@"gameType"], player.discoveryInfo[@"shots"]];
     

@@ -25,13 +25,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *readyButton;
 @property (weak, nonatomic) IBOutlet SFCountdownView *countDownView;
 
-
 @property (nonatomic) MultipeerConnectivityHelper *mpcHelper;
 @property (nonatomic) BOOL playerReady;
 @property (nonatomic) BOOL opponentReady;
-
 @property (nonatomic) GameLogic *game;
-@property (nonatomic) NSDate *startTime;
+
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
 @property (nonatomic) dispatch_queue_t videoDataOutputQueue;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
@@ -51,6 +49,7 @@
     self.countDownView.countdownColor = [UIColor blackColor];
     self.countDownView.countdownFrom = 3;
     [self.countDownView updateAppearance];
+    
     [self setupAVCapture];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -96,7 +95,7 @@
 #pragma mark - Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     GameOverViewController *destination = segue.destinationViewController;
-    destination.gameTime = [self.startTime timeIntervalSinceNow] * -1.0;
+    destination.gameTime = [self.game gameDurationTime];
     destination.result = self.game.result;
     destination.accuracy = [self.game accuracyString];
 }
@@ -176,12 +175,11 @@
         UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(pullHammerSwipe)];
         swipeDown.direction = UISwipeGestureRecognizerDirectionDown;
         [self.view addGestureRecognizer:swipeDown];
-        self.startTime = [NSDate date];
     }];
 
 }
 
-#pragma mark - Revolver Action Gestures and Game Logic
+#pragma mark - Game Action Gestures
 - (void)fireTap {
     [self.game fireAtPlayer:self.face];
     if ([self.game opponentIsDead]) {
