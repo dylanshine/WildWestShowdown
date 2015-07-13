@@ -21,6 +21,7 @@
 		FCBC47B11B4E2A4C00B26900 /* MultipeerConnectivityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC47B01B4E2A4C00B26900 /* MultipeerConnectivityHelper.m */; };
 		FCD32F4C1B5449BD0025D421 /* BackgroundMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD32F4B1B5449BD0025D421 /* BackgroundMusicPlayer.m */; };
 		FCD32F4E1B544B030025D421 /* TumbleweedTown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCD32F4D1B544B030025D421 /* TumbleweedTown.mp3 */; };
+		FCD32F511B544F590025D421 /* GameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD32F501B544F590025D421 /* GameLogic.m */; };
 		FCE0BCE61B525EC100EB0BE5 /* heartbeat.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCE0BCE51B525EC100EB0BE5 /* heartbeat.wav */; };
 		FCE0BCE81B52613700EB0BE5 /* draw.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCE0BCE71B52613700EB0BE5 /* draw.wav */; };
 		FCE0BCF01B541A9E00EB0BE5 /* CapturePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0BCEF1B541A9E00EB0BE5 /* CapturePreviewView.m */; };
@@ -72,6 +73,8 @@
 		FCD32F4A1B5449BD0025D421 /* BackgroundMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundMusicPlayer.h; sourceTree = "<group>"; };
 		FCD32F4B1B5449BD0025D421 /* BackgroundMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundMusicPlayer.m; sourceTree = "<group>"; };
 		FCD32F4D1B544B030025D421 /* TumbleweedTown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TumbleweedTown.mp3; sourceTree = "<group>"; };
+		FCD32F4F1B544F590025D421 /* GameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogic.h; sourceTree = "<group>"; };
+		FCD32F501B544F590025D421 /* GameLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogic.m; sourceTree = "<group>"; };
 		FCE0BCE51B525EC100EB0BE5 /* heartbeat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = heartbeat.wav; sourceTree = "<group>"; };
 		FCE0BCE71B52613700EB0BE5 /* draw.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = draw.wav; sourceTree = "<group>"; };
 		FCE0BCEE1B541A9E00EB0BE5 /* CapturePreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturePreviewView.h; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 				FCF996471B518E7100910B1A /* FoundPlayer.m */,
 				FCD32F4A1B5449BD0025D421 /* BackgroundMusicPlayer.h */,
 				FCD32F4B1B5449BD0025D421 /* BackgroundMusicPlayer.m */,
+				FCD32F4F1B544F590025D421 /* GameLogic.h */,
+				FCD32F501B544F590025D421 /* GameLogic.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				FC2B6F3F1B4DEEBD0053D83D /* MenuViewController.m in Sources */,
 				FCBC47B11B4E2A4C00B26900 /* MultipeerConnectivityHelper.m in Sources */,
 				FCF9964B1B51901000910B1A /* GameOverViewController.m in Sources */,
+				FCD32F511B544F590025D421 /* GameLogic.m in Sources */,
 				FC2B6F3C1B4DEEBD0053D83D /* AppDelegate.m in Sources */,
 				FCF996481B518E7100910B1A /* FoundPlayer.m in Sources */,
 				FC2B6F391B4DEEBD0053D83D /* main.m in Sources */,

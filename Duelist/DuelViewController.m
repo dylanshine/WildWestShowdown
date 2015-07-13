@@ -18,6 +18,7 @@
 #import "SFCountdownView.h"
 #import "GameOverViewController.h"
 #import "BackgroundMusicPlayer.h"
+#import "GameLogic.h"
 
 @interface DuelViewController() <AVCaptureVideoDataOutputSampleBufferDelegate, SFCountdownViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -29,14 +30,8 @@
 @property (nonatomic) BOOL playerReady;
 @property (nonatomic) BOOL opponentReady;
 
-@property (nonatomic) BOOL isCocked;
-@property (nonatomic) NSUInteger bullets;
-@property (nonatomic) NSUInteger opponentLives;
+@property (nonatomic) GameLogic *game;
 @property (nonatomic) NSDate *startTime;
-@property (nonatomic) float shotsLanded;
-@property (nonatomic) float shotsTaken;
-@property (nonatomic) NSString *result;
-
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
 @property (nonatomic) dispatch_queue_t videoDataOutputQueue;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
@@ -50,17 +45,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mpcHelper = [MultipeerConnectivityHelper sharedMCHelper];
+    self.game = [[GameLogic alloc] initWithLives:[self.numberOfShots integerValue] StartTime:self.randomStart];
     self.countDownView.delegate = self;
     self.countDownView.backgroundAlpha = 0.2;
     self.countDownView.countdownColor = [UIColor blackColor];
     self.countDownView.countdownFrom = 3;
     [self.countDownView updateAppearance];
-    self.isCocked = NO;
-    self.bullets = 6;
-    self.shotsTaken = 0;
-    self.shotsLanded = 0;
-    self.opponentLives = [self.numberOfShots integerValue];
-    
     [self setupAVCapture];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -71,7 +61,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self viewDidAppear:animated];
+    [super viewDidAppear:animated];
     [[BackgroundMusicPlayer sharedPlayer] stop];
 }
 
@@ -97,35 +87,18 @@
     } else if ([message isEqualToString:@"Ready Cancelled"]) {
         self.opponentReady = NO;
     } else if ([message isEqualToString:@"Killed"]) {
-        self.result = @"Loser";
+        self.game.result = @"Loser";
         [self performSegueWithIdentifier:@"gameOverSegue" sender:self];
         
     }
 }
 
-- (void)playerKilledMessage {
-    self.result = @"Winner";
-    NSData *data = [@"Killed" dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error;
-    [self.mpcHelper.session sendData:data
-                             toPeers:self.mpcHelper.session.connectedPeers
-                            withMode:MCSessionSendDataReliable
-                               error:&error];
-    
-    if (error != nil) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    [self performSegueWithIdentifier:@"gameOverSegue" sender:self];
-}
-
-
-
 #pragma mark - Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     GameOverViewController *destination = segue.destinationViewController;
     destination.gameTime = [self.startTime timeIntervalSinceNow] * -1.0;
-    destination.result = self.result;
-    destination.accuracy = [self accuracyString];
+    destination.result = self.game.result;
+    destination.accuracy = [self.game accuracyString];
 }
 
 - (IBAction)readyButtonPressed:(id)sender {
@@ -190,9 +163,7 @@
 - (void) countdownFinished:(SFCountdownView *)view {
     [self.countDownView removeFromSuperview];
     [self.view setNeedsDisplay];
-    [self startDuelAtRandomTimeWithCompletion:^{
-        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        [self playSound:[[NSBundle mainBundle] pathForResource:@"draw" ofType:@"wav"]];
+    [self.game startDuelAtRandomTimeWithCompletion:^{
         
         self.borderImage = [UIImage imageNamed:@"revolverReticle"];
         NSDictionary *detectorOptions = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
@@ -207,43 +178,19 @@
         [self.view addGestureRecognizer:swipeDown];
         self.startTime = [NSDate date];
     }];
-}
 
-- (void)startDuelAtRandomTimeWithCompletion:(void (^)())completion {
-    for (NSUInteger i = 0; i <= self.randomStart; i++) {
-       [self heartBeat];
-    }
-    completion();
 }
 
 #pragma mark - Revolver Action Gestures and Game Logic
 - (void)fireTap {
-    if (self.isCocked && self.bullets > 0) {
-        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        [self flash];
-        [self playSound:[[NSBundle mainBundle] pathForResource:@"fire1" ofType:@"wav"]];
-        self.bullets--;
-        self.shotsTaken++;
-        if (self.face > 0) {
-            self.shotsLanded++;
-            self.opponentLives--;
-        }
-    } else if (self.isCocked) {
-        [self playSound:[[NSBundle mainBundle] pathForResource:@"dryfire1" ofType:@"wav"]];
+    [self.game fireAtPlayer:self.face];
+    if ([self.game opponentIsDead]) {
+        [self performSegueWithIdentifier:@"gameOverSegue" sender:self];
     }
-    
-    if (self.opponentLives == 0) {
-        [self playerKilledMessage];
-    }
-    
-    self.isCocked = NO;
 }
 
 - (void)pullHammerSwipe {
-    if (!self.isCocked) {
-        [self playSound:[[NSBundle mainBundle] pathForResource:@"pull1" ofType:@"wav"]];
-        self.isCocked = YES;
-    }
+    [self.game pullHammer];
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -251,10 +198,7 @@
 }
 
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if (self.bullets == 0) {
-        [self playSound:[[NSBundle mainBundle] pathForResource:@"reload" ofType:@"mp3"]];
-        self.bullets = 6;
-    }
+    [self.game reload];
 }
 
 #pragma mark - AVCaptureSession
@@ -492,46 +436,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - AudioBox Sound
-
--(void)playSound:(NSString *)soundPath {
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
-    AudioServicesPlaySystemSound(soundID);
-}
-
-- (void)heartBeat {
-    [self playSound:[[NSBundle mainBundle] pathForResource:@"heartbeat" ofType:@"wav"]];
-    sleep(1);
-}
-
-
-
-#pragma mark - Flash
-
-- (void)flash {
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    if ([device hasTorch] && [device hasFlash]){
-        [device lockForConfiguration:nil];
-        [device setTorchMode:AVCaptureTorchModeOn];
-        [device setFlashMode:AVCaptureFlashModeOn];
-        [device setTorchMode:AVCaptureTorchModeOff];
-        [device setFlashMode:AVCaptureFlashModeOff];
-        [device unlockForConfiguration];
-    }
-}
-
-#pragma mark - Calculations
-
--(NSString *)accuracyString {
-    if (self.shotsTaken == 0.0) {
-        return @"0%";
-    } else {
-        NSString *accuracyString = [NSString stringWithFormat:@"Accuracy: %.02f%%", (self.shotsLanded / self.shotsTaken) * 100.0];
-        return accuracyString;
-    }
 }
 
 
