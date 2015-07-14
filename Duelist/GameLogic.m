@@ -8,8 +8,8 @@
 
 #import "GameLogic.h"
 #import <AVFoundation/AVFoundation.h>
-#import <AudioToolbox/AudioToolbox.h>
 #import "MultipeerConnectivityHelper.h"
+#import "SoundPlayer.h"
 
 @interface GameLogic()
 @property (nonatomic) BOOL isCocked;
@@ -39,7 +39,7 @@
     if (self.isCocked && self.bullets > 0) {
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
         [self flash];
-        [self playSound:[[NSBundle mainBundle] pathForResource:@"fire1" ofType:@"wav"]];
+        [[SoundPlayer sharedPlayer] playSoundNamed:@"fire1" Type:@"wav"];
         self.bullets--;
         self.shotsTaken++;
         if (player > 0) {
@@ -47,7 +47,7 @@
             self.opponentLives--;
         }
     } else if (self.isCocked) {
-        [self playSound:[[NSBundle mainBundle] pathForResource:@"dryfire1" ofType:@"wav"]];
+        [[SoundPlayer sharedPlayer] playSoundNamed:@"dryfire1" Type:@"wav"];
     }
     
     if ([self opponentIsDead]) {
@@ -58,14 +58,14 @@
 
 -(void)pullHammer {
     if (!self.isCocked) {
-        [self playSound:[[NSBundle mainBundle] pathForResource:@"pull1" ofType:@"wav"]];
+        [[SoundPlayer sharedPlayer] playSoundNamed:@"pull1" Type:@"wav"];
         self.isCocked = YES;
     }
 }
 
 -(void)reload {
     if (self.bullets == 0) {
-        [self playSound:[[NSBundle mainBundle] pathForResource:@"reload" ofType:@"mp3"]];
+        [[SoundPlayer sharedPlayer] playSoundNamed:@"reload" Type:@"mp3"];
         [self performSelector:@selector(bulletsToSix) withObject:nil afterDelay:3.7];
     }
 }
@@ -101,7 +101,7 @@
     }
     
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-    [self playSound:[[NSBundle mainBundle] pathForResource:@"draw" ofType:@"wav"]];
+    [[SoundPlayer sharedPlayer] playSoundNamed:@"draw" Type:@"wav"];
     self.gameBegin = [NSDate date];
     completion();
 }
@@ -116,7 +116,7 @@
 }
 
 - (void)heartBeat {
-    [self playSound:[[NSBundle mainBundle] pathForResource:@"heartbeat" ofType:@"wav"]];
+    [[SoundPlayer sharedPlayer] playSoundNamed:@"heartbeat" Type:@"wav"];
     sleep(1);
 }
 

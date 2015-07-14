@@ -19,7 +19,7 @@
 		FC2B6F611B4DF6C20053D83D /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */; };
 		FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F631B4E02960053D83D /* MainNavigationController.m */; };
 		FCBC47B11B4E2A4C00B26900 /* MultipeerConnectivityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC47B01B4E2A4C00B26900 /* MultipeerConnectivityHelper.m */; };
-		FCD32F4C1B5449BD0025D421 /* BackgroundMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD32F4B1B5449BD0025D421 /* BackgroundMusicPlayer.m */; };
+		FCD32F4C1B5449BD0025D421 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD32F4B1B5449BD0025D421 /* SoundPlayer.m */; };
 		FCD32F511B544F590025D421 /* GameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD32F501B544F590025D421 /* GameLogic.m */; };
 		FCD32F541B5468CF0025D421 /* tumbleTownShorten.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCD32F531B5468CF0025D421 /* tumbleTownShorten.mp3 */; };
 		FCD32F571B546BD30025D421 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD32F561B546BD30025D421 /* SettingsViewController.m */; };
@@ -72,8 +72,8 @@
 		FC2B6F631B4E02960053D83D /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		FCBC47AF1B4E2A4C00B26900 /* MultipeerConnectivityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerConnectivityHelper.h; sourceTree = "<group>"; };
 		FCBC47B01B4E2A4C00B26900 /* MultipeerConnectivityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerConnectivityHelper.m; sourceTree = "<group>"; };
-		FCD32F4A1B5449BD0025D421 /* BackgroundMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundMusicPlayer.h; sourceTree = "<group>"; };
-		FCD32F4B1B5449BD0025D421 /* BackgroundMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundMusicPlayer.m; sourceTree = "<group>"; };
+		FCD32F4A1B5449BD0025D421 /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
+		FCD32F4B1B5449BD0025D421 /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		FCD32F4F1B544F590025D421 /* GameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogic.h; sourceTree = "<group>"; };
 		FCD32F501B544F590025D421 /* GameLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogic.m; sourceTree = "<group>"; };
 		FCD32F531B5468CF0025D421 /* tumbleTownShorten.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tumbleTownShorten.mp3; sourceTree = "<group>"; };
@@ -241,8 +241,8 @@
 			children = (
 				FCF996461B518E7100910B1A /* FoundPlayer.h */,
 				FCF996471B518E7100910B1A /* FoundPlayer.m */,
-				FCD32F4A1B5449BD0025D421 /* BackgroundMusicPlayer.h */,
-				FCD32F4B1B5449BD0025D421 /* BackgroundMusicPlayer.m */,
+				FCD32F4A1B5449BD0025D421 /* SoundPlayer.h */,
+				FCD32F4B1B5449BD0025D421 /* SoundPlayer.m */,
 				FCD32F4F1B544F590025D421 /* GameLogic.h */,
 				FCD32F501B544F590025D421 /* GameLogic.m */,
 			);
@@ -423,7 +423,7 @@
 				FC2B6F3C1B4DEEBD0053D83D /* AppDelegate.m in Sources */,
 				FCF996481B518E7100910B1A /* FoundPlayer.m in Sources */,
 				FC2B6F391B4DEEBD0053D83D /* main.m in Sources */,
-				FCD32F4C1B5449BD0025D421 /* BackgroundMusicPlayer.m in Sources */,
+				FCD32F4C1B5449BD0025D421 /* SoundPlayer.m in Sources */,
 				FCF996441B518E1100910B1A /* JoinGameViewController.m in Sources */,
 				FCD32F571B546BD30025D421 /* SettingsViewController.m in Sources */,
 				FCF9963E1B518B8400910B1A /* CreateGameViewController.m in Sources */,

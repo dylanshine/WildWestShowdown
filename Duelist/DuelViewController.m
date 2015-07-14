@@ -13,11 +13,10 @@
 #import <AssertMacros.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <AVFoundation/AVFoundation.h>
-#import <AudioToolbox/AudioToolbox.h>
 #import "SVProgressHud.h"
 #import "SFCountdownView.h"
 #import "GameOverViewController.h"
-#import "BackgroundMusicPlayer.h"
+#import "SoundPlayer.h"
 #import "GameLogic.h"
 
 @interface DuelViewController() <AVCaptureVideoDataOutputSampleBufferDelegate, SFCountdownViewDelegate>
@@ -61,7 +60,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[BackgroundMusicPlayer sharedPlayer] stop];
+    [[SoundPlayer sharedPlayer] stop];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

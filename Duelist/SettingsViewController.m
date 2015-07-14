@@ -7,7 +7,7 @@
 //
 
 #import "SettingsViewController.h"
-#import "BackgroundMusicPlayer.h"
+#import "SoundPlayer.h"
 
 @interface SettingsViewController()
 
@@ -20,9 +20,9 @@
 - (IBAction)musicSwitchToggled:(id)sender {
     UISwitch *mySwitch = (UISwitch *)sender;
     if ([mySwitch isOn]) {
-        [BackgroundMusicPlayer sharedPlayer].player.volume = 1.0;
+        [SoundPlayer sharedPlayer].player.volume = 1.0;
     } else {
-        [BackgroundMusicPlayer sharedPlayer].player.volume = 0.0;
+        [SoundPlayer sharedPlayer].player.volume = 0.0;
     }
 }
 

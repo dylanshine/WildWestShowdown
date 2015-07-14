@@ -6,16 +6,16 @@
 //  Copyright (c) 2015 Dylan Shine. All rights reserved.
 //
 
-#import "BackgroundMusicPlayer.h"
+#import "SoundPlayer.h"
 
-@interface BackgroundMusicPlayer()
+@interface SoundPlayer()
 
 @end
 
-@implementation BackgroundMusicPlayer
+@implementation SoundPlayer
 
 +(instancetype)sharedPlayer {
-    static BackgroundMusicPlayer *_sharedPlayer = nil;
+    static SoundPlayer *_sharedPlayer = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedPlayer = [[self alloc] init];
@@ -55,6 +55,13 @@
         [self.player prepareToPlay];
         self.player.volume = 1.0;
     }
+}
+
+-(void)playSoundNamed:(NSString *)name Type:(NSString *)type {
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:name ofType:type];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
+    AudioServicesPlaySystemSound(soundID);
 }
 
 @end

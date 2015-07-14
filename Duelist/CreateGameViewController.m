@@ -10,7 +10,7 @@
 #import "MultipeerConnectivityHelper.h"
 #import "SVProgressHUD.h"
 #import "DuelViewController.h"
-#import <AudioToolbox/AudioToolbox.h>
+#import "SoundPlayer.h"
 
 @interface CreateGameViewController() <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
@@ -66,7 +66,7 @@
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [self playSound:[[NSBundle mainBundle] pathForResource:@"revolverClick" ofType:@"mp3"]];
+    [[SoundPlayer sharedPlayer] playSoundNamed:@"revolverClick" Type:@"mp3"];
 }
 
 - (IBAction)createButtonPressed:(id)sender {
@@ -119,12 +119,6 @@
     NSUInteger upperBound = 6;
     NSUInteger randomValue = lowerBound + arc4random() % (upperBound - lowerBound);
     return [NSString stringWithFormat:@"%lu",(unsigned long)randomValue];
-}
-#pragma mark - Sound
--(void)playSound:(NSString *)soundPath {
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
-    AudioServicesPlaySystemSound(soundID);
 }
 
 @end

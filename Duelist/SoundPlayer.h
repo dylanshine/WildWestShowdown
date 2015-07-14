@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface BackgroundMusicPlayer : NSObject  <AVAudioPlayerDelegate>
+@interface SoundPlayer : NSObject  <AVAudioPlayerDelegate>
 +(instancetype)sharedPlayer;
 @property (nonatomic) AVAudioPlayer *player;
 -(void)setupPlayer;
 -(void)play;
 -(void)stop;
+-(void)playSoundNamed:(NSString *)name Type:(NSString *)type;
 @end

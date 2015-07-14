@@ -8,17 +8,17 @@
 
 #import "MenuViewController.h"
 #import "MultipeerConnectivityHelper.h"
-#import "BackgroundMusicPlayer.h"
+#import "SoundPlayer.h"
 
 @interface MenuViewController ()
-@property (nonatomic) BackgroundMusicPlayer *backgroundMusicPlayer;
+@property (nonatomic) SoundPlayer *backgroundMusicPlayer;
 @end
 
 @implementation MenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.backgroundMusicPlayer = [BackgroundMusicPlayer sharedPlayer];
+    self.backgroundMusicPlayer = [SoundPlayer sharedPlayer];
     [self.backgroundMusicPlayer setupPlayer];
 }
 
