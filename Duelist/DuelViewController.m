@@ -105,7 +105,7 @@
 - (IBAction)readyButtonPressed:(id)sender {
     self.playerReady = YES;
     NSData *data = [@"Ready" dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error;
+    NSError *error = nil;
     [self.mpcHelper.session sendData:data
                              toPeers:self.mpcHelper.session.connectedPeers
                             withMode:MCSessionSendDataReliable
@@ -114,6 +114,7 @@
     if (error != nil) {
         NSLog(@"%@", [error localizedDescription]);
     }
+    
 }
 
 - (void)cancelReadyGame:(NSNotification *)notification {
@@ -141,7 +142,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelReadyGame:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
     
     if (self.opponentReady) {
-        NSDate *timeToStart = [[NSDate date] dateByAddingTimeInterval:4];
+        NSDate *timeToStart = [[NSDate date] dateByAddingTimeInterval:2];
         NSTimeInterval timeToStartFloat = [timeToStart timeIntervalSinceReferenceDate];
         NSString *timeToStartString = [NSString stringWithFormat:@"%f", timeToStartFloat];
         NSLog(@"float: %f / \"%@\"", timeToStartFloat, timeToStartString);
