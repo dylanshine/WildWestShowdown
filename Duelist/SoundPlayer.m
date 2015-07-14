@@ -24,13 +24,6 @@
     return _sharedPlayer;
 }
 
--(instancetype)init {
-    if (self = [super init]) {
-        _enableSFX = YES;
-    }
-    return self;
-}
-
 -(void)setupPlayer {
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"tumbleTownShorten" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
@@ -39,6 +32,13 @@
 }
 
 -(void)play {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:@"music"] boolValue]) {
+        self.player.volume = 1.0;
+    } else {
+        self.player.volume = 0.0;
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.player play];
     });
@@ -65,12 +65,14 @@
 }
 
 -(void)playSoundNamed:(NSString *)name Type:(NSString *)type {
-    if (self.enableSFX) {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:@"sfx"] boolValue]) {
         NSString *soundPath = [[NSBundle mainBundle] pathForResource:name ofType:type];
         SystemSoundID soundID;
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
         AudioServicesPlaySystemSound(soundID);
     }
 }
+
 
 @end

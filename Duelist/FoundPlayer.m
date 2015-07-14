@@ -35,4 +35,8 @@
     return NO;
 };
 
+-(NSUInteger)hash {
+   return [self.peerID hash];
+}
+
 @end

@@ -17,6 +17,7 @@
 @property (nonatomic) MultipeerConnectivityHelper *mpcHelper;
 @property (nonatomic) MCNearbyServiceBrowser *serviceBrowser;
 @property (nonatomic) NSMutableOrderedSet *foundPlayers;
+@property (nonatomic) FoundPlayer *playerToConnect;
 @end
 
 @implementation JoinGameViewController
@@ -38,11 +39,17 @@
                                              selector:@selector(setupDuel)
                                                  name:@"PeerConnected"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleDisconnection:)
+                                                 name:@"PeerDisconnected"
+                                               object:nil];
+
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.mpcHelper setupSession];
+    [self.foundPlayers removeAllObjects];
     [self.serviceBrowser startBrowsingForPeers];
 }
 
@@ -50,6 +57,11 @@
     [super viewDidDisappear:animated];
     [self.serviceBrowser stopBrowsingForPeers];
     [SVProgressHUD dismiss];
+}
+
+- (void)handleDisconnection:(NSNotification *)notification {
+    [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(BOOL)prefersStatusBarHidden {
@@ -70,7 +82,6 @@
 }
 
 - (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID {
-    
     [self.foundPlayers removeObject:[self foundPlayerWithPeerID:peerID]];
     [self.tableView reloadData];
 }
@@ -92,17 +103,19 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    FoundPlayer *player = self.foundPlayers[indexPath.row];
-    [self.mpcHelper.serviceBrowser invitePeer:player.peerID toSession:self.mpcHelper.session withContext:nil timeout:10];
-    
-    [SVProgressHUD showWithStatus:@"Waiting For Opponent ... \n Tap To Cancel"maskType:SVProgressHUDMaskTypeBlack];
+    self.playerToConnect = self.foundPlayers[indexPath.row];
+    [self.mpcHelper setupSession];
+    [self.mpcHelper.serviceBrowser invitePeer:self.playerToConnect.peerID toSession:self.mpcHelper.session withContext:nil timeout:6];
+    [SVProgressHUD showWithStatus:@"Setting Up Duel ..."maskType:SVProgressHUDMaskTypeBlack];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelCreateGame:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
-    
 }
 
 
 - (void)cancelCreateGame:(NSNotification *)notification {
+    if (self.isBeingPresented) {
+        [self.mpcHelper.session disconnect];
+    }
     [SVProgressHUD dismiss];
 }
 
@@ -120,8 +133,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"joinGameSegue"]) {
         DuelViewController *destination = segue.destinationViewController;
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        FoundPlayer *player = self.foundPlayers[indexPath.row];
+        FoundPlayer *player = self.playerToConnect;
         destination.gameType = player.discoveryInfo[@"gameType"];
         destination.numberOfShots = player.discoveryInfo[@"shots"];
         destination.randomStart = [player.discoveryInfo[@"startTime"] integerValue];
@@ -132,6 +144,10 @@
 - (void)setupDuel {
     [SVProgressHUD showSuccessWithStatus:@"Opponent Connected \n Setting Up Duel"];
     [self performSegueWithIdentifier:@"joinGameSegue" sender:self];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

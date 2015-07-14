@@ -18,7 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAuthenticationViewController) name:PresentAuthenticationViewController object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showAuthenticationViewController) name:PresentAuthenticationViewController
+                                               object:nil];
     [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
     
     if ([GameKitHelper sharedGameKitHelper].isEnabled) {

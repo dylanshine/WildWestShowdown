@@ -28,6 +28,7 @@
 @property (nonatomic) BOOL playerReady;
 @property (nonatomic) BOOL opponentReady;
 @property (nonatomic) GameLogic *game;
+@property (nonatomic) double gameClock;
 
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
 @property (nonatomic) dispatch_queue_t videoDataOutputQueue;
@@ -42,18 +43,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mpcHelper = [MultipeerConnectivityHelper sharedMCHelper];
-    self.game = [[GameLogic alloc] initWithLives:[self.numberOfShots integerValue] StartTime:self.randomStart];
     self.countDownView.delegate = self;
     self.countDownView.backgroundAlpha = 0.2;
     self.countDownView.countdownColor = [UIColor blackColor];
     self.countDownView.countdownFrom = 3;
     [self.countDownView updateAppearance];
-    
     [self setupAVCapture];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleReceivedDataWithNotification:)
                                                  name:@"MessageReceived"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleDisconnection:)
+                                                 name:@"PeerDisconnected"
                                                object:nil];
     
 }
@@ -63,18 +66,7 @@
     [[SoundPlayer sharedPlayer] stop];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    [self teardownAVCapture];
-    self.faceDetector = nil;
-    self.borderImage = nil;
-}
-
+#pragma mark - NSNotifications
 - (void)handleReceivedDataWithNotification:(NSNotification *)notification {
     NSDictionary *userInfoDict = [notification userInfo];
     NSData *receivedData = [userInfoDict objectForKey:@"data"];
@@ -87,8 +79,17 @@
     } else if ([message isEqualToString:@"Killed"]) {
         self.game.result = @"Loser";
         [self performSegueWithIdentifier:@"gameOverSegue" sender:self];
-        
+    } else {
+        NSTimeInterval timeToStartFloat = [message doubleValue];
+        NSLog(@"float: %f / \"%@\"", timeToStartFloat, message);
+        NSDate *timeToStart = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:timeToStartFloat];
+        [self startDuelAtDate:timeToStart];
     }
+}
+
+- (void)handleDisconnection:(NSNotification *)notification {
+    [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Segue
@@ -99,9 +100,10 @@
     destination.accuracy = [self.game accuracyString];
 }
 
+#pragma mark - Ready
+
 - (IBAction)readyButtonPressed:(id)sender {
     self.playerReady = YES;
-    
     NSData *data = [@"Ready" dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     [self.mpcHelper.session sendData:data
@@ -111,27 +113,6 @@
     
     if (error != nil) {
         NSLog(@"%@", [error localizedDescription]);
-    }
-    
-}
-
-
-- (void)setPlayerReady:(BOOL)playerReady {
-    _playerReady = playerReady;
-    self.readyButton.hidden = YES;
-    [SVProgressHUD showWithStatus:@"Waiting For Opponent ... \n Tap To Cancel" maskType:SVProgressHUDMaskTypeBlack];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelReadyGame:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
-    
-    if (_playerReady && self.opponentReady) {
-        [self setupDuel];
-    }
-}
-
-- (void)setOpponentReady:(BOOL)opponentReady {
-    _opponentReady = opponentReady;
-    
-    if (_opponentReady && self.playerReady) {
-        [self setupDuel];
     }
 }
 
@@ -151,9 +132,47 @@
     [SVProgressHUD dismiss];
 }
 
+
+- (void)setPlayerReady:(BOOL)playerReady {
+    _playerReady = playerReady;
+    self.readyButton.hidden = YES;
+    [SVProgressHUD showWithStatus:@"Waiting For Opponent ... \n Tap To Cancel" maskType:SVProgressHUDMaskTypeBlack];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelReadyGame:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
+    
+    if (self.opponentReady) {
+        NSDate *timeToStart = [[NSDate date] dateByAddingTimeInterval:4];
+        NSTimeInterval timeToStartFloat = [timeToStart timeIntervalSinceReferenceDate];
+        NSString *timeToStartString = [NSString stringWithFormat:@"%f", timeToStartFloat];
+        NSLog(@"float: %f / \"%@\"", timeToStartFloat, timeToStartString);
+        NSData *data = [timeToStartString dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error = nil;
+        [self.mpcHelper.session sendData:data
+                                 toPeers:self.mpcHelper.session.connectedPeers
+                                withMode:MCSessionSendDataReliable
+                                   error:&error];
+        
+        if (error != nil) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        [self startDuelAtDate:timeToStart];
+        
+    }
+}
+
 #pragma mark - SFCountDown
 
+-(void)startDuelAtDate:(NSDate *)date {
+    [SVProgressHUD dismiss];
+    [SVProgressHUD showWithStatus:@"Starting Duel"maskType:SVProgressHUDMaskTypeBlack];
+    
+    NSLog(@"will start duel at %@", date);
+    NSTimer *startTimer = [[NSTimer alloc] initWithFireDate:date interval:0 target:self selector:@selector(setupDuel) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:startTimer forMode:NSDefaultRunLoopMode];
+}
+
 -(void)setupDuel {
+    NSLog(@"setupDuel timer fired @ %@", [NSDate date]);
     [SVProgressHUD dismiss];
     [self.countDownView start];
 }
@@ -162,7 +181,6 @@
     [self.countDownView removeFromSuperview];
     [self.view setNeedsDisplay];
     [self.game startDuelAtRandomTimeWithCompletion:^{
-        
         self.borderImage = [UIImage imageNamed:@"revolverReticle"];
         NSDictionary *detectorOptions = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
         self.faceDetector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions];
@@ -433,6 +451,19 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Lazy Instantiation
+
+-(GameLogic *)game {
+    if(!_game) {
+        _game = [[GameLogic alloc] initWithLives:[self.numberOfShots integerValue] StartTime:self.randomStart];
+    }
+    return _game;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

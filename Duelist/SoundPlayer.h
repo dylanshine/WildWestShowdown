@@ -12,7 +12,6 @@
 @interface SoundPlayer : NSObject  <AVAudioPlayerDelegate>
 +(instancetype)sharedPlayer;
 @property (nonatomic) AVAudioPlayer *player;
-@property (nonatomic) BOOL enableSFX;
 -(void)setupPlayer;
 -(void)play;
 -(void)stop;

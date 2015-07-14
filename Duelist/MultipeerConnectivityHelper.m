@@ -9,7 +9,6 @@
 #import "MultipeerConnectivityHelper.h"
 
 @interface MultipeerConnectivityHelper ()
-@property (nonatomic) NSMutableArray *connectedPeers;
 @end
 
 @implementation MultipeerConnectivityHelper
@@ -29,8 +28,10 @@
 }
 
 -(void) setupSession {
-    self.session = [[MCSession alloc] initWithPeer:self.peerID securityIdentity:nil encryptionPreference:MCEncryptionNone];
-    self.session.delegate = self;
+    if (!self.session) {
+        self.session = [[MCSession alloc] initWithPeer:self.peerID securityIdentity:nil encryptionPreference:MCEncryptionNone];
+        self.session.delegate = self;
+    }
 }
 
 -(void) setupServiceBrowser {
@@ -51,23 +52,21 @@
 
 -(void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void (^)(BOOL, MCSession *))invitationHandler {
     
-    if ([self.connectedPeers containsObject:peerID]) {
+    if ([self.session.connectedPeers containsObject:peerID]) {
         invitationHandler(NO, nil);
         return;
     }
     
-    [self.connectedPeers addObject:peerID];
     invitationHandler(YES, self.session);
     [self.advertiser stopAdvertisingPeer];
     
 }
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
-    
+    NSDictionary *userInfo = @{ @"peerID": peerID,
+                                @"state" : @(state) };
     
     if (state == MCSessionStateConnected) {
-        NSDictionary *userInfo = @{ @"peerID": peerID,
-                                    @"state" : @(state) };
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:@"PeerConnected"
@@ -75,6 +74,13 @@
                                                               userInfo:userInfo];
         });
         
+    } else if (state == MCSessionStateNotConnected) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"PeerDisconnected"
+                                                                object:nil
+                                                              userInfo:userInfo];
+        });
     }
     
 }
@@ -101,14 +107,6 @@
 
 - (void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID {
     
-}
-
-- (NSMutableArray *)connectedPeers {
-    if (!_connectedPeers) {
-        _connectedPeers = [[NSMutableArray alloc] init];
-    }
-    
-    return _connectedPeers;
 }
 
 

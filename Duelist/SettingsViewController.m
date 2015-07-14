@@ -10,25 +10,46 @@
 #import "SoundPlayer.h"
 
 @interface SettingsViewController()
+@property (weak, nonatomic) IBOutlet UISwitch *musicSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *sfxSwitch;
 
 @end
 
 @implementation SettingsViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.musicSwitch.on = [[defaults objectForKey:@"music"] boolValue];
+    self.sfxSwitch.on = [[defaults objectForKey:@"sfx"] boolValue];
+}
+
 - (IBAction)musicSwitchToggled:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     UISwitch *mySwitch = (UISwitch *)sender;
     if ([mySwitch isOn]) {
+        [defaults setObject:@1 forKey:@"music"];
         [SoundPlayer sharedPlayer].player.volume = 1.0;
     } else {
+        [defaults setObject:@0 forKey:@"music"];
         [SoundPlayer sharedPlayer].player.volume = 0.0;
     }
+    [defaults synchronize];
 }
+
 - (IBAction)sfxSwitchToggled:(id)sender {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     UISwitch *mySwitch = (UISwitch *)sender;
     if ([mySwitch isOn]) {
-        [SoundPlayer sharedPlayer].enableSFX = YES;
+        [defaults setObject:@1 forKey:@"sfx"];
     } else {
-        [SoundPlayer sharedPlayer].enableSFX = NO;
+        [defaults setObject:@0 forKey:@"sfx"];
     }
+    [defaults synchronize];
+}
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

@@ -27,6 +27,7 @@
     [super viewDidLoad];
     
     self.mpcHelper = [MultipeerConnectivityHelper sharedMCHelper];
+    [self.mpcHelper setupSession];
     
     self.gameTypes = @[@"Standoff", @"Paces"];
     self.numberOfShots = @[@"1", @"3", @"6"];
@@ -38,6 +39,17 @@
                                              selector:@selector(setupDuel)
                                                  name:@"PeerConnected"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleDisconnection:)
+                                                 name:@"PeerDisconnected"
+                                               object:nil];
+
+}
+
+- (void)handleDisconnection:(NSNotification *)notification {
+    [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -76,7 +88,6 @@
     NSDictionary *discoveryInfo = @{@"gameType":self.gameTypes[row1],
                                     @"shots":self.numberOfShots[row2],
                                     @"startTime": self.randomStart};
-    [self.mpcHelper setupSession];
     [self.mpcHelper advertiseSelf:YES WithDiscoveryInfo:discoveryInfo];
     [SVProgressHUD showWithStatus:@"Waiting For Opponent ... \n Tap To Cancel"maskType:SVProgressHUDMaskTypeBlack];
     
@@ -85,7 +96,7 @@
 }
 
 - (void)cancelCreateGame:(NSNotification *)notification {
-    [self cancelMPC];
+    [self.mpcHelper advertiseSelf:NO WithDiscoveryInfo:nil];
     [SVProgressHUD dismiss];
 }
 
@@ -106,10 +117,10 @@
 }
 
 
-- (void)cancelMPC {
-    [self.mpcHelper.session disconnect];
-    [self.mpcHelper advertiseSelf:NO WithDiscoveryInfo:nil];
-}
+//- (void)cancelMPC {
+//    [self.mpcHelper advertiseSelf:NO WithDiscoveryInfo:nil];
+//    [self.mpcHelper.session disconnect];
+//}
 
 
 #pragma mark - Random Start Method
@@ -119,6 +130,14 @@
     NSUInteger upperBound = 6;
     NSUInteger randomValue = lowerBound + arc4random() % (upperBound - lowerBound);
     return [NSString stringWithFormat:@"%lu",(unsigned long)randomValue];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

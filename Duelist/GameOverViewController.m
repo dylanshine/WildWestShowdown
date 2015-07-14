@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameOfPlayerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *accuracyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
-
 @property (nonatomic) MultipeerConnectivityHelper *mpcHelper;
 @end
 
@@ -24,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mpcHelper = [MultipeerConnectivityHelper sharedMCHelper];
-    
     self.gameTimeLabel.text = [self formatGameTime];
     self.nameOfPlayerLabel.text = self.mpcHelper.peerID.displayName;
     self.accuracyLabel.text = self.accuracy;
@@ -33,7 +31,6 @@
     UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                       action:@selector(backToMenu)];
     [self.view addGestureRecognizer:singleFingerTap];
-    
 }
 
 
@@ -48,12 +45,11 @@
 
 
 -(void) backToMenu {
-    [self.mpcHelper.session disconnect];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
-                                                         bundle:nil];
-    [self presentViewController:[storyboard instantiateViewControllerWithIdentifier:@"nav"]
-                       animated:YES
-                     completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

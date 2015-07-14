@@ -96,16 +96,36 @@
 }
 
 - (void)startDuelAtRandomTimeWithCompletion:(void (^)())completion {
-    for (NSUInteger i = 0; i <= self.startTime; i++) {
-        [self heartBeat];
+//    for (NSUInteger i = 0; i <= self.startTime; i++) {
+//        [[SoundPlayer sharedPlayer] playSoundNamed:@"heartbeat" Type:@"wav"];
+//    }
+//    
+//    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+//    [[SoundPlayer sharedPlayer] playSoundNamed:@"draw" Type:@"wav"];
+//    self.gameBegin = [NSDate date];
+//    completion();
+    
+    // play startTime heartbeat sounds
+    // when that's over, vibrate & call the completion block
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    queue.maxConcurrentOperationCount = 1;
+    
+    for(NSUInteger i = 0; i < self.startTime; i++) {
+        [queue addOperationWithBlock:^{
+            [[SoundPlayer sharedPlayer] playSoundNamed:@"heartbeat" Type:@"wav"];
+            [NSThread sleepForTimeInterval:1];
+        }];
     }
     
-    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-    [[SoundPlayer sharedPlayer] playSoundNamed:@"draw" Type:@"wav"];
-    self.gameBegin = [NSDate date];
-    completion();
+    [queue addOperationWithBlock:^{
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        [[SoundPlayer sharedPlayer] playSoundNamed:@"draw" Type:@"wav"];
+        self.gameBegin = [NSDate date];
+        
+        dispatch_async(dispatch_get_main_queue(), completion);
+    }];
 }
-
 
 #pragma mark - Sound and Flash
 
@@ -113,11 +133,6 @@
     SystemSoundID soundID;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
     AudioServicesPlaySystemSound(soundID);
-}
-
-- (void)heartBeat {
-    [[SoundPlayer sharedPlayer] playSoundNamed:@"heartbeat" Type:@"wav"];
-    sleep(1);
 }
 
 - (void)flash {

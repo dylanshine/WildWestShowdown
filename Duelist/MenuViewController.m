@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "MultipeerConnectivityHelper.h"
 #import "SoundPlayer.h"
+#import "SVProgressHUD.h"
 
 @interface MenuViewController ()
 @property (nonatomic) SoundPlayer *backgroundMusicPlayer;
@@ -24,11 +25,18 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+//    self.navigationController.navigationBarHidden = NO;
+    [SVProgressHUD dismiss];
+    [[MultipeerConnectivityHelper sharedMCHelper].session disconnect];
     [self.backgroundMusicPlayer play];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

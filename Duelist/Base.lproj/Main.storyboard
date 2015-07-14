@@ -27,12 +27,6 @@
                                     <segue destination="hrZ-wm-FkJ" kind="show" id="HqJ-Hp-g9D"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wild West Showdown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYr-hc-1qe">
-                                <rect key="frame" x="167" y="90" width="267.5" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-qX-zsE">
                                 <rect key="frame" x="259" y="328" width="83" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -50,9 +44,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ePu-st-aEn" kind="presentation" identifier="howToPlay" id="1Rk-tc-pOM"/>
+                                    <segue destination="ePu-st-aEn" kind="show" identifier="howToPlay" id="1Rk-tc-pOM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wild West Showdown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYr-hc-1qe">
+                                <rect key="frame" x="167" y="135" width="267.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -68,7 +68,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="QHZ-qX-zsE" secondAttribute="trailing" constant="242" id="bHs-gI-B6R"/>
                             <constraint firstItem="QHZ-qX-zsE" firstAttribute="top" secondItem="YL8-FO-zQX" secondAttribute="bottom" constant="8" id="e4n-gY-qPe"/>
                             <constraint firstItem="QHZ-qX-zsE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="243" id="esi-gO-Ic5"/>
-                            <constraint firstItem="DYr-hc-1qe" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="26" id="gWY-Lu-BjJ"/>
+                            <constraint firstItem="DYr-hc-1qe" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="71" id="gWY-Lu-BjJ"/>
                             <constraint firstItem="QHZ-qX-zsE" firstAttribute="top" secondItem="YL8-FO-zQX" secondAttribute="bottom" constant="8" id="ir1-Yx-BuE"/>
                             <constraint firstAttribute="centerX" secondItem="DYr-hc-1qe" secondAttribute="centerX" constant="-1" id="jDj-R3-k0l"/>
                             <constraint firstAttribute="centerX" secondItem="7mx-Cw-YsM" secondAttribute="centerX" id="kdr-6R-miu"/>
@@ -139,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aag-2k-gIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623.125" y="1018.3098591549295"/>
+            <point key="canvasLocation" x="2575" y="1018"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="LE4-wI-H3x">
@@ -190,10 +190,14 @@
                             <constraint firstItem="EZ5-qV-Dcu" firstAttribute="top" secondItem="3Zp-wP-8yk" secondAttribute="bottom" constant="28" id="s4i-eK-GGS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="musicSwitch" destination="3Zp-wP-8yk" id="eyu-Za-bt7"/>
+                        <outlet property="sfxSwitch" destination="YwZ-cU-l4Y" id="rXB-AT-TQ3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aJ-SY-dbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623" y="1789"/>
+            <point key="canvasLocation" x="2575" y="1789"/>
         </scene>
         <!--Join Game View Controller-->
         <scene sceneID="jDV-lV-VrF">
@@ -254,7 +258,7 @@
                     <navigationItem key="navigationItem" id="88u-rT-Kx9"/>
                     <connections>
                         <outlet property="tableView" destination="jyi-TR-hy4" id="799-Vy-ae7"/>
-                        <segue destination="Vlh-ND-4Ja" kind="presentation" identifier="joinGameSegue" id="fDE-SK-ZzG"/>
+                        <segue destination="Vlh-ND-4Ja" kind="show" identifier="joinGameSegue" id="fDE-SK-ZzG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8F-v2-GlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -300,7 +304,7 @@
                     <connections>
                         <outlet property="createButton" destination="dLv-vq-B8F" id="K3u-9c-tc3"/>
                         <outlet property="pickerView" destination="p8p-bG-cPn" id="j3a-Ja-GyY"/>
-                        <segue destination="Vlh-ND-4Ja" kind="presentation" identifier="createGameSegue" id="WF5-cD-Knx"/>
+                        <segue destination="Vlh-ND-4Ja" kind="show" identifier="createGameSegue" id="WF5-cD-Knx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abL-IT-CJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,12 +385,12 @@
                         <outlet property="containerView" destination="PjK-G0-wT0" id="u3I-fS-hgZ"/>
                         <outlet property="countDownView" destination="fq9-Pm-MbM" id="Orw-cu-125"/>
                         <outlet property="readyButton" destination="Dze-e4-BJA" id="9dt-8s-o4i"/>
-                        <segue destination="PDb-kz-EPx" kind="presentation" identifier="gameOverSegue" id="gV7-gm-w8a"/>
+                        <segue destination="PDb-kz-EPx" kind="show" identifier="gameOverSegue" id="gV7-gm-w8a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ck7-YK-XeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4115" y="1018"/>
+            <point key="canvasLocation" x="4191" y="1018"/>
         </scene>
         <!--GameOver View Controller-->
         <scene sceneID="K7c-MA-tlp">
@@ -401,25 +405,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Time: 1:25 Seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dq5-nL-MTC">
-                                <rect key="frame" x="160" y="80" width="278.5" height="29"/>
+                                <rect key="frame" x="161" y="230" width="278.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameOfPlayer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="She-L7-Mmo">
-                                <rect key="frame" x="223" y="117" width="152.5" height="29"/>
+                                <rect key="frame" x="224" y="267" width="152.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accuracy: 100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1R-SM-CGq">
-                                <rect key="frame" x="213" y="154" width="174" height="29"/>
+                                <rect key="frame" x="214" y="304" width="174" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FX0-pc-RiJ">
-                                <rect key="frame" x="264" y="191" width="72" height="29"/>
+                                <rect key="frame" x="265" y="341" width="72" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -427,14 +431,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="q1R-SM-CGq" secondAttribute="centerX" id="8NB-ev-EZ4"/>
+                            <constraint firstAttribute="centerX" secondItem="q1R-SM-CGq" secondAttribute="centerX" constant="-1" id="8NB-ev-EZ4"/>
                             <constraint firstAttribute="centerX" secondItem="dq5-nL-MTC" secondAttribute="centerX" id="Itk-Dr-XTo"/>
                             <constraint firstItem="She-L7-Mmo" firstAttribute="top" secondItem="dq5-nL-MTC" secondAttribute="bottom" constant="8" id="L1h-Uy-PGQ"/>
                             <constraint firstAttribute="centerX" secondItem="She-L7-Mmo" secondAttribute="centerX" id="RiZ-JK-7y5"/>
-                            <constraint firstItem="dq5-nL-MTC" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="60" id="dhR-pK-bVf"/>
+                            <constraint firstItem="dq5-nL-MTC" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="166" id="dhR-pK-bVf"/>
                             <constraint firstItem="q1R-SM-CGq" firstAttribute="top" secondItem="She-L7-Mmo" secondAttribute="bottom" constant="8" id="gYb-U1-njj"/>
                             <constraint firstItem="FX0-pc-RiJ" firstAttribute="top" secondItem="q1R-SM-CGq" secondAttribute="bottom" constant="8" id="gwa-ZB-JII"/>
-                            <constraint firstAttribute="centerX" secondItem="FX0-pc-RiJ" secondAttribute="centerX" id="r6C-ur-ZAT"/>
+                            <constraint firstAttribute="centerX" secondItem="FX0-pc-RiJ" secondAttribute="centerX" constant="-1" id="r6C-ur-ZAT"/>
                         </constraints>
                     </view>
                     <connections>
@@ -446,15 +450,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pa2-QB-FCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5388.75" y="1018.3098591549295"/>
+            <point key="canvasLocation" x="4988" y="1018"/>
         </scene>
         <!--How To Play-->
         <scene sceneID="a8H-OP-Qcc">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" title="How To Play" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ePu-st-aEn" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="How To Play" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ePu-st-aEn" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0fg-O7-EpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2553.75" y="68.661971830985905"/>
+            <point key="canvasLocation" x="2575" y="182"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="gvJ-A2-7tX">
@@ -476,6 +480,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fDE-SK-ZzG"/>
+        <segue reference="WF5-cD-Knx"/>
     </inferredMetricsTieBreakers>
 </document>
