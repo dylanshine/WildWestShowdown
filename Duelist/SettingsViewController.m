@@ -11,9 +11,6 @@
 
 @interface SettingsViewController()
 
-@property (weak, nonatomic) IBOutlet UISwitch *soundSwitch;
-
-
 @end
 
 @implementation SettingsViewController
@@ -23,6 +20,14 @@
         [SoundPlayer sharedPlayer].player.volume = 1.0;
     } else {
         [SoundPlayer sharedPlayer].player.volume = 0.0;
+    }
+}
+- (IBAction)sfxSwitchToggled:(id)sender {
+    UISwitch *mySwitch = (UISwitch *)sender;
+    if ([mySwitch isOn]) {
+        [SoundPlayer sharedPlayer].enableSFX = YES;
+    } else {
+        [SoundPlayer sharedPlayer].enableSFX = NO;
     }
 }
 
