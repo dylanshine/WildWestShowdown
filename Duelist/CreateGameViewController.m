@@ -84,7 +84,7 @@
 - (IBAction)createButtonPressed:(id)sender {
     NSInteger row1 = [self.pickerView selectedRowInComponent:0];
     NSInteger row2 = [self.pickerView selectedRowInComponent:1];
-    self.randomStart = [self randomStartTime];
+    self.randomStart = [self randomStartTimeByGameType:self.gameTypes[row1]];
     NSDictionary *discoveryInfo = @{@"gameType":self.gameTypes[row1],
                                     @"shots":self.numberOfShots[row2],
                                     @"startTime": self.randomStart};
@@ -125,9 +125,16 @@
 
 #pragma mark - Random Start Method
 
--(NSString *) randomStartTime {
-    NSUInteger lowerBound = 2;
-    NSUInteger upperBound = 6;
+-(NSString *) randomStartTimeByGameType:(NSString *)gameType {
+    NSUInteger lowerBound;
+    NSUInteger upperBound;
+    if ([gameType isEqualToString:@"Standoff"]) {
+        lowerBound = 2;
+        upperBound = 6;
+    } else {
+        lowerBound = 1;
+        upperBound = 4;
+    }
     NSUInteger randomValue = lowerBound + arc4random() % (upperBound - lowerBound);
     return [NSString stringWithFormat:@"%lu",(unsigned long)randomValue];
 }

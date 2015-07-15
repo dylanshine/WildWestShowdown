@@ -28,6 +28,7 @@
     self.fontName = @"HelveticaNeue-Thin";
     self.shouldMaskBackground = NO;
     self.shouldBlurBackground = NO;
+    self.shouldFadeTransitions = YES;
     self.backgroundImage = [UIImage imageNamed:@"background"];
     
     __weak typeof(self) weakSelf = self;

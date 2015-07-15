@@ -81,7 +81,6 @@
         [self performSegueWithIdentifier:@"gameOverSegue" sender:self];
     } else {
         NSTimeInterval timeToStartFloat = [message doubleValue];
-        NSLog(@"float: %f / \"%@\"", timeToStartFloat, message);
         NSDate *timeToStart = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:timeToStartFloat];
         [self startDuelAtDate:timeToStart];
     }
@@ -142,7 +141,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelReadyGame:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
     
     if (self.opponentReady) {
-        NSDate *timeToStart = [[NSDate date] dateByAddingTimeInterval:2];
+        NSDate *timeToStart = [[NSDate date] dateByAddingTimeInterval:3];
         NSTimeInterval timeToStartFloat = [timeToStart timeIntervalSinceReferenceDate];
         NSString *timeToStartString = [NSString stringWithFormat:@"%f", timeToStartFloat];
         NSLog(@"float: %f / \"%@\"", timeToStartFloat, timeToStartString);
