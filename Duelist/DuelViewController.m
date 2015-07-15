@@ -87,8 +87,10 @@
 }
 
 - (void)handleDisconnection:(NSNotification *)notification {
-    [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (self.isBeingPresented) {
+        [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - Segue
@@ -163,9 +165,7 @@
 #pragma mark - SFCountDown
 
 -(void)startDuelAtDate:(NSDate *)date {
-    [SVProgressHUD dismiss];
     [SVProgressHUD showWithStatus:@"Starting Duel"maskType:SVProgressHUDMaskTypeBlack];
-    
     NSLog(@"will start duel at %@", date);
     NSTimer *startTimer = [[NSTimer alloc] initWithFireDate:date interval:0 target:self selector:@selector(setupDuel) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:startTimer forMode:NSDefaultRunLoopMode];
