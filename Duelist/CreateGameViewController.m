@@ -125,10 +125,11 @@
 }
 
 
-//- (void)cancelMPC {
-//    [self.mpcHelper advertiseSelf:NO WithDiscoveryInfo:nil];
-//    [self.mpcHelper.session disconnect];
-//}
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
+
 
 
 #pragma mark - Random Start Method

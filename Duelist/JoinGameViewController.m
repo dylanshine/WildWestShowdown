@@ -149,6 +149,11 @@
     [self performSegueWithIdentifier:@"joinGameSegue" sender:self];
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

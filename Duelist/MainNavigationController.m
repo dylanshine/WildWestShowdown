@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationBarHidden = YES;
     [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
     
     if ([GameKitHelper sharedGameKitHelper].isEnabled) {
