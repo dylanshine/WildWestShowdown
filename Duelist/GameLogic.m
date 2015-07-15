@@ -20,18 +20,19 @@
 
 @implementation GameLogic
 
--(instancetype)initWithLives:(NSUInteger)opponentLives StartTime:(NSUInteger)startTime{
+-(instancetype)initWithLives:(NSUInteger)opponentLives StartTime:(NSUInteger)startTime GameType:(NSString *)gameType {
     if (self = [super init]) {
         _bullets = 6;
         _isCocked = NO;
         _opponentLives = opponentLives;
         _startTime = startTime;
+        _gameType = gameType;
     }
     return self;
 }
 
 -(instancetype)init {
-    self = [self initWithLives:3 StartTime:2];
+    self = [self initWithLives:3 StartTime:2 GameType:@"Standoff"];
     return self;
 }
 
@@ -96,25 +97,19 @@
 }
 
 - (void)startDuelAtRandomTimeWithCompletion:(void (^)())completion {
-//    for (NSUInteger i = 0; i <= self.startTime; i++) {
-//        [[SoundPlayer sharedPlayer] playSoundNamed:@"heartbeat" Type:@"wav"];
-//    }
-//    
-//    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-//    [[SoundPlayer sharedPlayer] playSoundNamed:@"draw" Type:@"wav"];
-//    self.gameBegin = [NSDate date];
-//    completion();
-    
-    // play startTime heartbeat sounds
-    // when that's over, vibrate & call the completion block
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     queue.maxConcurrentOperationCount = 1;
     
     for(NSUInteger i = 0; i < self.startTime; i++) {
         [queue addOperationWithBlock:^{
-            [[SoundPlayer sharedPlayer] playSoundNamed:@"heartbeat" Type:@"wav"];
-            [NSThread sleepForTimeInterval:1];
+            [self playGameTypeSound];
+            if ([self.gameType isEqualToString:@"Standoff"]) {
+                [NSThread sleepForTimeInterval:1];
+            } else {
+                [NSThread sleepForTimeInterval:2];
+            }
+            
         }];
     }
     
@@ -128,6 +123,14 @@
 }
 
 #pragma mark - Sound and Flash
+
+-(void)playGameTypeSound {
+    if ([self.gameType isEqualToString:@"Standoff"]) {
+        [[SoundPlayer sharedPlayer] playSoundNamed:@"heartbeat" Type:@"wav"];
+    } else {
+        [[SoundPlayer sharedPlayer] playSoundNamed:@"boots" Type:@"wav"];
+    }
+}
 
 -(void)playSound:(NSString *)soundPath {
     SystemSoundID soundID;

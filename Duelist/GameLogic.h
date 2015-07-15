@@ -13,7 +13,8 @@
 @property (nonatomic) float shotsLanded;
 @property (nonatomic) float shotsTaken;
 @property (nonatomic) NSString *result;
--(instancetype)initWithLives:(NSUInteger)opponentLives StartTime:(NSUInteger)startTime;;
+@property (nonatomic) NSString *gameType;
+-(instancetype)initWithLives:(NSUInteger)opponentLives StartTime:(NSUInteger)startTime GameType:(NSString *)gameType;
 -(void)fireAtPlayer:(NSUInteger)player;
 -(void)pullHammer;
 -(void)reload;

@@ -457,7 +457,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 -(GameLogic *)game {
     if(!_game) {
-        _game = [[GameLogic alloc] initWithLives:[self.numberOfShots integerValue] StartTime:self.randomStart];
+        _game = [[GameLogic alloc] initWithLives:[self.numberOfShots integerValue] StartTime:self.randomStart GameType:self.gameType];
     }
     return _game;
 }
