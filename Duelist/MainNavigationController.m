@@ -18,9 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showAuthenticationViewController) name:PresentAuthenticationViewController
-                                               object:nil];
     [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
     
     if ([GameKitHelper sharedGameKitHelper].isEnabled) {
@@ -35,8 +32,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showAuthenticationViewController) name:PresentAuthenticationViewController
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:PresentAuthenticationViewController object:nil];
 }
 
 - (void)showAuthenticationViewController {

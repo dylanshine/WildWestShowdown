@@ -34,6 +34,11 @@
     self.serviceBrowser = self.mpcHelper.serviceBrowser;
     self.serviceBrowser.delegate = self;
     
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.foundPlayers removeAllObjects];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setupDuel)
@@ -44,26 +49,22 @@
                                              selector:@selector(handleDisconnection:)
                                                  name:@"PeerDisconnected"
                                                object:nil];
-
-}
-
-- (void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.foundPlayers removeAllObjects];
+    
     [self.serviceBrowser startBrowsingForPeers];
+
 }
 
-- (void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PeerConnected" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PeerDisconnected" object:nil];
     [self.serviceBrowser stopBrowsingForPeers];
     [SVProgressHUD dismiss];
 }
 
 - (void)handleDisconnection:(NSNotification *)notification {
-    if (self.isBeingPresented) {
-        [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+    [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(BOOL)prefersStatusBarHidden {

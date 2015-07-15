@@ -49,6 +49,11 @@
     self.countDownView.countdownFrom = 3;
     [self.countDownView updateAppearance];
     [self setupAVCapture];
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleReceivedDataWithNotification:)
                                                  name:@"MessageReceived"
@@ -58,7 +63,12 @@
                                              selector:@selector(handleDisconnection:)
                                                  name:@"PeerDisconnected"
                                                object:nil];
-    
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MessageReceived" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PeerDisconnected" object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -87,10 +97,8 @@
 }
 
 - (void)handleDisconnection:(NSNotification *)notification {
-    if (self.isBeingPresented) {
-        [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+    [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Segue
@@ -465,6 +473,5 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
 
 @end

@@ -35,6 +35,17 @@
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
     
+}
+
+- (void)handleDisconnection:(NSNotification *)notification {
+    if (self.isBeingPresented) {
+        [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setupDuel)
                                                  name:@"PeerConnected"
@@ -47,15 +58,10 @@
 
 }
 
-- (void)handleDisconnection:(NSNotification *)notification {
-    if (self.isBeingPresented) {
-        [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
-}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PeerConnected" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PeerDisconnected" object:nil];
     [SVProgressHUD dismiss];
 }
 
