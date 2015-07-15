@@ -28,10 +28,11 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     UISwitch *mySwitch = (UISwitch *)sender;
     if ([mySwitch isOn]) {
-        [defaults setObject:@1 forKey:@"music"];
+        
+        [defaults setBool:YES forKey:@"music"];
         [SoundPlayer sharedPlayer].player.volume = 1.0;
     } else {
-        [defaults setObject:@0 forKey:@"music"];
+        [defaults setBool:NO forKey:@"music"];
         [SoundPlayer sharedPlayer].player.volume = 0.0;
     }
     [defaults synchronize];
@@ -41,9 +42,9 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     UISwitch *mySwitch = (UISwitch *)sender;
     if ([mySwitch isOn]) {
-        [defaults setObject:@1 forKey:@"sfx"];
+        [defaults setBool:YES forKey:@"sfx"];
     } else {
-        [defaults setObject:@0 forKey:@"sfx"];
+        [defaults setBool:NO forKey:@"sfx"];
     }
     [defaults synchronize];
 }

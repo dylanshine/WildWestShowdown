@@ -28,6 +28,7 @@
 		FCE0BCE81B52613700EB0BE5 /* draw.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCE0BCE71B52613700EB0BE5 /* draw.wav */; };
 		FCE0BCF01B541A9E00EB0BE5 /* CapturePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0BCEF1B541A9E00EB0BE5 /* CapturePreviewView.m */; };
 		FCE620C51B5579850085389C /* defaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCE620C41B5579850085389C /* defaultSettings.plist */; };
+		FCE620CB1B55EB1E0085389C /* WWSOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE620CA1B55EB1E0085389C /* WWSOnboardingViewController.m */; };
 		FCF9963E1B518B8400910B1A /* CreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF9963D1B518B8400910B1A /* CreateGameViewController.m */; };
 		FCF996411B518D8600910B1A /* DuelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996401B518D8600910B1A /* DuelViewController.m */; };
 		FCF996441B518E1100910B1A /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996431B518E1100910B1A /* JoinGameViewController.m */; };
@@ -86,6 +87,8 @@
 		FCE0BCEE1B541A9E00EB0BE5 /* CapturePreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturePreviewView.h; sourceTree = "<group>"; };
 		FCE0BCEF1B541A9E00EB0BE5 /* CapturePreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapturePreviewView.m; sourceTree = "<group>"; };
 		FCE620C41B5579850085389C /* defaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSettings.plist; sourceTree = "<group>"; };
+		FCE620C91B55EB1E0085389C /* WWSOnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWSOnboardingViewController.h; sourceTree = "<group>"; };
+		FCE620CA1B55EB1E0085389C /* WWSOnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWSOnboardingViewController.m; sourceTree = "<group>"; };
 		FCF9963C1B518B8400910B1A /* CreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGameViewController.h; sourceTree = "<group>"; };
 		FCF9963D1B518B8400910B1A /* CreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGameViewController.m; sourceTree = "<group>"; };
 		FCF9963F1B518D8600910B1A /* DuelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuelViewController.h; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				FCF996401B518D8600910B1A /* DuelViewController.m */,
 				FCD32F551B546BD30025D421 /* SettingsViewController.h */,
 				FCD32F561B546BD30025D421 /* SettingsViewController.m */,
+				FCE620C91B55EB1E0085389C /* WWSOnboardingViewController.h */,
+				FCE620CA1B55EB1E0085389C /* WWSOnboardingViewController.m */,
 				FC2B6F401B4DEEBD0053D83D /* Main.storyboard */,
 				FC2B6F431B4DEEBD0053D83D /* Images.xcassets */,
 				FC2B6F451B4DEEBD0053D83D /* LaunchScreen.xib */,
@@ -428,6 +433,7 @@
 				FCF996481B518E7100910B1A /* FoundPlayer.m in Sources */,
 				FC2B6F391B4DEEBD0053D83D /* main.m in Sources */,
 				FCD32F4C1B5449BD0025D421 /* SoundPlayer.m in Sources */,
+				FCE620CB1B55EB1E0085389C /* WWSOnboardingViewController.m in Sources */,
 				FCF996441B518E1100910B1A /* JoinGameViewController.m in Sources */,
 				FCD32F571B546BD30025D421 /* SettingsViewController.m in Sources */,
 				FCF9963E1B518B8400910B1A /* CreateGameViewController.m in Sources */,

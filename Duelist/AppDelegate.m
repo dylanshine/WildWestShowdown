@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "MainNavigationController.h"
+#import "MenuViewController.h"
+#import "WWSOnboardingViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +24,10 @@
     NSDictionary *defaultPreferences = [NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPreferences];
     
+    
+    
+
+        
     return YES;
 }
 
@@ -45,5 +52,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+
+
+
+
 
 @end

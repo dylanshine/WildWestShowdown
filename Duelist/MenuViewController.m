@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import "MultipeerConnectivityHelper.h"
+#import "WWSOnboardingViewController.h"
 #import "SoundPlayer.h"
 #import "SVProgressHUD.h"
 
@@ -21,11 +22,16 @@
     [super viewDidLoad];
     self.backgroundMusicPlayer = [SoundPlayer sharedPlayer];
     [self.backgroundMusicPlayer setupPlayer];
+    
+    BOOL userHasOnboarded = [[NSUserDefaults standardUserDefaults] boolForKey:@"userHasOnboarded"];
+    if (!userHasOnboarded) {
+        [self presentOnboardingViewController];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"userHasOnboarded"];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    self.navigationController.navigationBarHidden = NO;
     [SVProgressHUD dismiss];
     [[MultipeerConnectivityHelper sharedMCHelper].session disconnect];
     [self.backgroundMusicPlayer play];
@@ -34,9 +40,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+- (IBAction)howToPlayButtonPushed:(id)sender {
+    [self presentOnboardingViewController];
+}
 
 -(BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+-(void)presentOnboardingViewController {
+    [self presentViewController:[[WWSOnboardingViewController alloc] initWithCompletionHandler:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }] animated:YES completion:nil];
 }
 
 @end

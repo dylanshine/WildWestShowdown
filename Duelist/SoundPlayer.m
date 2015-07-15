@@ -66,7 +66,7 @@
 
 -(void)playSoundNamed:(NSString *)name Type:(NSString *)type {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([[defaults objectForKey:@"sfx"] boolValue]) {
+    if ([defaults boolForKey:@"sfx"]) {
         NSString *soundPath = [[NSBundle mainBundle] pathForResource:name ofType:type];
         SystemSoundID soundID;
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
