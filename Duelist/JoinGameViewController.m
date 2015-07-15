@@ -58,6 +58,8 @@
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PeerConnected" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PeerDisconnected" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
+
     [self.serviceBrowser stopBrowsingForPeers];
     [SVProgressHUD dismiss];
 }
@@ -116,9 +118,7 @@
 
 
 - (void)cancelCreateGame:(NSNotification *)notification {
-    if (self.isBeingPresented) {
-        [self.mpcHelper.session disconnect];
-    }
+    [self.mpcHelper.session disconnect];
     [SVProgressHUD dismiss];
 }
 

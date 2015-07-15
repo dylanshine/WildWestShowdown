@@ -84,8 +84,6 @@
     
     if ([message isEqualToString:@"Ready"]) {
         self.opponentReady = YES;
-    } else if ([message isEqualToString:@"Ready Cancelled"]) {
-        self.opponentReady = NO;
     } else if ([message isEqualToString:@"Killed"]) {
         self.game.result = @"Loser";
         [self performSegueWithIdentifier:@"gameOverSegue" sender:self];
@@ -126,29 +124,11 @@
     
 }
 
-- (void)cancelReadyGame:(NSNotification *)notification {
-    self.playerReady = NO;
-    self.readyButton.hidden = NO;
-    NSData *data = [@"Ready Cancelled" dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error;
-    [self.mpcHelper.session sendData:data
-                             toPeers:self.mpcHelper.session.connectedPeers
-                            withMode:MCSessionSendDataReliable
-                               error:&error];
-    
-    if (error != nil) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    [SVProgressHUD dismiss];
-}
-
 
 - (void)setPlayerReady:(BOOL)playerReady {
     _playerReady = playerReady;
     self.readyButton.hidden = YES;
     [SVProgressHUD showWithStatus:@"Waiting For Opponent ... \n Tap To Cancel" maskType:SVProgressHUDMaskTypeBlack];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelReadyGame:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
     
     if (self.opponentReady) {
         NSDate *timeToStart = [[NSDate date] dateByAddingTimeInterval:3];

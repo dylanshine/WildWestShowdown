@@ -62,6 +62,7 @@
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PeerConnected" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PeerDisconnected" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
     [SVProgressHUD dismiss];
 }
 
