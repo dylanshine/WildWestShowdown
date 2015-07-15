@@ -11,9 +11,13 @@
 
 @interface SoundPlayer : NSObject  <AVAudioPlayerDelegate>
 +(instancetype)sharedPlayer;
-@property (nonatomic) AVAudioPlayer *player;
--(void)setupPlayer;
--(void)play;
--(void)stop;
+@property (nonatomic) AVAudioPlayer *backgroundPlayer;
+@property (nonatomic) AVAudioPlayer *duelPlayer;
+-(void)setupBackgroundMusicPlayer;
+-(void)setupDuelingMusicPlayer;
+-(void)playBackgroundMusic;
+-(void)playDuelingMusic;
+-(void)stopBackgroundMusic;
+-(void)stopDuelingMusic;
 -(void)playSoundNamed:(NSString *)name Type:(NSString *)type;
 @end

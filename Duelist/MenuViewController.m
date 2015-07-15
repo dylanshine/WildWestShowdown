@@ -13,15 +13,16 @@
 #import "SVProgressHUD.h"
 
 @interface MenuViewController ()
-@property (nonatomic) SoundPlayer *backgroundMusicPlayer;
+@property (nonatomic) SoundPlayer *musicPlayer;
 @end
 
 @implementation MenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.backgroundMusicPlayer = [SoundPlayer sharedPlayer];
-    [self.backgroundMusicPlayer setupPlayer];
+    self.musicPlayer = [SoundPlayer sharedPlayer];
+    [self.musicPlayer setupBackgroundMusicPlayer];
+    [self.musicPlayer setupDuelingMusicPlayer];
     
     BOOL userHasOnboarded = [[NSUserDefaults standardUserDefaults] boolForKey:@"userHasOnboarded"];
     if (!userHasOnboarded) {
@@ -30,11 +31,16 @@
     }
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.musicPlayer.duelPlayer stop];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [SVProgressHUD dismiss];
     [[MultipeerConnectivityHelper sharedMCHelper].session disconnect];
-    [self.backgroundMusicPlayer play];
+    [self.musicPlayer playBackgroundMusic];
 }
 
 - (void)didReceiveMemoryWarning {

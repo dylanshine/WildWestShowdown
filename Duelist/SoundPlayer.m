@@ -24,45 +24,83 @@
     return _sharedPlayer;
 }
 
--(void)setupPlayer {
+-(void)setupBackgroundMusicPlayer {
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"tumbleTownShorten" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-    self.player.numberOfLoops = -1;
+    self.backgroundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    self.backgroundPlayer.numberOfLoops = -1;
 }
 
--(void)play {
+-(void)setupDuelingMusicPlayer {
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"duel" ofType:@"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    self.duelPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    self.duelPlayer.numberOfLoops = -1;
+}
+
+-(void)playBackgroundMusic {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([[defaults objectForKey:@"music"] boolValue]) {
-        self.player.volume = 1.0;
+        self.backgroundPlayer.volume = 1.0;
     } else {
-        self.player.volume = 0.0;
+        self.backgroundPlayer.volume = 0.0;
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.player play];
+        [self.backgroundPlayer play];
     });
 }
 
--(void)stop {
+-(void)playDuelingMusic {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:@"sfx"] boolValue]) {
+        self.duelPlayer.volume = 0.4;
+    } else {
+        self.duelPlayer.volume = 0.0;
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self doVolumeFade];
+        [self.duelPlayer play];
     });
 }
 
--(void)doVolumeFade
-{
-    if (self.player.volume > 0.1) {
-        self.player.volume = self.player.volume - 0.1;
-        [self performSelector:@selector(doVolumeFade) withObject:nil afterDelay:0.2];
+-(void)stopDuelingMusic {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.duelPlayer stop];
+    });
+}
+
+-(void)stopBackgroundMusic {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self doVolumeFadeBackgroundMusic];
+    });
+}
+
+-(void)doVolumeFadeBackgroundMusic {
+    if (self.backgroundPlayer.volume > 0.1) {
+        self.backgroundPlayer.volume = self.backgroundPlayer.volume - 0.1;
+        [self performSelector:@selector(doVolumeFadeBackgroundMusic) withObject:nil afterDelay:0.2];
     } else {
         // Stop and get the sound ready for playing again
-        [self.player stop];
-        self.player.currentTime = 0;
-        [self.player prepareToPlay];
-        self.player.volume = 1.0;
+        [self.backgroundPlayer stop];
+        self.backgroundPlayer.currentTime = 0;
+        [self.backgroundPlayer prepareToPlay];
+        self.backgroundPlayer.volume = 1.0;
     }
 }
+
+-(void)doVolumeFadeDuelingMusic {
+    if (self.duelPlayer.volume > 0.1) {
+        self.duelPlayer.volume = self.duelPlayer.volume - 0.05;
+        [self performSelector:@selector(doVolumeFadeDuelingMusic) withObject:nil afterDelay:0.3];
+    } else {
+        // Stop and get the sound ready for playing again
+        [self.duelPlayer stop];
+        self.duelPlayer.currentTime = 0;
+        [self.duelPlayer prepareToPlay];
+        self.duelPlayer.volume = 0.4;
+    }
+}
+
 
 -(void)playSoundNamed:(NSString *)name Type:(NSString *)type {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

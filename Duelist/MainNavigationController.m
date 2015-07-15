@@ -26,6 +26,7 @@
     } else {
         [[MultipeerConnectivityHelper sharedMCHelper] setupPeerWithDisplayName:[UIDevice currentDevice].name];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {

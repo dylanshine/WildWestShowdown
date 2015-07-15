@@ -29,14 +29,17 @@
     self.shouldMaskBackground = NO;
     self.shouldBlurBackground = NO;
     self.shouldFadeTransitions = YES;
+    self.allowSkipping = YES;
+    self.swipingEnabled = YES;
     self.backgroundImage = [UIImage imageNamed:@"background"];
+    self.skipHandler = _handler;
+    [self.skipButton setTitle:@"X" forState:UIControlStateNormal];
     
     __weak typeof(self) weakSelf = self;
     
     NSString *page1Title = @"Organize";
     NSString *page1Body = @"Everything has its place. We take care of the housekeeping for you.";
-    NSString *page1ButtonTxt = @"Demo Async";
-    OnboardingContentViewController *firstPage = [[OnboardingContentViewController alloc] initWithTitle:page1Title body:page1Body image:nil buttonText:page1ButtonTxt action:^{
+    OnboardingContentViewController *firstPage = [[OnboardingContentViewController alloc] initWithTitle:page1Title body:page1Body image:nil buttonText:nil action:^{
         [weakSelf doSomethingWithCompletionHandler:^{
             [weakSelf moveNextPage];
         }];
@@ -56,6 +59,8 @@
 - (void)doSomethingWithCompletionHandler:(dispatch_block_t)handler {
     handler();
 }
+
+
 
 -(BOOL)prefersStatusBarHidden {
     return YES;

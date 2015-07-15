@@ -63,6 +63,7 @@
                                              selector:@selector(handleDisconnection:)
                                                  name:@"PeerDisconnected"
                                                object:nil];
+    [[SoundPlayer sharedPlayer] stopBackgroundMusic];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -73,7 +74,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[SoundPlayer sharedPlayer] stop];
+    [[SoundPlayer sharedPlayer] playDuelingMusic];
 }
 
 #pragma mark - NSNotifications
@@ -452,6 +453,10 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

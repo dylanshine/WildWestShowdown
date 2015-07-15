@@ -31,6 +31,8 @@
 		FCE620CB1B55EB1E0085389C /* WWSOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE620CA1B55EB1E0085389C /* WWSOnboardingViewController.m */; };
 		FCE620CE1B56160C0085389C /* boots.wav in Resources */ = {isa = PBXBuildFile; fileRef = FCE620CD1B56160C0085389C /* boots.wav */; };
 		FCE969B11B56C15B007E357E /* GameLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE969B01B56C15B007E357E /* GameLobbyViewController.m */; };
+		FCE969B41B571D39007E357E /* CoffeeTinInitials.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCE969B31B571D39007E357E /* CoffeeTinInitials.ttf */; };
+		FCE969B61B572478007E357E /* duel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCE969B51B572478007E357E /* duel.mp3 */; };
 		FCF9963E1B518B8400910B1A /* CreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF9963D1B518B8400910B1A /* CreateGameViewController.m */; };
 		FCF996411B518D8600910B1A /* DuelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996401B518D8600910B1A /* DuelViewController.m */; };
 		FCF996441B518E1100910B1A /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF996431B518E1100910B1A /* JoinGameViewController.m */; };
@@ -94,6 +96,8 @@
 		FCE620CD1B56160C0085389C /* boots.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boots.wav; sourceTree = "<group>"; };
 		FCE969AF1B56C15B007E357E /* GameLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLobbyViewController.h; sourceTree = "<group>"; };
 		FCE969B01B56C15B007E357E /* GameLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLobbyViewController.m; sourceTree = "<group>"; };
+		FCE969B31B571D39007E357E /* CoffeeTinInitials.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoffeeTinInitials.ttf; sourceTree = "<group>"; };
+		FCE969B51B572478007E357E /* duel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = duel.mp3; sourceTree = "<group>"; };
 		FCF9963C1B518B8400910B1A /* CreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGameViewController.h; sourceTree = "<group>"; };
 		FCF9963D1B518B8400910B1A /* CreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGameViewController.m; sourceTree = "<group>"; };
 		FCF9963F1B518D8600910B1A /* DuelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuelViewController.h; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		FC2B6F351B4DEEBD0053D83D /* Wild West Showdown */ = {
 			isa = PBXGroup;
 			children = (
+				FCE969B21B571D12007E357E /* Fonts */,
 				FCF9964F1B5190C400910B1A /* Sounds */,
 				FCF996451B518E5A00910B1A /* Models */,
 				FCBC47AE1B4E2A2D00B26900 /* Multipeer Connectivity */,
@@ -251,6 +256,14 @@
 			name = "Multipeer Connectivity";
 			sourceTree = "<group>";
 		};
+		FCE969B21B571D12007E357E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FCE969B31B571D39007E357E /* CoffeeTinInitials.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		FCF996451B518E5A00910B1A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +280,7 @@
 		FCF9964F1B5190C400910B1A /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				FCE969B51B572478007E357E /* duel.mp3 */,
 				FCF996501B5190DB00910B1A /* fire1.wav */,
 				FCF996521B5190E600910B1A /* dryfire1.wav */,
 				FCF996531B5190E600910B1A /* pull1.wav */,
@@ -368,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE969B41B571D39007E357E /* CoffeeTinInitials.ttf in Resources */,
 				FCF996511B5190DB00910B1A /* fire1.wav in Resources */,
 				FCE620C51B5579850085389C /* defaultSettings.plist in Resources */,
 				FCE0BCE61B525EC100EB0BE5 /* heartbeat.wav in Resources */,
@@ -378,6 +393,7 @@
 				FC2B6F471B4DEEBD0053D83D /* LaunchScreen.xib in Resources */,
 				FCD32F591B5480140025D421 /* revolverClick.mp3 in Resources */,
 				FCE620CE1B56160C0085389C /* boots.wav in Resources */,
+				FCE969B61B572478007E357E /* duel.mp3 in Resources */,
 				FCE0BCE81B52613700EB0BE5 /* draw.wav in Resources */,
 				FCF996571B5190E600910B1A /* reload.mp3 in Resources */,
 				FC2B6F441B4DEEBD0053D83D /* Images.xcassets in Resources */,
@@ -577,7 +593,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Duelist/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Wild West Showdown";
 				PROVISIONING_PROFILE = "";
@@ -593,7 +609,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Duelist/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Wild West Showdown";
 				PROVISIONING_PROFILE = "";

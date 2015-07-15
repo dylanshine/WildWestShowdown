@@ -30,10 +30,10 @@
     if ([mySwitch isOn]) {
         
         [defaults setBool:YES forKey:@"music"];
-        [SoundPlayer sharedPlayer].player.volume = 1.0;
+        [SoundPlayer sharedPlayer].backgroundPlayer.volume = 1.0;
     } else {
         [defaults setBool:NO forKey:@"music"];
-        [SoundPlayer sharedPlayer].player.volume = 0.0;
+        [SoundPlayer sharedPlayer].backgroundPlayer.volume = 0.0;
     }
     [defaults synchronize];
 }
