@@ -81,14 +81,14 @@
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (component == 0) {
         return [self.gameTypes objectAtIndex:row];
-    } else {
-        return [self.numberOfShots objectAtIndex:row];
     }
+    return nil;
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
-    UILabel* tView = (UILabel*)view;
+    UILabel *tView = (UILabel*)view;
+    
     if (!tView) {
         tView = [[UILabel alloc] init];
         [tView setFont:[UIFont fontWithName:@"CoffeeTinInitials" size:30]];
@@ -98,7 +98,9 @@
     if (component == 0) {
         tView.text=[self.gameTypes objectAtIndex:row];
     } else {
-        tView.text=[self.numberOfShots objectAtIndex:row];
+        NSString *bulletString = [NSString stringWithFormat:@"bullet%lu.png",row];
+        UIImageView *bulletImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:bulletString]];
+        return bulletImageView;
     }
     return tView;
     
