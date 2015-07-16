@@ -85,6 +85,7 @@
     
     if ([message isEqualToString:@"Ready"]) {
         self.opponentReady = YES;
+        [self bothPlayersReady];
     } else if ([message isEqualToString:@"Killed"]) {
         self.game.result = @"Loser";
         [self performSegueWithIdentifier:@"gameOverSegue" sender:self];
@@ -130,8 +131,12 @@
     _playerReady = playerReady;
     self.readyButton.hidden = YES;
     [SVProgressHUD showWithStatus:@"Waiting For Opponent ..." maskType:SVProgressHUDMaskTypeBlack];
+    [self bothPlayersReady];
     
-    if (self.opponentReady) {
+}
+
+-(void) bothPlayersReady {
+    if (self.playerReady && self.opponentReady) {
         NSDate *timeToStart = [[NSDate date] dateByAddingTimeInterval:3];
         NSTimeInterval timeToStartFloat = [timeToStart timeIntervalSinceReferenceDate];
         NSString *timeToStartString = [NSString stringWithFormat:@"%f", timeToStartFloat];
