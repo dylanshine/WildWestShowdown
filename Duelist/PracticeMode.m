@@ -11,6 +11,7 @@
 @interface PracticeMode()
 @property (nonatomic) NSUInteger bullets;
 @property (nonatomic) BOOL isCocked;
+@property (nonatomic) BOOL isReloading;
 @end
 
 @implementation PracticeMode
@@ -20,6 +21,7 @@
     if (self = [super init]) {
         _bullets = 6;
         _isCocked = NO;
+        _isReloading = NO;
     }
     
     return self;
@@ -49,6 +51,7 @@
 
 -(void)bulletsToSix {
     self.bullets = 6;
+    self.isReloading = NO;
 }
 
 

@@ -11,6 +11,7 @@
 
 @interface GameLogic()
 @property (nonatomic) BOOL isCocked;
+@property (nonatomic) BOOL isReloading;
 @property (nonatomic) NSUInteger bullets;
 @property (nonatomic) NSUInteger startTime;
 @property (nonatomic) NSDate *gameBegin;
@@ -22,6 +23,7 @@
     if (self = [super init]) {
         _bullets = 6;
         _isCocked = NO;
+        _isReloading = NO;
         _opponentLives = opponentLives;
         _startTime = startTime;
         _gameType = gameType;
@@ -64,7 +66,8 @@
 }
 
 -(void)reload {
-    if (self.bullets == 0) {
+    if (self.bullets == 0 && !self.isReloading) {
+        self.isReloading = YES;
         [[SoundPlayer sharedPlayer] playSoundNamed:@"reload" Type:@"mp3"];
         [self performSelector:@selector(bulletsToSix) withObject:nil afterDelay:3.7];
     }
@@ -72,6 +75,7 @@
 
 -(void)bulletsToSix {
     self.bullets = 6;
+    self.isReloading = NO;
 }
 
 -(BOOL)opponentIsDead {
