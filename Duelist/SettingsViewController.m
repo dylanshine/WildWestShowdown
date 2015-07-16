@@ -30,11 +30,6 @@
     [self setupMusicSlider];
 }
 
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    NSLog(@"%f",self.soundPlayer.backgroundPlayer.volume);
-}
-
 - (IBAction)sfxSwitchToggled:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     UISwitch *mySwitch = (UISwitch *)sender;
@@ -67,7 +62,6 @@
 -(void)setupMusicSlider {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.musicSlider.value = [defaults floatForKey:@"music"];
-    NSLog(@"%f",self.musicSlider.value);
 }
 
 @end

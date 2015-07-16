@@ -12,6 +12,8 @@
 
 @end
 
+
+static const float kDuelMusicVolume = 0.1;
 @implementation SoundPlayer
 
 +(instancetype)sharedPlayer {
@@ -25,10 +27,12 @@
 }
 
 -(void)setupBackgroundMusicPlayer {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"tumbleTownShorten" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     self.backgroundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
     self.backgroundPlayer.numberOfLoops = -1;
+    self.backgroundPlayer.volume = [defaults floatForKey:@"music"];
 }
 
 -(void)setupDuelingMusicPlayer {
@@ -36,6 +40,7 @@
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     self.duelPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
     self.duelPlayer.numberOfLoops = -1;
+    self.duelPlayer.volume = kDuelMusicVolume;
 }
 
 -(void)playBackgroundMusic {
@@ -48,7 +53,7 @@
 -(void)playDuelingMusic {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([[defaults objectForKey:@"sfx"] boolValue]) {
-        self.duelPlayer.volume = 1.0;
+        self.duelPlayer.volume = kDuelMusicVolume;
     } else {
         self.duelPlayer.volume = 0.0;
     }
@@ -70,6 +75,7 @@
 }
 
 -(void)doVolumeFadeBackgroundMusic {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (self.backgroundPlayer.volume > 0.1) {
         self.backgroundPlayer.volume = self.backgroundPlayer.volume - 0.1;
         [self performSelector:@selector(doVolumeFadeBackgroundMusic) withObject:nil afterDelay:0.2];
@@ -78,7 +84,7 @@
         [self.backgroundPlayer stop];
         self.backgroundPlayer.currentTime = 0;
         [self.backgroundPlayer prepareToPlay];
-        self.backgroundPlayer.volume = 1.0;
+        self.backgroundPlayer.volume = [defaults floatForKey:@"music"];
     }
 }
 
@@ -91,7 +97,7 @@
         [self.duelPlayer stop];
         self.duelPlayer.currentTime = 0;
         [self.duelPlayer prepareToPlay];
-        self.duelPlayer.volume = 0.4;
+        self.duelPlayer.volume = kDuelMusicVolume;
     }
 }
 
