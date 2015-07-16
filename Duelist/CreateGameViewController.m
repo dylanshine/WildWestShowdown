@@ -86,6 +86,31 @@
     }
 }
 
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    UILabel* tView = (UILabel*)view;
+    if (!tView) {
+        tView = [[UILabel alloc] init];
+        [tView setFont:[UIFont fontWithName:@"CoffeeTinInitials" size:30]];
+        tView.numberOfLines=3;
+    }
+    
+    if (component == 0) {
+        tView.text=[self.gameTypes objectAtIndex:row];
+    } else {
+        tView.text=[self.numberOfShots objectAtIndex:row];
+    }
+    return tView;
+    
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    if (component == 0) {
+        return 225;
+    }
+    return 60;
+}
+
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     [[SoundPlayer sharedPlayer] playSoundNamed:@"revolverClick" Type:@"mp3"];
 }

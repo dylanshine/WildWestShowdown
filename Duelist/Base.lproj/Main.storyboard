@@ -381,7 +381,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8p-bG-cPn">
-                                <rect key="frame" x="0.0" y="118" width="600" height="162"/>
+                                <rect key="frame" x="16" y="118" width="568" height="162"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTC-ND-Chl">
                                 <rect key="frame" x="16" y="72" width="67" height="37"/>
@@ -398,10 +398,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="dLv-vq-B8F" secondAttribute="centerX" id="2Ma-ZW-Mq3"/>
-                            <constraint firstItem="p8p-bG-cPn" firstAttribute="leading" secondItem="dwQ-bP-jsd" secondAttribute="leadingMargin" constant="-16" id="JIX-Kn-ABo"/>
+                            <constraint firstItem="p8p-bG-cPn" firstAttribute="leading" secondItem="dwQ-bP-jsd" secondAttribute="leadingMargin" id="JIX-Kn-ABo"/>
                             <constraint firstItem="pTC-ND-Chl" firstAttribute="leading" secondItem="dwQ-bP-jsd" secondAttribute="leadingMargin" id="M4n-tO-9fd"/>
                             <constraint firstItem="pTC-ND-Chl" firstAttribute="top" secondItem="NrF-S8-o48" secondAttribute="bottom" constant="8" id="Ywq-Dc-y6d"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="p8p-bG-cPn" secondAttribute="trailing" constant="-16" id="dXm-a1-mw9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p8p-bG-cPn" secondAttribute="trailing" id="dXm-a1-mw9"/>
                             <constraint firstItem="p8p-bG-cPn" firstAttribute="top" secondItem="NrF-S8-o48" secondAttribute="bottom" constant="54" id="myy-bI-Qrb"/>
                             <constraint firstItem="dLv-vq-B8F" firstAttribute="top" secondItem="p8p-bG-cPn" secondAttribute="bottom" constant="38" id="sB0-lA-5FS"/>
                         </constraints>
@@ -415,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abL-IT-CJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3350.625" y="721.47887323943655"/>
+            <point key="canvasLocation" x="3350" y="721"/>
         </scene>
         <!--Duel View Controller-->
         <scene sceneID="pqz-kY-fs9">
