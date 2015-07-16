@@ -1,6 +1,6 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Onboard" "${PODS_ROOT}/Headers/Public/SFCountdownView" "${PODS_ROOT}/Headers/Public/SVProgressHUD"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Onboard" -isystem "${PODS_ROOT}/Headers/Public/SFCountdownView" -isystem "${PODS_ROOT}/Headers/Public/SVProgressHUD"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-Onboard" -l"Pods-SFCountdownView" -l"Pods-SVProgressHUD" -framework "QuartzCore" -framework "UIKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Onboard" "${PODS_ROOT}/Headers/Public/SFCountdownView" "${PODS_ROOT}/Headers/Public/SIAlertView" "${PODS_ROOT}/Headers/Public/SVProgressHUD"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Onboard" -isystem "${PODS_ROOT}/Headers/Public/SFCountdownView" -isystem "${PODS_ROOT}/Headers/Public/SIAlertView" -isystem "${PODS_ROOT}/Headers/Public/SVProgressHUD"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-Onboard" -l"Pods-SFCountdownView" -l"Pods-SIAlertView" -l"Pods-SVProgressHUD" -framework "QuartzCore" -framework "UIKit"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

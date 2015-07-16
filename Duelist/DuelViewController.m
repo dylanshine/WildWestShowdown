@@ -18,6 +18,7 @@
 #import "GameOverViewController.h"
 #import "SoundPlayer.h"
 #import "GameLogic.h"
+#import "SIAlertView.h"
 
 @interface DuelViewController() <AVCaptureVideoDataOutputSampleBufferDelegate, SFCountdownViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -210,6 +211,21 @@
 }
 
 - (IBAction)quitButtonPressed:(id)sender {
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Are you sure you want to leave the duel?" andMessage:nil];
+    alertView.titleFont = [UIFont fontWithName:@"CoffeeTinInitials" size:20];
+    [alertView addButtonWithTitle:@"Yes"
+                             type:SIAlertViewButtonTypeDestructive
+                          handler:^(SIAlertView *alert) {
+                              [self.navigationController popToRootViewControllerAnimated:NO];
+                          }];
+    [alertView addButtonWithTitle:@"No"
+                             type:SIAlertViewButtonTypeCancel
+                          handler:^(SIAlertView *alert) {
+                              NSLog(@"No Clicked");
+                          }];
+    
+    alertView.transitionStyle = SIAlertViewTransitionStyleBounce;
+    [alertView show];
 }
 
 

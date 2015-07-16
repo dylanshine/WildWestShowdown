@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5D482926C2F91FE0E5613177"
+               BlueprintIdentifier = "C317D08DC985ADBFC8ED25E8"
                BuildableName = "libPods-SFCountdownView.a"
                BlueprintName = "Pods-SFCountdownView"
                ReferencedContainer = "container:Pods.xcodeproj">
