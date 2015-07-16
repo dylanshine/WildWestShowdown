@@ -256,13 +256,12 @@
                                 <rect key="frame" x="276" y="458" width="51" height="31"/>
                                 <connections>
                                     <action selector="flashSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="PDO-Ec-4A6"/>
-                                    <action selector="sfxSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="Qnd-Qf-ase"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJv-is-iR8">
                                 <rect key="frame" x="275" y="359" width="51" height="31"/>
                                 <connections>
-                                    <action selector="sfxSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="1kf-SI-UFM"/>
+                                    <action selector="sfxSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="UzK-NI-EuV"/>
                                 </connections>
                             </switch>
                         </subviews>
