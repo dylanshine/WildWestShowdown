@@ -21,6 +21,8 @@
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -47,17 +49,6 @@
                                     <segue destination="hrZ-wm-FkJ" kind="show" id="HqJ-Hp-g9D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-qX-zsE">
-                                <rect key="frame" x="222" y="330" width="156" height="45"/>
-                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="d3x-Nt-scI" kind="show" id="Nog-fN-KPg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Cw-YsM">
                                 <rect key="frame" x="187" y="224" width="226" height="45"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
@@ -79,24 +70,48 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0t-r7-0fc">
+                                <rect key="frame" x="220" y="330" width="159" height="45"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
+                                <state key="normal" title="Practice">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6Yb-La-W0c" kind="show" id="ep1-L9-KOt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-qX-zsE">
+                                <rect key="frame" x="221" y="383" width="156" height="45"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="d3x-Nt-scI" kind="show" id="Nog-fN-KPg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YL8-FO-zQX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="263" id="1Hp-Rl-cdK"/>
                             <constraint firstAttribute="centerY" secondItem="YL8-FO-zQX" secondAttribute="centerY" id="1af-hL-2aG"/>
-                            <constraint firstAttribute="centerX" secondItem="QHZ-qX-zsE" secondAttribute="centerX" id="1pW-jL-KU8"/>
+                            <constraint firstAttribute="centerX" secondItem="QHZ-qX-zsE" secondAttribute="centerX" constant="1" id="1pW-jL-KU8"/>
                             <constraint firstItem="YL8-FO-zQX" firstAttribute="top" secondItem="7mx-Cw-YsM" secondAttribute="bottom" constant="8" id="2VW-t2-UhM"/>
+                            <constraint firstItem="f0t-r7-0fc" firstAttribute="top" secondItem="YL8-FO-zQX" secondAttribute="bottom" constant="8" id="3rZ-rK-eH7"/>
                             <constraint firstItem="7mx-Cw-YsM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="222" id="Cdo-dm-8z8"/>
                             <constraint firstItem="YL8-FO-zQX" firstAttribute="top" secondItem="7mx-Cw-YsM" secondAttribute="bottom" constant="8" id="IeC-Bn-XxH"/>
                             <constraint firstItem="7mx-Cw-YsM" firstAttribute="top" secondItem="DYr-hc-1qe" secondAttribute="bottom" constant="23" id="P0j-fI-KGc"/>
                             <constraint firstAttribute="centerX" secondItem="YL8-FO-zQX" secondAttribute="centerX" id="Tm4-ML-xzG"/>
+                            <constraint firstAttribute="centerX" secondItem="f0t-r7-0fc" secondAttribute="centerX" id="UPn-lf-nj4"/>
                             <constraint firstAttribute="centerX" secondItem="DYr-hc-1qe" secondAttribute="centerX" id="Uq3-C4-Huu"/>
                             <constraint firstItem="7mx-Cw-YsM" firstAttribute="top" secondItem="DYr-hc-1qe" secondAttribute="bottom" constant="97.5" id="ZqC-K2-8dn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7mx-Cw-YsM" secondAttribute="trailing" constant="221" id="aoY-Eq-Q4j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QHZ-qX-zsE" secondAttribute="trailing" constant="242" id="bHs-gI-B6R"/>
                             <constraint firstItem="QHZ-qX-zsE" firstAttribute="top" secondItem="YL8-FO-zQX" secondAttribute="bottom" constant="8" id="e4n-gY-qPe"/>
                             <constraint firstItem="QHZ-qX-zsE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="243" id="esi-gO-Ic5"/>
-                            <constraint firstItem="QHZ-qX-zsE" firstAttribute="top" secondItem="YL8-FO-zQX" secondAttribute="bottom" constant="8" id="ir1-Yx-BuE"/>
+                            <constraint firstItem="QHZ-qX-zsE" firstAttribute="top" secondItem="f0t-r7-0fc" secondAttribute="bottom" constant="8" id="gRE-dy-sSB"/>
                             <constraint firstAttribute="centerX" secondItem="DYr-hc-1qe" secondAttribute="centerX" constant="-1" id="jDj-R3-k0l"/>
                             <constraint firstAttribute="centerX" secondItem="7mx-Cw-YsM" secondAttribute="centerX" id="kdr-6R-miu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YL8-FO-zQX" secondAttribute="trailing" constant="262" id="ocn-wv-Peg"/>
@@ -270,7 +285,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aJ-SY-dbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2575" y="1789"/>
+            <point key="canvasLocation" x="1710" y="1853"/>
+        </scene>
+        <!--Practice View Controller-->
+        <scene sceneID="jFR-Va-Quy">
+            <objects>
+                <viewController id="6Yb-La-W0c" customClass="PracticeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4qn-c9-cvJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="i1r-lJ-4RD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eHF-Ml-4bU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8i-Tt-DVW" userLabel="containerView" customClass="CapturePreviewView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onh-g0-9Vf">
+                                        <rect key="frame" x="8" y="8" width="60" height="37"/>
+                                        <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
+                                        <state key="normal" title="Quit">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="d3x-Nt-scI" eventType="touchUpInside" id="dwO-Yb-hON"/>
+                                            <action selector="quitButtonPressed:" destination="6Yb-La-W0c" eventType="touchUpInside" id="NdC-JR-7BE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Onh-g0-9Vf" firstAttribute="leading" secondItem="l8i-Tt-DVW" secondAttribute="leading" constant="8" id="MNT-Pi-STZ"/>
+                                    <constraint firstItem="Onh-g0-9Vf" firstAttribute="top" secondItem="l8i-Tt-DVW" secondAttribute="top" constant="8" id="XYv-hG-fNk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="l8i-Tt-DVW" secondAttribute="trailing" constant="-16" id="6gv-8w-5vO"/>
+                            <constraint firstItem="l8i-Tt-DVW" firstAttribute="top" secondItem="4qn-c9-cvJ" secondAttribute="bottom" id="A9v-57-4wl"/>
+                            <constraint firstItem="i1r-lJ-4RD" firstAttribute="top" secondItem="l8i-Tt-DVW" secondAttribute="bottom" id="GEP-YD-2HL"/>
+                            <constraint firstItem="l8i-Tt-DVW" firstAttribute="leading" secondItem="eHF-Ml-4bU" secondAttribute="leadingMargin" constant="-16" id="epv-1Q-c2Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="l8i-Tt-DVW" id="gjt-3S-7QG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNq-Z4-ciI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575" y="1853"/>
         </scene>
         <!--Join Game View Controller-->
         <scene sceneID="jDV-lV-VrF">

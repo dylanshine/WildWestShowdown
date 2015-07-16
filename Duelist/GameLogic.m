@@ -7,9 +7,7 @@
 //
 
 #import "GameLogic.h"
-#import <AVFoundation/AVFoundation.h>
 #import "MultipeerConnectivityHelper.h"
-#import "SoundPlayer.h"
 
 @interface GameLogic()
 @property (nonatomic) BOOL isCocked;
@@ -30,6 +28,7 @@
     }
     return self;
 }
+
 
 -(instancetype)init {
     self = [self initWithLives:3 StartTime:2 GameType:@"Standoff"];
@@ -132,11 +131,6 @@
     }
 }
 
--(void)playSound:(NSString *)soundPath {
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
-    AudioServicesPlaySystemSound(soundID);
-}
 
 - (void)flash {
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];

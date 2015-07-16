@@ -40,7 +40,7 @@
 - (void)handleDisconnection:(NSNotification *)notification {
     if (self.isBeingPresented) {
         [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.navigationController popToRootViewControllerAnimated:NO];
     }
 }
 

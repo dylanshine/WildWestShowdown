@@ -66,7 +66,7 @@
 
 - (void)handleDisconnection:(NSNotification *)notification {
     [SVProgressHUD showErrorWithStatus:@"Opponent Disconnected"];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 -(BOOL)prefersStatusBarHidden {

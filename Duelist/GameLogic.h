@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import "SoundPlayer.h"
 
 @interface GameLogic : NSObject
 @property (nonatomic) NSUInteger opponentLives;
@@ -22,4 +24,5 @@
 -(void)startDuelAtRandomTimeWithCompletion:(void (^)())completion;
 -(BOOL)opponentIsDead;
 -(float)gameDurationTime;
+- (void)flash;
 @end
