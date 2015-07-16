@@ -54,5 +54,4 @@
     self.isReloading = NO;
 }
 
-
 @end

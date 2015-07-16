@@ -11,6 +11,7 @@
 
 @interface SettingsViewController()
 @property (nonatomic) SoundPlayer *soundPlayer;
+@property (weak, nonatomic) IBOutlet UISwitch *flashSwitch;
 @property (weak, nonatomic) IBOutlet UISlider *musicSlider;
 @property (weak, nonatomic) IBOutlet UISwitch *sfxSwitch;
 @end
@@ -22,7 +23,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.soundPlayer = [SoundPlayer sharedPlayer];
     [self setupMusicSlider];
-    self.sfxSwitch.on = [[defaults objectForKey:@"sfx"] boolValue];
+    self.sfxSwitch.on = [defaults boolForKey:@"sfx"];
+    self.flashSwitch.on = [defaults boolForKey:@"flash"];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -40,6 +42,17 @@
     }
     [defaults synchronize];
 
+}
+
+- (IBAction)flashSwitchToggled:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    UISwitch *mySwitch = (UISwitch *)sender;
+    if ([mySwitch isOn]) {
+        [defaults setBool:YES forKey:@"flash"];
+    } else {
+        [defaults setBool:NO forKey:@"flash"];
+    }
+    [defaults synchronize];
 }
 
 - (IBAction)musicSlider:(UISlider *)sender {

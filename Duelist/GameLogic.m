@@ -137,14 +137,17 @@
 
 
 - (void)flash {
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    if ([device hasTorch] && [device hasFlash]){
-        [device lockForConfiguration:nil];
-        [device setTorchMode:AVCaptureTorchModeOn];
-        [device setFlashMode:AVCaptureFlashModeOn];
-        [device setTorchMode:AVCaptureTorchModeOff];
-        [device setFlashMode:AVCaptureFlashModeOff];
-        [device unlockForConfiguration];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:@"flash"]) {
+        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        if ([device hasTorch] && [device hasFlash]){
+            [device lockForConfiguration:nil];
+            [device setTorchMode:AVCaptureTorchModeOn];
+            [device setFlashMode:AVCaptureFlashModeOn];
+            [device setTorchMode:AVCaptureTorchModeOff];
+            [device setFlashMode:AVCaptureFlashModeOff];
+            [device unlockForConfiguration];
+        }
     }
 }
 

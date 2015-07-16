@@ -23,6 +23,7 @@
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -220,7 +221,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SFX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZ5-qV-Dcu">
-                                <rect key="frame" x="262" y="318" width="74" height="40"/>
+                                <rect key="frame" x="262" y="311" width="74" height="40"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -245,8 +246,21 @@
                                     <action selector="musicSlider:" destination="d3x-Nt-scI" eventType="valueChanged" id="ghL-z3-xRP"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-Xm-fHv">
+                                <rect key="frame" x="236" y="410" width="127" height="40"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7sw-tM-TDm">
+                                <rect key="frame" x="276" y="458" width="51" height="31"/>
+                                <connections>
+                                    <action selector="flashSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="PDO-Ec-4A6"/>
+                                    <action selector="sfxSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="Qnd-Qf-ase"/>
+                                </connections>
+                            </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJv-is-iR8">
-                                <rect key="frame" x="275" y="366" width="51" height="31"/>
+                                <rect key="frame" x="275" y="359" width="51" height="31"/>
                                 <connections>
                                     <action selector="sfxSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="1kf-SI-UFM"/>
                                 </connections>
@@ -255,18 +269,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QFn-Uh-eg5" firstAttribute="leading" secondItem="k77-3I-SNO" secondAttribute="leadingMargin" id="4xx-QY-DXO"/>
+                            <constraint firstAttribute="centerX" secondItem="60Z-Xm-fHv" secondAttribute="centerX" id="BxR-iV-1q1"/>
+                            <constraint firstItem="7sw-tM-TDm" firstAttribute="top" secondItem="60Z-Xm-fHv" secondAttribute="bottom" constant="8" id="Dur-iK-Reg"/>
                             <constraint firstAttribute="centerX" secondItem="JwX-ei-QSS" secondAttribute="centerX" id="O33-Kz-u48"/>
                             <constraint firstAttribute="centerX" secondItem="EZ5-qV-Dcu" secondAttribute="centerX" constant="1" id="Pbh-Vp-qIf"/>
                             <constraint firstItem="xDR-7Z-ccb" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="Sm6-ju-Rgb"/>
                             <constraint firstItem="xDR-7Z-ccb" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="Wfu-jv-6qB"/>
-                            <constraint firstItem="EZ5-qV-Dcu" firstAttribute="top" secondItem="xDR-7Z-ccb" secondAttribute="bottom" constant="29" id="b7A-Oq-6EV"/>
+                            <constraint firstItem="EZ5-qV-Dcu" firstAttribute="top" secondItem="xDR-7Z-ccb" secondAttribute="bottom" constant="22" id="b7A-Oq-6EV"/>
                             <constraint firstItem="QFn-Uh-eg5" firstAttribute="top" secondItem="nDO-8g-9hg" secondAttribute="bottom" constant="8" id="hLs-Ll-CCt"/>
                             <constraint firstItem="xDR-7Z-ccb" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="i0b-eH-bYx"/>
                             <constraint firstItem="xDR-7Z-ccb" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="mbH-si-3kV"/>
+                            <constraint firstAttribute="centerX" secondItem="7sw-tM-TDm" secondAttribute="centerX" id="nKK-CM-jge"/>
+                            <constraint firstItem="7sw-tM-TDm" firstAttribute="top" secondItem="60Z-Xm-fHv" secondAttribute="bottom" constant="8" id="nXM-RT-RE1"/>
                             <constraint firstAttribute="centerX" secondItem="rJv-is-iR8" secondAttribute="centerX" id="ndj-rE-T7L"/>
                             <constraint firstAttribute="centerX" secondItem="xDR-7Z-ccb" secondAttribute="centerX" constant="1" id="ofs-fQ-6jI"/>
                             <constraint firstItem="rJv-is-iR8" firstAttribute="top" secondItem="EZ5-qV-Dcu" secondAttribute="bottom" constant="8" id="pER-8N-wTl"/>
                             <constraint firstItem="JwX-ei-QSS" firstAttribute="top" secondItem="nDO-8g-9hg" secondAttribute="bottom" constant="147" id="qVM-oX-BS1"/>
+                            <constraint firstItem="60Z-Xm-fHv" firstAttribute="top" secondItem="rJv-is-iR8" secondAttribute="bottom" constant="20" id="v8z-wg-COg"/>
                             <constraint firstAttribute="centerX" secondItem="xDR-7Z-ccb" secondAttribute="centerX" constant="3" id="zE1-7j-J3f"/>
                         </constraints>
                         <variation key="default">
@@ -275,10 +294,12 @@
                                 <exclude reference="Wfu-jv-6qB"/>
                                 <exclude reference="mbH-si-3kV"/>
                                 <exclude reference="zE1-7j-J3f"/>
+                                <exclude reference="nXM-RT-RE1"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="flashSwitch" destination="7sw-tM-TDm" id="KQ7-VA-WK5"/>
                         <outlet property="musicSlider" destination="xDR-7Z-ccb" id="X5i-Ji-ZdC"/>
                         <outlet property="sfxSwitch" destination="rJv-is-iR8" id="5Pc-DI-n38"/>
                     </connections>
