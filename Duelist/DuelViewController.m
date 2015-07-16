@@ -209,6 +209,10 @@
     [self.game reload];
 }
 
+- (IBAction)quitButtonPressed:(id)sender {
+}
+
+
 #pragma mark - AVCaptureSession
 
 - (void)setupAVCapture {

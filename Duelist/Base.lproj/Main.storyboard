@@ -24,6 +24,7 @@
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -535,6 +536,19 @@
                                     <action selector="readyButtonPressed:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="bt6-gd-VVt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zi-DR-dco">
+                                <rect key="frame" x="8" y="72" width="60" height="37"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
+                                <state key="normal" title="Quit">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="d3x-Nt-scI" eventType="touchUpInside" id="hzx-VZ-LSA"/>
+                                    <action selector="quitButtonPressed:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="utU-vi-XAZ"/>
+                                    <action selector="quitButtonPressed:" destination="6Yb-La-W0c" eventType="touchUpInside" id="wU3-I1-fFw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -543,6 +557,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="PjK-G0-wT0" secondAttribute="trailing" constant="-16" id="6wy-LC-1bR"/>
                             <constraint firstItem="wGn-nU-tuQ" firstAttribute="top" secondItem="PjK-G0-wT0" secondAttribute="bottom" id="9rU-e8-ldQ"/>
                             <constraint firstItem="PjK-G0-wT0" firstAttribute="leading" secondItem="Ucg-dC-i3k" secondAttribute="leadingMargin" constant="-16" id="AGe-kO-ETg"/>
+                            <constraint firstItem="3Zi-DR-dco" firstAttribute="leading" secondItem="Ucg-dC-i3k" secondAttribute="leadingMargin" constant="-8" id="B7B-V8-D7m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PjK-G0-wT0" secondAttribute="trailing" constant="-16" id="DLO-BF-TNP"/>
                             <constraint firstItem="wGn-nU-tuQ" firstAttribute="top" secondItem="PjK-G0-wT0" secondAttribute="bottom" id="ESa-OU-lUU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fq9-Pm-MbM" secondAttribute="trailing" constant="-16" id="J4o-Py-HAP"/>
@@ -558,6 +573,7 @@
                             <constraint firstItem="PjK-G0-wT0" firstAttribute="top" secondItem="Ucg-dC-i3k" secondAttribute="topMargin" id="tWu-Dx-bwc"/>
                             <constraint firstItem="fq9-Pm-MbM" firstAttribute="leading" secondItem="Ucg-dC-i3k" secondAttribute="leadingMargin" constant="-16" id="ugY-h4-XBr"/>
                             <constraint firstItem="PjK-G0-wT0" firstAttribute="leading" secondItem="Ucg-dC-i3k" secondAttribute="leadingMargin" constant="-16" id="vv0-A3-hVT"/>
+                            <constraint firstItem="3Zi-DR-dco" firstAttribute="top" secondItem="rWv-xS-zqY" secondAttribute="bottom" constant="8" id="yWv-cx-kT8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

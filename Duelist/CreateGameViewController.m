@@ -98,7 +98,7 @@
     if (component == 0) {
         tView.text=[self.gameTypes objectAtIndex:row];
     } else {
-        NSString *bulletString = [NSString stringWithFormat:@"bullet%lu.png",row];
+        NSString *bulletString = [NSString stringWithFormat:@"bullet%d.png",row];
         UIImageView *bulletImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:bulletString]];
         return bulletImageView;
     }
