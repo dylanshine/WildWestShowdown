@@ -39,13 +39,7 @@
 }
 
 -(void)playBackgroundMusic {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([[defaults objectForKey:@"music"] boolValue]) {
-        self.backgroundPlayer.volume = 1.0;
-    } else {
-        self.backgroundPlayer.volume = 0.0;
-    }
-    
+
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.backgroundPlayer play];
     });
@@ -54,7 +48,7 @@
 -(void)playDuelingMusic {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([[defaults objectForKey:@"sfx"] boolValue]) {
-        self.duelPlayer.volume = 0.4;
+        self.duelPlayer.volume = 1.0;
     } else {
         self.duelPlayer.volume = 0.0;
     }

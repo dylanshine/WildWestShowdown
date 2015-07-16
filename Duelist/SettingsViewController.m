@@ -10,9 +10,9 @@
 #import "SoundPlayer.h"
 
 @interface SettingsViewController()
-@property (weak, nonatomic) IBOutlet UISwitch *musicSwitch;
+@property (nonatomic) SoundPlayer *soundPlayer;
+@property (weak, nonatomic) IBOutlet UISlider *musicSlider;
 @property (weak, nonatomic) IBOutlet UISwitch *sfxSwitch;
-
 @end
 
 @implementation SettingsViewController
@@ -20,26 +20,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.musicSwitch.on = [[defaults objectForKey:@"music"] boolValue];
+    self.soundPlayer = [SoundPlayer sharedPlayer];
+    [self setupMusicSlider];
     self.sfxSwitch.on = [[defaults objectForKey:@"sfx"] boolValue];
 }
 
-- (IBAction)musicSwitchToggled:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    UISwitch *mySwitch = (UISwitch *)sender;
-    if ([mySwitch isOn]) {
-        
-        [defaults setBool:YES forKey:@"music"];
-        [SoundPlayer sharedPlayer].backgroundPlayer.volume = 1.0;
-    } else {
-        [defaults setBool:NO forKey:@"music"];
-        [SoundPlayer sharedPlayer].backgroundPlayer.volume = 0.0;
-    }
-    [defaults synchronize];
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setupMusicSlider];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"%f",self.soundPlayer.backgroundPlayer.volume);
 }
 
 - (IBAction)sfxSwitchToggled:(id)sender {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     UISwitch *mySwitch = (UISwitch *)sender;
     if ([mySwitch isOn]) {
         [defaults setBool:YES forKey:@"sfx"];
@@ -47,7 +44,16 @@
         [defaults setBool:NO forKey:@"sfx"];
     }
     [defaults synchronize];
+
 }
+
+- (IBAction)musicSlider:(UISlider *)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.soundPlayer.backgroundPlayer.volume = sender.value;
+    [defaults setFloat:sender.value forKey:@"music"];
+    [defaults synchronize];
+}
+
 
 -(BOOL)prefersStatusBarHidden {
     return YES;
@@ -56,6 +62,12 @@
 - (IBAction)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 
+}
+
+-(void)setupMusicSlider {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.musicSlider.value = [defaults floatForKey:@"music"];
+    NSLog(@"%f",self.musicSlider.value);
 }
 
 @end

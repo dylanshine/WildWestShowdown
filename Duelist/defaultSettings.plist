@@ -5,7 +5,7 @@
 	<key>userHasOnboarded</key>
 	<false/>
 	<key>music</key>
-	<true/>
+	<integer>1</integer>
 	<key>sfx</key>
 	<true/>
 </dict>

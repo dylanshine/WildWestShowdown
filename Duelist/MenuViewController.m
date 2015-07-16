@@ -20,9 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.musicPlayer = [SoundPlayer sharedPlayer];
     [self.musicPlayer setupBackgroundMusicPlayer];
     [self.musicPlayer setupDuelingMusicPlayer];
+    self.musicPlayer.backgroundPlayer.volume = [defaults integerForKey:@"music"];
     
     BOOL userHasOnboarded = [[NSUserDefaults standardUserDefaults] boolForKey:@"userHasOnboarded"];
     if (!userHasOnboarded) {
@@ -40,6 +42,7 @@
     [super viewDidAppear:animated];
     [SVProgressHUD dismiss];
     [[MultipeerConnectivityHelper sharedMCHelper].session disconnect];
+    
     [self.musicPlayer playBackgroundMusic];
 }
 

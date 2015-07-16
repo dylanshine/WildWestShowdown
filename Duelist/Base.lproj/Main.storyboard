@@ -198,12 +198,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-wP-8yk">
-                                <rect key="frame" x="276" y="259" width="51" height="31"/>
-                                <connections>
-                                    <action selector="musicSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="GI0-A6-DZX"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwX-ei-QSS">
                                 <rect key="frame" x="238" y="211" width="123" height="40"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="40"/>
@@ -227,30 +221,51 @@
                                     <action selector="backButtonPressed:" destination="d3x-Nt-scI" eventType="touchUpInside" id="z2s-TG-RyX"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YwZ-cU-l4Y">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xDR-7Z-ccb">
+                                <rect key="frame" x="184" y="259" width="230" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="226" id="wcw-0z-iWw"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="musicSlider:" destination="d3x-Nt-scI" eventType="valueChanged" id="ghL-z3-xRP"/>
+                                </connections>
+                            </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJv-is-iR8">
                                 <rect key="frame" x="275" y="366" width="51" height="31"/>
                                 <connections>
-                                    <action selector="sfxSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="rab-DT-Q71"/>
+                                    <action selector="sfxSwitchToggled:" destination="d3x-Nt-scI" eventType="valueChanged" id="1kf-SI-UFM"/>
                                 </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QFn-Uh-eg5" firstAttribute="leading" secondItem="k77-3I-SNO" secondAttribute="leadingMargin" id="4xx-QY-DXO"/>
-                            <constraint firstAttribute="centerX" secondItem="3Zp-wP-8yk" secondAttribute="centerX" id="5Ns-Bm-ZGD"/>
-                            <constraint firstItem="3Zp-wP-8yk" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="8d1-EJ-qE3"/>
-                            <constraint firstAttribute="centerX" secondItem="YwZ-cU-l4Y" secondAttribute="centerX" id="BCn-XP-5DB"/>
                             <constraint firstAttribute="centerX" secondItem="JwX-ei-QSS" secondAttribute="centerX" id="O33-Kz-u48"/>
                             <constraint firstAttribute="centerX" secondItem="EZ5-qV-Dcu" secondAttribute="centerX" constant="1" id="Pbh-Vp-qIf"/>
+                            <constraint firstItem="xDR-7Z-ccb" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="Sm6-ju-Rgb"/>
+                            <constraint firstItem="xDR-7Z-ccb" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="Wfu-jv-6qB"/>
+                            <constraint firstItem="EZ5-qV-Dcu" firstAttribute="top" secondItem="xDR-7Z-ccb" secondAttribute="bottom" constant="29" id="b7A-Oq-6EV"/>
                             <constraint firstItem="QFn-Uh-eg5" firstAttribute="top" secondItem="nDO-8g-9hg" secondAttribute="bottom" constant="8" id="hLs-Ll-CCt"/>
-                            <constraint firstItem="YwZ-cU-l4Y" firstAttribute="top" secondItem="EZ5-qV-Dcu" secondAttribute="bottom" constant="8" id="kW3-bC-ojE"/>
+                            <constraint firstItem="xDR-7Z-ccb" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="i0b-eH-bYx"/>
+                            <constraint firstItem="xDR-7Z-ccb" firstAttribute="top" secondItem="JwX-ei-QSS" secondAttribute="bottom" constant="8" id="mbH-si-3kV"/>
+                            <constraint firstAttribute="centerX" secondItem="rJv-is-iR8" secondAttribute="centerX" id="ndj-rE-T7L"/>
+                            <constraint firstAttribute="centerX" secondItem="xDR-7Z-ccb" secondAttribute="centerX" constant="1" id="ofs-fQ-6jI"/>
+                            <constraint firstItem="rJv-is-iR8" firstAttribute="top" secondItem="EZ5-qV-Dcu" secondAttribute="bottom" constant="8" id="pER-8N-wTl"/>
                             <constraint firstItem="JwX-ei-QSS" firstAttribute="top" secondItem="nDO-8g-9hg" secondAttribute="bottom" constant="147" id="qVM-oX-BS1"/>
-                            <constraint firstItem="EZ5-qV-Dcu" firstAttribute="top" secondItem="3Zp-wP-8yk" secondAttribute="bottom" constant="28" id="s4i-eK-GGS"/>
+                            <constraint firstAttribute="centerX" secondItem="xDR-7Z-ccb" secondAttribute="centerX" constant="3" id="zE1-7j-J3f"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Sm6-ju-Rgb"/>
+                                <exclude reference="Wfu-jv-6qB"/>
+                                <exclude reference="mbH-si-3kV"/>
+                                <exclude reference="zE1-7j-J3f"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="musicSwitch" destination="3Zp-wP-8yk" id="eyu-Za-bt7"/>
-                        <outlet property="sfxSwitch" destination="YwZ-cU-l4Y" id="rXB-AT-TQ3"/>
+                        <outlet property="musicSlider" destination="xDR-7Z-ccb" id="X5i-Ji-ZdC"/>
+                        <outlet property="sfxSwitch" destination="rJv-is-iR8" id="5Pc-DI-n38"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aJ-SY-dbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
