@@ -64,16 +64,14 @@
     }];
 }
 
--(BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
 -(void)presentOnboardingViewController {
     [self presentViewController:[[WWSOnboardingViewController alloc] initWithCompletionHandler:^{
         [self dismissViewControllerAnimated:YES completion:nil];
     }] animated:YES completion:nil];
 }
 
-
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 @end

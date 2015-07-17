@@ -142,7 +142,6 @@
         DuelViewController *destination = segue.destinationViewController;
         destination.gameType = self.gameTypes[[self.pickerView selectedRowInComponent:0]];
         destination.numberOfShots = self.numberOfShots[[self.pickerView selectedRowInComponent:1]];
-        destination.playerNumber = @"1";
         destination.randomStart = [self.randomStart integerValue];
     }
 }

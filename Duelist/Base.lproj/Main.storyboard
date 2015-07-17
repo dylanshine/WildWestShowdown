@@ -31,6 +31,12 @@
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
+        </mutableArray>
+        <mutableArray key="RosewoodStd-Regular.otf">
+            <string>RosewoodStd-Regular</string>
+            <string>RosewoodStd-Regular</string>
+            <string>RosewoodStd-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -46,19 +52,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Cw-YsM">
-                                <rect key="frame" x="187" y="224" width="226" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YL8-FO-zQX">
+                                <rect key="frame" x="255" y="277" width="89" height="45"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
-                                <state key="normal" title="How To Play">
+                                <state key="normal" title="Play">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="k8f-Cn-PN7"/>
-                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oSn-my-Y3v"/>
-                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="lr6-t9-UGA"/>
-                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDown" id="xyH-XM-ukA"/>
-                                    <action selector="howToPlayButtonPushed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="F3d-SX-9Ec"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7J4-lS-4z3"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="WGN-DN-Xz0"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="S9F-hV-ATM"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDown" id="hpG-Rt-3cq"/>
+                                    <segue destination="hrZ-wm-FkJ" kind="show" id="HqJ-Hp-g9D"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wild West Showdown" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYr-hc-1qe">
@@ -101,19 +107,19 @@
                                     <segue destination="d3x-Nt-scI" kind="show" id="Nog-fN-KPg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YL8-FO-zQX">
-                                <rect key="frame" x="255" y="277" width="89" height="45"/>
-                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
-                                <state key="normal" title="Play">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Cw-YsM">
+                                <rect key="frame" x="190" y="217" width="221" height="52"/>
+                                <fontDescription key="fontDescription" name="RosewoodStd-Regular" family="Rosewood Std" pointSize="40"/>
+                                <state key="normal" title="How To Play">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7J4-lS-4z3"/>
-                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="WGN-DN-Xz0"/>
-                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="S9F-hV-ATM"/>
-                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDown" id="hpG-Rt-3cq"/>
-                                    <segue destination="hrZ-wm-FkJ" kind="show" id="HqJ-Hp-g9D"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="k8f-Cn-PN7"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oSn-my-Y3v"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="lr6-t9-UGA"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDown" id="xyH-XM-ukA"/>
+                                    <action selector="howToPlayButtonPushed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="F3d-SX-9Ec"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,6 +130,7 @@
                             <constraint firstAttribute="centerX" secondItem="QHZ-qX-zsE" secondAttribute="centerX" constant="1" id="1pW-jL-KU8"/>
                             <constraint firstItem="YL8-FO-zQX" firstAttribute="top" secondItem="7mx-Cw-YsM" secondAttribute="bottom" constant="8" id="2VW-t2-UhM"/>
                             <constraint firstItem="f0t-r7-0fc" firstAttribute="top" secondItem="YL8-FO-zQX" secondAttribute="bottom" constant="8" id="3rZ-rK-eH7"/>
+                            <constraint firstItem="7mx-Cw-YsM" firstAttribute="top" secondItem="DYr-hc-1qe" secondAttribute="bottom" constant="16" id="7Ua-BL-cEw"/>
                             <constraint firstItem="7mx-Cw-YsM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="222" id="Cdo-dm-8z8"/>
                             <constraint firstItem="YL8-FO-zQX" firstAttribute="top" secondItem="7mx-Cw-YsM" secondAttribute="bottom" constant="8" id="IeC-Bn-XxH"/>
                             <constraint firstItem="7mx-Cw-YsM" firstAttribute="top" secondItem="DYr-hc-1qe" secondAttribute="bottom" constant="23" id="P0j-fI-KGc"/>
@@ -145,6 +152,7 @@
                             <mask key="constraints">
                                 <exclude reference="jDj-R3-k0l"/>
                                 <exclude reference="Cdo-dm-8z8"/>
+                                <exclude reference="P0j-fI-KGc"/>
                                 <exclude reference="ZqC-K2-8dn"/>
                                 <exclude reference="aoY-Eq-Q4j"/>
                                 <exclude reference="rgF-Wm-2b3"/>
@@ -211,7 +219,7 @@
                                     <segue destination="yGk-Er-oYB" kind="show" id="Woz-U4-ug2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-Y6-ZDY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-Y6-ZDY">
                                 <rect key="frame" x="16" y="72" width="67" height="37"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
                                 <state key="normal" title="Back">
@@ -371,7 +379,7 @@
                                         <rect key="frame" x="8" y="8" width="60" height="37"/>
                                         <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
                                         <state key="normal" title="Quit">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.87843137250000003" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -603,7 +611,7 @@
                                 <rect key="frame" x="8" y="72" width="60" height="37"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
                                 <state key="normal" title="Quit">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.87843137250000003" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -680,96 +688,192 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQd-0W-b7Q">
-                                <rect key="frame" x="213" y="172" width="175" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQd-0W-b7Q">
+                                <rect key="frame" x="245" y="155" width="82" height="28"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Two" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZd-qh-9i3">
-                                <rect key="frame" x="207" y="315" width="183" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZd-qh-9i3">
+                                <rect key="frame" x="245" y="357" width="82" height="28"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AccuracyTwo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-0I-K1M">
-                                <rect key="frame" x="198" y="357" width="204" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accuracy%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNn-ma-nDn">
+                                <rect key="frame" x="201" y="227" width="167" height="31"/>
+                                <fontDescription key="fontDescription" name="RosewoodStd-Regular" family="Rosewood Std" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loF-DO-Od1">
+                                <rect key="frame" x="232" y="266" width="105" height="28"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ResultOne" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loF-DO-Od1">
-                                <rect key="frame" x="221" y="256" width="158" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5j5-TN-JPH">
+                                <rect key="frame" x="232" y="465" width="105" height="28"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ResultTwo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5j5-TN-JPH">
-                                <rect key="frame" x="218" y="399" width="166" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yA-Za-okW">
+                                <rect key="frame" x="231" y="119" width="112" height="28"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AccuracyOne" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNn-ma-nDn">
-                                <rect key="frame" x="202" y="208" width="196" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accuracy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xz-wj-JVL">
+                                <rect key="frame" x="215" y="191" width="144" height="28"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcW-bj-doq">
+                                <rect key="frame" x="215" y="321" width="142" height="28"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accuracy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yad-PP-CbX">
+                                <rect key="frame" x="214" y="393" width="144" height="28"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accuracy%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-0I-K1M">
+                                <rect key="frame" x="211" y="429" width="151" height="28"/>
+                                <fontDescription key="fontDescription" name="RosewoodStd-Regular" family="Rosewood Std" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="7yA-Za-okW" secondAttribute="centerX" constant="13.5" id="0Hk-ct-j26"/>
+                            <constraint firstAttribute="centerX" secondItem="SVh-0I-K1M" secondAttribute="centerX" constant="14" id="0Oj-rx-DWe"/>
+                            <constraint firstItem="loF-DO-Od1" firstAttribute="top" secondItem="tNn-ma-nDn" secondAttribute="bottom" constant="8" id="1uq-2I-p0P"/>
+                            <constraint firstAttribute="centerX" secondItem="yad-PP-CbX" secondAttribute="centerX" constant="14" id="2kL-WJ-HOm"/>
+                            <constraint firstAttribute="centerX" secondItem="xcW-bj-doq" secondAttribute="centerX" constant="14.5" id="2si-1j-h2D"/>
+                            <constraint firstItem="DZd-qh-9i3" firstAttribute="top" secondItem="xcW-bj-doq" secondAttribute="bottom" constant="8" id="4fu-ro-a0F"/>
+                            <constraint firstItem="7yA-Za-okW" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="55" id="4ra-ZD-oKI"/>
+                            <constraint firstItem="5j5-TN-JPH" firstAttribute="top" secondItem="SVh-0I-K1M" secondAttribute="bottom" constant="8" id="5My-LT-RQ8"/>
                             <constraint firstItem="tNn-ma-nDn" firstAttribute="top" secondItem="rQd-0W-b7Q" secondAttribute="bottom" constant="8" id="6fg-uy-KmL"/>
                             <constraint firstItem="loF-DO-Od1" firstAttribute="top" secondItem="tNn-ma-nDn" secondAttribute="bottom" constant="8" id="9fD-RY-Ls2"/>
+                            <constraint firstItem="xcW-bj-doq" firstAttribute="top" secondItem="loF-DO-Od1" secondAttribute="bottom" constant="27" id="ABj-Pk-OCy"/>
+                            <constraint firstAttribute="centerX" secondItem="loF-DO-Od1" secondAttribute="centerX" constant="16" id="AJf-48-jUV"/>
+                            <constraint firstItem="tNn-ma-nDn" firstAttribute="top" secondItem="7xz-wj-JVL" secondAttribute="bottom" constant="8" id="AaY-bs-Fp8"/>
                             <constraint firstAttribute="centerX" secondItem="tNn-ma-nDn" secondAttribute="centerX" id="AvW-BT-DzJ"/>
+                            <constraint firstItem="yad-PP-CbX" firstAttribute="top" secondItem="DZd-qh-9i3" secondAttribute="bottom" constant="8" id="Fbr-Jc-lib"/>
+                            <constraint firstAttribute="centerX" secondItem="7yA-Za-okW" secondAttribute="centerX" constant="13.5" id="IrA-a9-F9j"/>
+                            <constraint firstAttribute="centerX" secondItem="tNn-ma-nDn" secondAttribute="centerX" constant="15.5" id="JEc-FT-pEi"/>
                             <constraint firstAttribute="centerX" secondItem="DZd-qh-9i3" secondAttribute="centerX" constant="2" id="Krz-om-FZn"/>
                             <constraint firstItem="rQd-0W-b7Q" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="108" id="Lif-RU-mWs"/>
+                            <constraint firstAttribute="centerX" secondItem="yad-PP-CbX" secondAttribute="centerX" constant="14" id="MBN-5f-daW"/>
+                            <constraint firstItem="7xz-wj-JVL" firstAttribute="top" secondItem="rQd-0W-b7Q" secondAttribute="bottom" constant="8" id="MRL-Op-LfB"/>
                             <constraint firstItem="DZd-qh-9i3" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="117" id="ONK-MG-4ud"/>
+                            <constraint firstAttribute="centerX" secondItem="5j5-TN-JPH" secondAttribute="centerX" constant="16" id="ONj-Ag-3WO"/>
                             <constraint firstItem="tNn-ma-nDn" firstAttribute="top" secondItem="rQd-0W-b7Q" secondAttribute="bottom" constant="8" id="P7t-uM-L0j"/>
+                            <constraint firstItem="SVh-0I-K1M" firstAttribute="top" secondItem="yad-PP-CbX" secondAttribute="bottom" constant="8" id="PX6-gD-V7f"/>
                             <constraint firstItem="loF-DO-Od1" firstAttribute="leading" secondItem="sz4-n2-4Y4" secondAttribute="leadingMargin" constant="85" id="Rlm-A2-yWj"/>
                             <constraint firstItem="tNn-ma-nDn" firstAttribute="leading" secondItem="sz4-n2-4Y4" secondAttribute="leadingMargin" constant="85" id="RmZ-jX-Hiq"/>
                             <constraint firstItem="SVh-0I-K1M" firstAttribute="top" secondItem="DZd-qh-9i3" secondAttribute="bottom" constant="8" id="T49-Cs-acq"/>
                             <constraint firstItem="DZd-qh-9i3" firstAttribute="leading" secondItem="rQd-0W-b7Q" secondAttribute="trailing" constant="196" id="Utk-ye-gyE"/>
                             <constraint firstAttribute="centerX" secondItem="loF-DO-Od1" secondAttribute="centerX" id="XEh-n6-TSl"/>
+                            <constraint firstItem="SVh-0I-K1M" firstAttribute="top" secondItem="yad-PP-CbX" secondAttribute="bottom" constant="8" id="XU2-P8-GSn"/>
+                            <constraint firstItem="7yA-Za-okW" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="55" id="Y9t-a3-xlb"/>
+                            <constraint firstAttribute="centerX" secondItem="xcW-bj-doq" secondAttribute="centerX" constant="14.5" id="YH6-r8-qef"/>
                             <constraint firstAttribute="centerX" secondItem="SVh-0I-K1M" secondAttribute="centerX" constant="-0.5" id="YU5-cS-g38"/>
+                            <constraint firstAttribute="centerX" secondItem="tNn-ma-nDn" secondAttribute="centerX" constant="14" id="YWB-KP-ysc"/>
+                            <constraint firstItem="tNn-ma-nDn" firstAttribute="top" secondItem="7xz-wj-JVL" secondAttribute="bottom" constant="8" id="ZDH-zU-T6k"/>
+                            <constraint firstItem="rQd-0W-b7Q" firstAttribute="top" secondItem="7yA-Za-okW" secondAttribute="bottom" constant="8" id="ZSs-CZ-I0R"/>
+                            <constraint firstAttribute="centerX" secondItem="rQd-0W-b7Q" secondAttribute="centerX" constant="14" id="bNR-fr-DMC"/>
                             <constraint firstItem="loF-DO-Od1" firstAttribute="top" secondItem="tNn-ma-nDn" secondAttribute="bottom" constant="20" id="bdB-GU-2SD"/>
+                            <constraint firstItem="DZd-qh-9i3" firstAttribute="top" secondItem="xcW-bj-doq" secondAttribute="bottom" constant="8" id="cP6-Mk-LUX"/>
                             <constraint firstItem="SVh-0I-K1M" firstAttribute="top" secondItem="DZd-qh-9i3" secondAttribute="bottom" constant="14" id="crY-Jm-ppa"/>
+                            <constraint firstItem="rQd-0W-b7Q" firstAttribute="top" secondItem="7yA-Za-okW" secondAttribute="bottom" constant="8" id="dKK-j6-ua0"/>
                             <constraint firstAttribute="centerX" secondItem="5j5-TN-JPH" secondAttribute="centerX" constant="-0.5" id="dTv-4j-Wg9"/>
+                            <constraint firstAttribute="centerX" secondItem="5j5-TN-JPH" secondAttribute="centerX" constant="16" id="fff-Gu-GOP"/>
+                            <constraint firstAttribute="centerX" secondItem="7xz-wj-JVL" secondAttribute="centerX" constant="13" id="g8N-bd-Okj"/>
+                            <constraint firstItem="loF-DO-Od1" firstAttribute="top" secondItem="tNn-ma-nDn" secondAttribute="bottom" constant="8" id="ixl-EC-d0m"/>
                             <constraint firstItem="SVh-0I-K1M" firstAttribute="leading" secondItem="tNn-ma-nDn" secondAttribute="trailing" constant="177" id="jkf-IY-QYm"/>
                             <constraint firstItem="rQd-0W-b7Q" firstAttribute="leading" secondItem="sz4-n2-4Y4" secondAttribute="leadingMargin" constant="85" id="kqY-Sw-czk"/>
+                            <constraint firstItem="5j5-TN-JPH" firstAttribute="top" secondItem="SVh-0I-K1M" secondAttribute="bottom" constant="8" id="l67-Bz-F9Z"/>
+                            <constraint firstAttribute="centerX" secondItem="loF-DO-Od1" secondAttribute="centerX" constant="16" id="mIG-d6-e9T"/>
                             <constraint firstItem="tNn-ma-nDn" firstAttribute="top" secondItem="rQd-0W-b7Q" secondAttribute="bottom" constant="8" id="nRy-vb-KZi"/>
+                            <constraint firstAttribute="centerX" secondItem="DZd-qh-9i3" secondAttribute="centerX" constant="14" id="nSm-xv-w2Q"/>
                             <constraint firstItem="DZd-qh-9i3" firstAttribute="top" secondItem="loF-DO-Od1" secondAttribute="bottom" constant="31" id="o5N-WD-AoP"/>
                             <constraint firstItem="5j5-TN-JPH" firstAttribute="leading" secondItem="loF-DO-Od1" secondAttribute="trailing" constant="201" id="oiN-OO-jkx"/>
+                            <constraint firstAttribute="centerX" secondItem="rQd-0W-b7Q" secondAttribute="centerX" constant="14" id="rkl-r4-1yn"/>
                             <constraint firstItem="5j5-TN-JPH" firstAttribute="top" secondItem="SVh-0I-K1M" secondAttribute="bottom" constant="14" id="ssp-uE-42a"/>
+                            <constraint firstItem="yad-PP-CbX" firstAttribute="top" secondItem="DZd-qh-9i3" secondAttribute="bottom" constant="8" id="utx-zR-ZYU"/>
+                            <constraint firstAttribute="centerX" secondItem="7xz-wj-JVL" secondAttribute="centerX" constant="13" id="uvL-2S-rjG"/>
+                            <constraint firstItem="xcW-bj-doq" firstAttribute="top" secondItem="loF-DO-Od1" secondAttribute="bottom" constant="27" id="vev-ms-aXI"/>
                             <constraint firstAttribute="centerX" secondItem="tNn-ma-nDn" secondAttribute="centerX" id="xJ6-ad-14f"/>
                             <constraint firstAttribute="centerX" secondItem="rQd-0W-b7Q" secondAttribute="centerX" constant="-0.5" id="xL0-30-tbI"/>
+                            <constraint firstItem="7xz-wj-JVL" firstAttribute="top" secondItem="rQd-0W-b7Q" secondAttribute="bottom" constant="8" id="xbq-Pr-ns9"/>
+                            <constraint firstAttribute="centerX" secondItem="DZd-qh-9i3" secondAttribute="centerX" constant="14" id="yhm-Lw-Fxa"/>
+                            <constraint firstAttribute="centerX" secondItem="SVh-0I-K1M" secondAttribute="centerX" constant="14" id="zZP-yV-nDO"/>
                             <constraint firstItem="rQd-0W-b7Q" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="117" id="zkp-F5-QpN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="0Hk-ct-j26"/>
+                                <exclude reference="Y9t-a3-xlb"/>
+                                <exclude reference="MRL-Op-LfB"/>
+                                <exclude reference="g8N-bd-Okj"/>
+                                <exclude reference="Lif-RU-mWs"/>
+                                <exclude reference="dKK-j6-ua0"/>
                                 <exclude reference="kqY-Sw-czk"/>
+                                <exclude reference="rkl-r4-1yn"/>
+                                <exclude reference="xL0-30-tbI"/>
                                 <exclude reference="zkp-F5-QpN"/>
                                 <exclude reference="6fg-uy-KmL"/>
                                 <exclude reference="AvW-BT-DzJ"/>
                                 <exclude reference="P7t-uM-L0j"/>
                                 <exclude reference="RmZ-jX-Hiq"/>
+                                <exclude reference="YWB-KP-ysc"/>
+                                <exclude reference="ZDH-zU-T6k"/>
+                                <exclude reference="nRy-vb-KZi"/>
+                                <exclude reference="xJ6-ad-14f"/>
                                 <exclude reference="9fD-RY-Ls2"/>
+                                <exclude reference="AJf-48-jUV"/>
                                 <exclude reference="Rlm-A2-yWj"/>
+                                <exclude reference="XEh-n6-TSl"/>
+                                <exclude reference="bdB-GU-2SD"/>
+                                <exclude reference="ixl-EC-d0m"/>
+                                <exclude reference="ABj-Pk-OCy"/>
+                                <exclude reference="YH6-r8-qef"/>
+                                <exclude reference="4fu-ro-a0F"/>
+                                <exclude reference="Krz-om-FZn"/>
                                 <exclude reference="ONK-MG-4ud"/>
                                 <exclude reference="Utk-ye-gyE"/>
+                                <exclude reference="nSm-xv-w2Q"/>
+                                <exclude reference="o5N-WD-AoP"/>
+                                <exclude reference="2kL-WJ-HOm"/>
+                                <exclude reference="Fbr-Jc-lib"/>
+                                <exclude reference="0Oj-rx-DWe"/>
+                                <exclude reference="PX6-gD-V7f"/>
                                 <exclude reference="T49-Cs-acq"/>
+                                <exclude reference="YU5-cS-g38"/>
+                                <exclude reference="crY-Jm-ppa"/>
                                 <exclude reference="jkf-IY-QYm"/>
+                                <exclude reference="ONj-Ag-3WO"/>
+                                <exclude reference="dTv-4j-Wg9"/>
+                                <exclude reference="l67-Bz-F9Z"/>
                                 <exclude reference="oiN-OO-jkx"/>
+                                <exclude reference="ssp-uE-42a"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="accuracyLabelOne" destination="tNn-ma-nDn" id="7iV-53-lUk"/>
-                        <outlet property="accuracyLabelTwo" destination="SVh-0I-K1M" id="laC-3I-jD2"/>
-                        <outlet property="playerOneNameLabel" destination="rQd-0W-b7Q" id="ZEq-Ij-Ihs"/>
-                        <outlet property="playerTwoNameLabel" destination="DZd-qh-9i3" id="16F-MT-L4T"/>
-                        <outlet property="resultOneLabel" destination="loF-DO-Od1" id="KLz-Lk-n4o"/>
-                        <outlet property="resultTwoLabel" destination="5j5-TN-JPH" id="OhI-22-uTD"/>
+                        <outlet property="opponentAccuracyLabel" destination="SVh-0I-K1M" id="l5x-kz-ONl"/>
+                        <outlet property="opponentNameLabel" destination="DZd-qh-9i3" id="Ir2-Hy-5Zd"/>
+                        <outlet property="opponentResultLabel" destination="5j5-TN-JPH" id="snW-Fw-yKJ"/>
+                        <outlet property="playerAccuracyLabel" destination="tNn-ma-nDn" id="Yp0-mV-Hgl"/>
+                        <outlet property="playerNameLabel" destination="rQd-0W-b7Q" id="rqM-QR-uHd"/>
+                        <outlet property="playerResultLabel" destination="loF-DO-Od1" id="GQo-co-ubd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pa2-QB-FCY" userLabel="First Responder" sceneMemberID="firstResponder"/>

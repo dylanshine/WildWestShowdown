@@ -11,6 +11,5 @@
 @interface DuelViewController : UIViewController
 @property (nonatomic) NSString *gameType;
 @property (nonatomic) NSString *numberOfShots;
-@property (nonatomic) NSString *playerNumber;
 @property (nonatomic) NSUInteger randomStart;
 @end

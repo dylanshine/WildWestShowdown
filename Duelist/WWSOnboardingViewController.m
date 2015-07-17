@@ -33,7 +33,7 @@
     self.swipingEnabled = YES;
     self.backgroundImage = [UIImage imageNamed:@"background"];
     self.skipHandler = _handler;
-    [self.skipButton setTitle:@"X" forState:UIControlStateNormal];
+    [self.skipButton setTitle:@"Exit" forState:UIControlStateNormal];
     
     __weak typeof(self) weakSelf = self;
     
@@ -59,8 +59,6 @@
 - (void)doSomethingWithCompletionHandler:(dispatch_block_t)handler {
     handler();
 }
-
-
 
 -(BOOL)prefersStatusBarHidden {
     return YES;

@@ -17,7 +17,7 @@
 
 @end
 
-#define COUNTDOWN_LABEL_FONT_SCALE_FACTOR 0.3
+#define COUNTDOWN_LABEL_FONT_SCALE_FACTOR 0.2
 
 @implementation SFCountdownView
 

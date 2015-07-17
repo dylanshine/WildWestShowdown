@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameLogic.h"
 
 @interface GameOverViewController : UIViewController
-@property (nonatomic) float gameTime;
-@property (nonatomic) NSString *result;
-@property (nonatomic) NSString *accuracy;
-@property (nonatomic) NSString *playerNumber;
+@property (nonatomic) GameLogic *game;
 @end

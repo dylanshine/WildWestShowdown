@@ -69,11 +69,6 @@
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
--(BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
-
 - (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info {
     
     FoundPlayer *player = [[FoundPlayer alloc] initWithPeerID:peerID DiscoveryInfo:info];
@@ -140,7 +135,6 @@
         destination.gameType = player.discoveryInfo[@"gameType"];
         destination.numberOfShots = player.discoveryInfo[@"shots"];
         destination.randomStart = [player.discoveryInfo[@"startTime"] integerValue];
-        destination.playerNumber = @"2";
     }
 }
 
@@ -170,5 +164,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 @end

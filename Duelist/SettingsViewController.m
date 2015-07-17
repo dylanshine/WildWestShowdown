@@ -62,11 +62,6 @@
     [defaults synchronize];
 }
 
-
--(BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
 - (IBAction)enlargeButtonAnimation:(UIButton *)sender {
     [UIView animateWithDuration:0.1f animations:^{
         sender.transform = CGAffineTransformMakeScale(1.2f, 1.2f);
@@ -87,6 +82,10 @@
 -(void)setupMusicSlider {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.musicSlider.value = [defaults floatForKey:@"music"];
+}
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

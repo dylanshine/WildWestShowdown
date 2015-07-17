@@ -14,14 +14,13 @@
 @interface GameOverViewController()
 @property (nonatomic) MultipeerConnectivityHelper *mpcHelper;
 
-@property (weak, nonatomic) IBOutlet UILabel *playerOneNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *playerTwoNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *playerNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *playerAccuracyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *playerResultLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *accuracyLabelOne;
-@property (weak, nonatomic) IBOutlet UILabel *accuracyLabelTwo;
-
-@property (weak, nonatomic) IBOutlet UILabel *resultOneLabel;
-@property (weak, nonatomic) IBOutlet UILabel *resultTwoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *opponentNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *opponentAccuracyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *opponentResultLabel;
 
 @end
 
@@ -29,8 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setLabels) name:@"StatsReceived" object:nil];
     self.mpcHelper = [MultipeerConnectivityHelper sharedMCHelper];
-
     
     UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                       action:@selector(backToMenu)];
@@ -39,70 +38,27 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleReceivedDataWithNotification:)
-                                                 name:@"MessageReceived"
-                                               object:nil];
     
-    
-    
-    NSDictionary *dictionary = @{
-                                 @"opponentNumber":self.playerNumber,
-                                 @"opponentName":self.mpcHelper.peerID.displayName,
-                                 @"opponentAccuracy":self.accuracy,
-                                 @"opponentResult":self.result};
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dictionary];
-    NSError *error = nil;
-    [self.mpcHelper.session sendData:data
-                             toPeers:self.mpcHelper.session.connectedPeers
-                            withMode:MCSessionSendDataReliable
-                               error:&error];
-    
-    if (error != nil) {
-        NSLog(@"%@", [error localizedDescription]);
+    if (self.game.opponentName) {
+        [self setLabels];
+    } else {
+        [SVProgressHUD showWithStatus:@"Loading Duel Stats" maskType:SVProgressHUDMaskTypeBlack];
     }
-    [SVProgressHUD showWithStatus:@"Loading Duel Results" maskType:SVProgressHUDMaskTypeBlack];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MessageReceived" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"StatsReceived" object:nil];
 }
 
-
-#pragma mark - NSNotifications
-- (void)handleReceivedDataWithNotification:(NSNotification *)notification {
-    NSDictionary *userInfoDict = [notification userInfo];
-    NSData *receivedData = [userInfoDict objectForKey:@"data"];
-    NSDictionary *dictionary = [NSKeyedUnarchiver unarchiveObjectWithData:receivedData];
-    NSLog(@"%@",dictionary);
-    
-    NSLog(@"%@", [dictionary[@"opponentNumber"] class]);
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if ([dictionary[@"opponentNumber"] isEqualToString:@"1"]) {
-            self.playerOneNameLabel.text = dictionary[@"opponentName"];
-            self.accuracyLabelOne.text = dictionary[@"opponentAccuracy"];
-            self.resultOneLabel.text = dictionary[@"opponentResult"];
-            self.playerTwoNameLabel.text = self.mpcHelper.peerID.displayName;
-            self.accuracyLabelTwo.text = self.accuracy;
-            self.resultTwoLabel.text = self.result;
-        } else {
-            self.playerTwoNameLabel.text = dictionary[@"opponentName"];
-            self.accuracyLabelTwo.text = dictionary[@"opponentAccuracy"];
-            self.resultTwoLabel.text = dictionary[@"opponentResult"];
-            self.playerOneNameLabel.text = self.mpcHelper.peerID.displayName;
-            self.accuracyLabelOne.text = self.accuracy;
-            self.resultOneLabel.text = self.result;
-        }
-        [self.view updateConstraintsIfNeeded];
-        [SVProgressHUD dismiss];
-    });
-}
-
--(NSString *)formatGameTime {
-    NSString *time = [NSString stringWithFormat:@"Game Time: %.02f Seconds",self.gameTime];
-    return time;
+-(void) setLabels {
+    [SVProgressHUD dismiss];
+    self.playerNameLabel.text = self.game.playerName;
+    self.playerAccuracyLabel.text = self.game.playerAccuracy;
+    self.playerResultLabel.text = self.game.playerResult;
+    self.opponentNameLabel.text = self.game.opponentName;
+    self.opponentAccuracyLabel.text = self.game.opponentAccuracy;
+    self.opponentResultLabel.text = self.game.opponentResult;
 }
 
 
@@ -113,5 +69,4 @@
 -(BOOL)prefersStatusBarHidden {
     return YES;
 }
-
 @end

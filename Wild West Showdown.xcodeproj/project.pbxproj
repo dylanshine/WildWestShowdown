@@ -20,6 +20,7 @@
 		FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F631B4E02960053D83D /* MainNavigationController.m */; };
 		FC49063E1B58060C005D376F /* PracticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49063D1B58060C005D376F /* PracticeViewController.m */; };
 		FC4906441B5809D4005D376F /* PracticeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4906431B5809D4005D376F /* PracticeMode.m */; };
+		FC49064C1B59780D005D376F /* RosewoodStd-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC49064B1B59780D005D376F /* RosewoodStd-Regular.otf */; };
 		FCBC47B11B4E2A4C00B26900 /* MultipeerConnectivityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC47B01B4E2A4C00B26900 /* MultipeerConnectivityHelper.m */; };
 		FCD32F4C1B5449BD0025D421 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD32F4B1B5449BD0025D421 /* SoundPlayer.m */; };
 		FCD32F511B544F590025D421 /* GameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD32F501B544F590025D421 /* GameLogic.m */; };
@@ -82,6 +83,7 @@
 		FC49063D1B58060C005D376F /* PracticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeViewController.m; sourceTree = "<group>"; };
 		FC4906421B5809D4005D376F /* PracticeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeMode.h; sourceTree = "<group>"; };
 		FC4906431B5809D4005D376F /* PracticeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeMode.m; sourceTree = "<group>"; };
+		FC49064B1B59780D005D376F /* RosewoodStd-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RosewoodStd-Regular.otf"; sourceTree = "<group>"; };
 		FCBC47AF1B4E2A4C00B26900 /* MultipeerConnectivityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerConnectivityHelper.h; sourceTree = "<group>"; };
 		FCBC47B01B4E2A4C00B26900 /* MultipeerConnectivityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerConnectivityHelper.m; sourceTree = "<group>"; };
 		FCD32F4A1B5449BD0025D421 /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				FCE969B31B571D39007E357E /* CoffeeTinInitials.ttf */,
+				FC49064B1B59780D005D376F /* RosewoodStd-Regular.otf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				FCD32F541B5468CF0025D421 /* tumbleTownShorten.mp3 in Resources */,
 				FC2B6F471B4DEEBD0053D83D /* LaunchScreen.xib in Resources */,
 				FCD32F591B5480140025D421 /* revolverClick.mp3 in Resources */,
+				FC49064C1B59780D005D376F /* RosewoodStd-Regular.otf in Resources */,
 				FCE620CE1B56160C0085389C /* boots.wav in Resources */,
 				FCE969B61B572478007E357E /* duel.mp3 in Resources */,
 				FCE0BCE81B52613700EB0BE5 /* draw.wav in Resources */,

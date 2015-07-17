@@ -19,7 +19,11 @@
 
 @implementation GameLogic
 
--(instancetype)initWithLives:(NSUInteger)opponentLives StartTime:(NSUInteger)startTime GameType:(NSString *)gameType {
+-(instancetype)initWithLives:(NSUInteger)opponentLives
+                   StartTime:(NSUInteger)startTime
+                    GameType:(NSString *)gameType
+                  PlayerName:(NSString *)name {
+    
     if (self = [super init]) {
         _bullets = 6;
         _isCocked = NO;
@@ -27,15 +31,36 @@
         _opponentLives = opponentLives;
         _startTime = startTime;
         _gameType = gameType;
+        _playerName = name;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleReceivedDataWithNotification:)
+                                                     name:@"MessageReceived"
+                                                   object:nil];
+
     }
     return self;
 }
 
 
 -(instancetype)init {
-    self = [self initWithLives:3 StartTime:2 GameType:@"Standoff"];
+    self = [self initWithLives:3 StartTime:2 GameType:@"Standoff" PlayerName:@"Clint"];
     return self;
 }
+
+- (void)handleReceivedDataWithNotification:(NSNotification *)notification {
+    NSDictionary *userInfoDict = [notification userInfo];
+    NSData *receivedData = [userInfoDict objectForKey:@"data"];
+    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:receivedData];
+    
+    if ([dict[@"message"] isEqualToString:@"Stats"]) {
+        self.opponentName = dict[@"name"];
+        self.opponentAccuracy = dict[@"accuracy"];
+        self.opponentResult = dict[@"result"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"StatsReceived" object:nil];
+    }
+}
+
 
 -(void)fireAtPlayer:(NSUInteger)player {
     if (self.isCocked && self.bullets > 0) {
@@ -54,6 +79,7 @@
     
     if ([self opponentIsDead]) {
         [self playerKilledMessage];
+        [self statsMessage];
     }
     self.isCocked = NO;
 }
@@ -86,14 +112,33 @@
 }
 
 - (void)playerKilledMessage {
-    self.result = @"Winner";
-    NSData *data = [@"Killed" dataUsingEncoding:NSUTF8StringEncoding];
+    self.playerResult = @"Winner";
+    self.playerAccuracy = [self accuracyString];
+    NSDictionary *dict = @{@"message":@"Killed"};
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
     NSError *error;
     [[[MultipeerConnectivityHelper sharedMCHelper] session] sendData:data
-                             toPeers:[[[MultipeerConnectivityHelper sharedMCHelper] session] connectedPeers]
+                             toPeers:[MultipeerConnectivityHelper sharedMCHelper].session.connectedPeers
                             withMode:MCSessionSendDataReliable
                                error:&error];
     
+    if (error != nil) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+}
+
+- (void)statsMessage {
+    NSDictionary *dictionary = @{@"message":@"Stats",
+                                 @"name":self.playerName,
+                                 @"accuracy":[self accuracyString],
+                                 @"result":self.playerResult};
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dictionary];
+    NSError *error = nil;
+    [[MultipeerConnectivityHelper sharedMCHelper].session sendData:data
+                                                           toPeers:[MultipeerConnectivityHelper sharedMCHelper].session.connectedPeers
+                                                          withMode:MCSessionSendDataReliable
+                                                             error:&error];
     if (error != nil) {
         NSLog(@"%@", [error localizedDescription]);
     }
@@ -151,6 +196,7 @@
     }
 }
 
+
 #pragma mark - Calculations
 
 -(NSString *)accuracyString {
@@ -164,6 +210,10 @@
 
 -(float)gameDurationTime {
     return [self.gameBegin timeIntervalSinceNow] * -1.0;
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

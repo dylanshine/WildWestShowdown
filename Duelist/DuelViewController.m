@@ -30,6 +30,7 @@
 @property (nonatomic) BOOL opponentReady;
 @property (nonatomic) GameLogic *game;
 @property (nonatomic) double gameClock;
+@property (nonatomic) NSDate *timeToStart;
 
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
 @property (nonatomic) dispatch_queue_t videoDataOutputQueue;
@@ -45,9 +46,11 @@
     [super viewDidLoad];
     self.mpcHelper = [MultipeerConnectivityHelper sharedMCHelper];
     self.countDownView.delegate = self;
-    self.countDownView.backgroundAlpha = 0.2;
+    self.countDownView.backgroundAlpha = 0.5;
+    self.countDownView.fontName = @"RosewoodStd-Regular";
     self.countDownView.countdownColor = [UIColor blackColor];
     self.countDownView.countdownFrom = 3;
+    self.countDownView.finishText = @"Duel";
     [self.countDownView updateAppearance];
     [self setupAVCapture];
     
@@ -82,18 +85,22 @@
 - (void)handleReceivedDataWithNotification:(NSNotification *)notification {
     NSDictionary *userInfoDict = [notification userInfo];
     NSData *receivedData = [userInfoDict objectForKey:@"data"];
-    NSString *message = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+    NSDictionary *dict = (NSDictionary *)[NSKeyedUnarchiver unarchiveObjectWithData:receivedData];
     
-    if ([message isEqualToString:@"Ready"]) {
+    if ([dict[@"message"] isEqualToString:@"Ready"]) {
         self.opponentReady = YES;
         [self bothPlayersReady];
-    } else if ([message isEqualToString:@"Killed"]) {
-        self.game.result = @"Loser";
+    } else if ([dict[@"message"] isEqualToString:@"Killed"]) {
+        self.game.playerResult = @"Loser";
+        self.game.playerAccuracy = [self.game accuracyString];
+        [self.game statsMessage];
         [self performSegueWithIdentifier:@"gameOverSegue" sender:self];
-    } else {
-        NSTimeInterval timeToStartFloat = [message doubleValue];
-        NSDate *timeToStart = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:timeToStartFloat];
-        [self startDuelAtDate:timeToStart];
+    } else if ([dict[@"message"] isEqualToString:@"Time"]){
+        if (!self.timeToStart) {
+            NSTimeInterval timeToStartFloat = [dict[@"time"] doubleValue];
+            self.timeToStart = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:timeToStartFloat];
+            [self startDuelAtDate:self.timeToStart];
+        }
     }
 }
 
@@ -105,17 +112,16 @@
 #pragma mark - Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     GameOverViewController *destination = segue.destinationViewController;
-    destination.gameTime = [self.game gameDurationTime];
-    destination.result = self.game.result;
-    destination.accuracy = [self.game accuracyString];
-    destination.playerNumber = self.playerNumber;
+    destination.game = self.game;
 }
 
 #pragma mark - Ready
 
 - (IBAction)readyButtonPressed:(id)sender {
     self.playerReady = YES;
-    NSData *data = [@"Ready" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSDictionary *dict = @{@"message":@"Ready"};
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
     NSError *error = nil;
     [self.mpcHelper.session sendData:data
                              toPeers:self.mpcHelper.session.connectedPeers
@@ -138,11 +144,14 @@
 }
 
 -(void) bothPlayersReady {
-    if (self.playerReady && self.opponentReady) {
-        NSDate *timeToStart = [[NSDate date] dateByAddingTimeInterval:3];
-        NSTimeInterval timeToStartFloat = [timeToStart timeIntervalSinceReferenceDate];
+    if (self.playerReady && self.opponentReady && !self.timeToStart) {
+        self.timeToStart = [[NSDate date] dateByAddingTimeInterval:3];
+        NSTimeInterval timeToStartFloat = [self.timeToStart timeIntervalSinceReferenceDate];
         NSString *timeToStartString = [NSString stringWithFormat:@"%f", timeToStartFloat];
-        NSData *data = [timeToStartString dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSDictionary *dict = @{@"message":@"Time",
+                               @"time":timeToStartString};
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
         NSError *error = nil;
         [self.mpcHelper.session sendData:data
                                  toPeers:self.mpcHelper.session.connectedPeers
@@ -152,7 +161,7 @@
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
         }
-        [self startDuelAtDate:timeToStart];
+        [self startDuelAtDate:self.timeToStart];
         
     }
 }
@@ -160,7 +169,7 @@
 #pragma mark - SFCountDown
 
 -(void)startDuelAtDate:(NSDate *)date {
-    [SVProgressHUD showWithStatus:@"Starting Duel"maskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:@"Starting Duel \n Holster Your Revolver"maskType:SVProgressHUDMaskTypeBlack];
     NSLog(@"will start duel at %@", date);
     NSTimer *startTimer = [[NSTimer alloc] initWithFireDate:date interval:0 target:self selector:@selector(setupDuel) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:startTimer forMode:NSDefaultRunLoopMode];
@@ -169,7 +178,9 @@
 -(void)setupDuel {
     NSLog(@"setupDuel timer fired @ %@", [NSDate date]);
     [SVProgressHUD dismiss];
-    [self.countDownView start];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.countDownView start];
+    });
 }
 
 - (void) countdownFinished:(SFCountdownView *)view {
@@ -479,21 +490,22 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+
 #pragma mark - Lazy Instantiation
 
 -(GameLogic *)game {
     if(!_game) {
-        _game = [[GameLogic alloc] initWithLives:[self.numberOfShots integerValue] StartTime:self.randomStart GameType:self.gameType];
+        _game = [[GameLogic alloc] initWithLives:[self.numberOfShots integerValue] StartTime:self.randomStart GameType:self.gameType PlayerName:self.mpcHelper.peerID.displayName];
     }
     return _game;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
--(BOOL)prefersStatusBarHidden {
-    return YES;
 }
 
 @end
