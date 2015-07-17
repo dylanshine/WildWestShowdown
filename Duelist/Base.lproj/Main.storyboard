@@ -46,18 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YL8-FO-zQX">
-                                <rect key="frame" x="255" y="277" width="89" height="45"/>
-                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="hrZ-wm-FkJ" kind="show" id="HqJ-Hp-g9D"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Cw-YsM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Cw-YsM">
                                 <rect key="frame" x="187" y="224" width="226" height="45"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
                                 <state key="normal" title="How To Play">
@@ -65,7 +54,11 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="howToPlayButtonPushed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="l7C-dr-9go"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="k8f-Cn-PN7"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oSn-my-Y3v"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="lr6-t9-UGA"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDown" id="xyH-XM-ukA"/>
+                                    <action selector="howToPlayButtonPushed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="F3d-SX-9Ec"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wild West Showdown" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYr-hc-1qe">
@@ -78,7 +71,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0t-r7-0fc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0t-r7-0fc">
                                 <rect key="frame" x="220" y="330" width="159" height="45"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
                                 <state key="normal" title="Practice">
@@ -86,10 +79,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="Pb0-VQ-cPb"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="quY-LJ-hgj"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDown" id="7Vx-Sk-NkM"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="sot-Ce-1aD"/>
                                     <segue destination="6Yb-La-W0c" kind="show" id="ep1-L9-KOt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-qX-zsE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-qX-zsE">
                                 <rect key="frame" x="221" y="383" width="156" height="45"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
                                 <state key="normal" title="Settings">
@@ -97,7 +94,26 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ij9-zI-Scw"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="Pv9-BE-KDc"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDown" id="EYJ-vn-an1"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="oNe-QA-kMz"/>
                                     <segue destination="d3x-Nt-scI" kind="show" id="Nog-fN-KPg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YL8-FO-zQX">
+                                <rect key="frame" x="255" y="277" width="89" height="45"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="33"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7J4-lS-4z3"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragExit" id="WGN-DN-Xz0"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDragEnter" id="S9F-hV-ATM"/>
+                                    <action selector="enlargeButtonAnimation:" destination="vXZ-lx-hvc" eventType="touchDown" id="hpG-Rt-3cq"/>
+                                    <segue destination="hrZ-wm-FkJ" kind="show" id="HqJ-Hp-g9D"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -142,6 +158,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="rbX-6n-VNK"/>
+                    <connections>
+                        <outletCollection property="menuButtons" destination="7mx-Cw-YsM" id="NRh-BU-Qgj"/>
+                        <outletCollection property="menuButtons" destination="YL8-FO-zQX" id="iaI-AQ-ZYI"/>
+                        <outletCollection property="menuButtons" destination="f0t-r7-0fc" id="avw-7N-thb"/>
+                        <outletCollection property="menuButtons" destination="QHZ-qX-zsE" id="IfA-mk-26u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -159,7 +181,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTw-j3-OMx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTw-j3-OMx">
                                 <rect key="frame" x="162" y="204" width="274" height="62"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="50"/>
                                 <state key="normal" title="New Game">
@@ -167,10 +189,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backToSizeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchDragExit" id="YqU-Sc-52u"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchUpInside" id="vOC-v5-mgU"/>
+                                    <action selector="enlargeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchDown" id="DCa-88-PUe"/>
+                                    <action selector="enlargeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchDragEnter" id="Zp0-Q7-fU8"/>
                                     <segue destination="kue-Gy-Va7" kind="show" id="ewp-tS-6Hs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rio-8f-lUH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rio-8f-lUH">
                                 <rect key="frame" x="161" y="295" width="276" height="62"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="50"/>
                                 <state key="normal" title="Join Game">
@@ -178,10 +204,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backToSizeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchDragExit" id="LdO-Ry-QOp"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchUpInside" id="Q9p-2x-Ty8"/>
+                                    <action selector="enlargeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchDragEnter" id="8wX-js-XnW"/>
+                                    <action selector="enlargeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchDown" id="g65-LI-CRX"/>
                                     <segue destination="yGk-Er-oYB" kind="show" id="Woz-U4-ug2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-Y6-ZDY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-Y6-ZDY">
                                 <rect key="frame" x="16" y="72" width="67" height="37"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
                                 <state key="normal" title="Back">
@@ -190,6 +220,10 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="hrZ-wm-FkJ" eventType="touchUpInside" id="jid-ps-COc"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchUpInside" id="jQa-Kd-aXd"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchDragExit" id="lTm-OL-OXV"/>
+                                    <action selector="enlargeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchDown" id="QDc-de-nKv"/>
+                                    <action selector="enlargeButtonAnimation:" destination="hrZ-wm-FkJ" eventType="touchDragEnter" id="s5Y-Kb-aOu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -233,7 +267,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFn-Uh-eg5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFn-Uh-eg5">
                                 <rect key="frame" x="16" y="72" width="67" height="37"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
                                 <state key="normal" title="Back">
@@ -242,6 +276,10 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="d3x-Nt-scI" eventType="touchUpInside" id="z2s-TG-RyX"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="d3x-Nt-scI" eventType="touchDragExit" id="A9g-1h-m2u"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="d3x-Nt-scI" eventType="touchUpInside" id="jg7-4w-4SK"/>
+                                    <action selector="enlargeButtonAnimation:" destination="d3x-Nt-scI" eventType="touchDragEnter" id="qLW-7r-4TI"/>
+                                    <action selector="enlargeButtonAnimation:" destination="d3x-Nt-scI" eventType="touchDown" id="sJf-pF-VbL"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xDR-7Z-ccb">
@@ -329,7 +367,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8i-Tt-DVW" userLabel="containerView" customClass="CapturePreviewView">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onh-g0-9Vf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onh-g0-9Vf">
                                         <rect key="frame" x="8" y="8" width="60" height="37"/>
                                         <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
                                         <state key="normal" title="Quit">
@@ -337,7 +375,10 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="backButtonPressed:" destination="d3x-Nt-scI" eventType="touchUpInside" id="dwO-Yb-hON"/>
+                                            <action selector="backToSizeButtonAnimation:" destination="6Yb-La-W0c" eventType="touchUpInside" id="GY1-KE-1ut"/>
+                                            <action selector="backToSizeButtonAnimation:" destination="6Yb-La-W0c" eventType="touchDragExit" id="k0a-jo-6tW"/>
+                                            <action selector="enlargeButtonAnimation:" destination="6Yb-La-W0c" eventType="touchDown" id="ahV-wO-axx"/>
+                                            <action selector="enlargeButtonAnimation:" destination="6Yb-La-W0c" eventType="touchDragEnter" id="hG0-mP-G3X"/>
                                             <action selector="quitButtonPressed:" destination="6Yb-La-W0c" eventType="touchUpInside" id="NdC-JR-7BE"/>
                                         </connections>
                                     </button>
@@ -404,7 +445,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swI-X6-KAY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swI-X6-KAY">
                                 <rect key="frame" x="16" y="72" width="67" height="37"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
                                 <state key="normal" title="Back">
@@ -413,6 +454,10 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="yGk-Er-oYB" eventType="touchUpInside" id="60g-h6-EO3"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="yGk-Er-oYB" eventType="touchDragExit" id="0kX-dv-GTL"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="yGk-Er-oYB" eventType="touchUpInside" id="PC8-Bq-xbX"/>
+                                    <action selector="enlargeButtonAnimation:" destination="yGk-Er-oYB" eventType="touchDragEnter" id="I9I-3I-C24"/>
+                                    <action selector="enlargeButtonAnimation:" destination="yGk-Er-oYB" eventType="touchDown" id="axc-7v-7Pz"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join A Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvp-88-he8">
@@ -462,7 +507,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLv-vq-B8F">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLv-vq-B8F">
                                 <rect key="frame" x="159" y="318" width="282" height="52"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="40"/>
                                 <state key="normal" title="Create Game">
@@ -470,13 +515,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backToSizeButtonAnimation:" destination="kue-Gy-Va7" eventType="touchUpInside" id="4Yv-u3-bbV"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="kue-Gy-Va7" eventType="touchDragExit" id="TRQ-L0-8ao"/>
                                     <action selector="createButtonPressed:" destination="kue-Gy-Va7" eventType="touchUpInside" id="YxU-S1-IDh"/>
+                                    <action selector="enlargeButtonAnimation:" destination="kue-Gy-Va7" eventType="touchDragEnter" id="RSj-3O-xhF"/>
+                                    <action selector="enlargeButtonAnimation:" destination="kue-Gy-Va7" eventType="touchDown" id="XNf-BR-Z4g"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8p-bG-cPn">
                                 <rect key="frame" x="16" y="118" width="568" height="162"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTC-ND-Chl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTC-ND-Chl">
                                 <rect key="frame" x="16" y="72" width="67" height="37"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
                                 <state key="normal" title="Back">
@@ -485,6 +534,10 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="kue-Gy-Va7" eventType="touchUpInside" id="BIv-Yd-Jx3"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="kue-Gy-Va7" eventType="touchUpInside" id="Vrg-ZK-oCN"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="kue-Gy-Va7" eventType="touchDragExit" id="c2Q-HG-Ky1"/>
+                                    <action selector="enlargeButtonAnimation:" destination="kue-Gy-Va7" eventType="touchDown" id="6ZC-We-cFm"/>
+                                    <action selector="enlargeButtonAnimation:" destination="kue-Gy-Va7" eventType="touchDragEnter" id="f9C-Kx-4LU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -531,7 +584,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dze-e4-BJA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dze-e4-BJA">
                                 <rect key="frame" x="214" y="269" width="171" height="62"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="50"/>
                                 <state key="normal" title="Ready">
@@ -539,10 +592,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backToSizeButtonAnimation:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="Nv7-qe-3j0"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="Vlh-ND-4Ja" eventType="touchDragExit" id="rkK-Db-uMB"/>
+                                    <action selector="enlargeButtonAnimation:" destination="Vlh-ND-4Ja" eventType="touchDown" id="ZV0-B1-GRO"/>
+                                    <action selector="enlargeButtonAnimation:" destination="Vlh-ND-4Ja" eventType="touchDragEnter" id="bRi-Aj-OY5"/>
                                     <action selector="readyButtonPressed:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="bt6-gd-VVt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zi-DR-dco">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zi-DR-dco">
                                 <rect key="frame" x="8" y="72" width="60" height="37"/>
                                 <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="25"/>
                                 <state key="normal" title="Quit">
@@ -551,6 +608,10 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="d3x-Nt-scI" eventType="touchUpInside" id="hzx-VZ-LSA"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="Acz-h4-lOS"/>
+                                    <action selector="backToSizeButtonAnimation:" destination="Vlh-ND-4Ja" eventType="touchDragExit" id="VNB-YP-d68"/>
+                                    <action selector="enlargeButtonAnimation:" destination="Vlh-ND-4Ja" eventType="touchDragEnter" id="Ic5-g2-6ye"/>
+                                    <action selector="enlargeButtonAnimation:" destination="Vlh-ND-4Ja" eventType="touchDown" id="y8R-EJ-Ipc"/>
                                     <action selector="quitButtonPressed:" destination="Vlh-ND-4Ja" eventType="touchUpInside" id="utU-vi-XAZ"/>
                                     <action selector="quitButtonPressed:" destination="6Yb-La-W0c" eventType="touchUpInside" id="wU3-I1-fFw"/>
                                 </connections>
@@ -735,6 +796,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WF5-cD-Knx"/>
+        <segue reference="fDE-SK-ZzG"/>
     </inferredMetricsTieBreakers>
 </document>

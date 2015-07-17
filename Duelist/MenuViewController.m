@@ -14,6 +14,7 @@
 
 @interface MenuViewController ()
 @property (nonatomic) SoundPlayer *musicPlayer;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *menuButtons;
 @end
 
 @implementation MenuViewController
@@ -51,6 +52,18 @@
     [self presentOnboardingViewController];
 }
 
+- (IBAction)enlargeButtonAnimation:(UIButton *)sender {
+    [UIView animateWithDuration:0.1f animations:^{
+        sender.transform = CGAffineTransformMakeScale(1.2f, 1.2f);
+    }];
+}
+
+- (IBAction)backToSizeButtonAnimation:(UIButton *)sender {
+    [UIView animateWithDuration:0.1f animations:^{
+        sender.transform = CGAffineTransformIdentity;
+    }];
+}
+
 -(BOOL)prefersStatusBarHidden {
     return YES;
 }
@@ -60,5 +73,7 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }] animated:YES completion:nil];
 }
+
+
 
 @end

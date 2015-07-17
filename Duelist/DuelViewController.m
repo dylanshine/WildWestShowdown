@@ -229,6 +229,18 @@
     [alertView show];
 }
 
+- (IBAction)enlargeButtonAnimation:(UIButton *)sender {
+    [UIView animateWithDuration:0.1f animations:^{
+        sender.transform = CGAffineTransformMakeScale(1.2f, 1.2f);
+    }];
+}
+
+- (IBAction)backToSizeButtonAnimation:(UIButton *)sender {
+    [UIView animateWithDuration:0.1f animations:^{
+        sender.transform = CGAffineTransformIdentity;
+    }];
+}
+
 
 #pragma mark - AVCaptureSession
 
