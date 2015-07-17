@@ -108,6 +108,7 @@
     destination.gameTime = [self.game gameDurationTime];
     destination.result = self.game.result;
     destination.accuracy = [self.game accuracyString];
+    destination.playerNumber = self.playerNumber;
 }
 
 #pragma mark - Ready
@@ -211,8 +212,8 @@
 }
 
 - (IBAction)quitButtonPressed:(id)sender {
-    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Are you sure you want to leave the duel?" andMessage:nil];
-    alertView.titleFont = [UIFont fontWithName:@"CoffeeTinInitials" size:20];
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Quit Duel" andMessage:nil];
+    alertView.titleFont = [UIFont fontWithName:@"CoffeeTinInitials" size:35];
     [alertView addButtonWithTitle:@"Yes"
                              type:SIAlertViewButtonTypeDestructive
                           handler:^(SIAlertView *alert) {

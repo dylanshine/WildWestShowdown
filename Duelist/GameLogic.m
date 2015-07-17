@@ -157,7 +157,7 @@
     if (self.shotsTaken == 0.0) {
         return @"0%";
     } else {
-        NSString *accuracyString = [NSString stringWithFormat:@"Accuracy: %.02f%%", (self.shotsLanded / self.shotsTaken) * 100.0];
+        NSString *accuracyString = [NSString stringWithFormat:@"%.02f%%", (self.shotsLanded / self.shotsTaken) * 100.0];
         return accuracyString;
     }
 }

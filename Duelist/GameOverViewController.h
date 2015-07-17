@@ -12,4 +12,5 @@
 @property (nonatomic) float gameTime;
 @property (nonatomic) NSString *result;
 @property (nonatomic) NSString *accuracy;
+@property (nonatomic) NSString *playerNumber;
 @end

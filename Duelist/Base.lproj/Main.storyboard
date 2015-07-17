@@ -25,6 +25,12 @@
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
             <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
+            <string>CoffeeTinInitials</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -613,48 +619,96 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Time: 1:25 Seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dq5-nL-MTC">
-                                <rect key="frame" x="161" y="230" width="279" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQd-0W-b7Q">
+                                <rect key="frame" x="213" y="172" width="175" height="28"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameOfPlayer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="She-L7-Mmo">
-                                <rect key="frame" x="224" y="267" width="153" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Two" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZd-qh-9i3">
+                                <rect key="frame" x="207" y="315" width="183" height="28"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accuracy: 100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1R-SM-CGq">
-                                <rect key="frame" x="214" y="304" width="174" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AccuracyTwo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-0I-K1M">
+                                <rect key="frame" x="198" y="357" width="204" height="28"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FX0-pc-RiJ">
-                                <rect key="frame" x="265" y="341" width="72" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ResultOne" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loF-DO-Od1">
+                                <rect key="frame" x="221" y="256" width="158" height="28"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ResultTwo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5j5-TN-JPH">
+                                <rect key="frame" x="218" y="399" width="166" height="28"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AccuracyOne" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNn-ma-nDn">
+                                <rect key="frame" x="202" y="208" width="196" height="28"/>
+                                <fontDescription key="fontDescription" name="CoffeeTinInitials" family="CoffeeTin" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="q1R-SM-CGq" secondAttribute="centerX" constant="-1" id="8NB-ev-EZ4"/>
-                            <constraint firstAttribute="centerX" secondItem="dq5-nL-MTC" secondAttribute="centerX" id="Itk-Dr-XTo"/>
-                            <constraint firstItem="She-L7-Mmo" firstAttribute="top" secondItem="dq5-nL-MTC" secondAttribute="bottom" constant="8" id="L1h-Uy-PGQ"/>
-                            <constraint firstAttribute="centerX" secondItem="She-L7-Mmo" secondAttribute="centerX" id="RiZ-JK-7y5"/>
-                            <constraint firstItem="dq5-nL-MTC" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="166" id="dhR-pK-bVf"/>
-                            <constraint firstItem="q1R-SM-CGq" firstAttribute="top" secondItem="She-L7-Mmo" secondAttribute="bottom" constant="8" id="gYb-U1-njj"/>
-                            <constraint firstItem="FX0-pc-RiJ" firstAttribute="top" secondItem="q1R-SM-CGq" secondAttribute="bottom" constant="8" id="gwa-ZB-JII"/>
-                            <constraint firstAttribute="centerX" secondItem="FX0-pc-RiJ" secondAttribute="centerX" constant="-1" id="r6C-ur-ZAT"/>
+                            <constraint firstItem="tNn-ma-nDn" firstAttribute="top" secondItem="rQd-0W-b7Q" secondAttribute="bottom" constant="8" id="6fg-uy-KmL"/>
+                            <constraint firstItem="loF-DO-Od1" firstAttribute="top" secondItem="tNn-ma-nDn" secondAttribute="bottom" constant="8" id="9fD-RY-Ls2"/>
+                            <constraint firstAttribute="centerX" secondItem="tNn-ma-nDn" secondAttribute="centerX" id="AvW-BT-DzJ"/>
+                            <constraint firstAttribute="centerX" secondItem="DZd-qh-9i3" secondAttribute="centerX" constant="2" id="Krz-om-FZn"/>
+                            <constraint firstItem="rQd-0W-b7Q" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="108" id="Lif-RU-mWs"/>
+                            <constraint firstItem="DZd-qh-9i3" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="117" id="ONK-MG-4ud"/>
+                            <constraint firstItem="tNn-ma-nDn" firstAttribute="top" secondItem="rQd-0W-b7Q" secondAttribute="bottom" constant="8" id="P7t-uM-L0j"/>
+                            <constraint firstItem="loF-DO-Od1" firstAttribute="leading" secondItem="sz4-n2-4Y4" secondAttribute="leadingMargin" constant="85" id="Rlm-A2-yWj"/>
+                            <constraint firstItem="tNn-ma-nDn" firstAttribute="leading" secondItem="sz4-n2-4Y4" secondAttribute="leadingMargin" constant="85" id="RmZ-jX-Hiq"/>
+                            <constraint firstItem="SVh-0I-K1M" firstAttribute="top" secondItem="DZd-qh-9i3" secondAttribute="bottom" constant="8" id="T49-Cs-acq"/>
+                            <constraint firstItem="DZd-qh-9i3" firstAttribute="leading" secondItem="rQd-0W-b7Q" secondAttribute="trailing" constant="196" id="Utk-ye-gyE"/>
+                            <constraint firstAttribute="centerX" secondItem="loF-DO-Od1" secondAttribute="centerX" id="XEh-n6-TSl"/>
+                            <constraint firstAttribute="centerX" secondItem="SVh-0I-K1M" secondAttribute="centerX" constant="-0.5" id="YU5-cS-g38"/>
+                            <constraint firstItem="loF-DO-Od1" firstAttribute="top" secondItem="tNn-ma-nDn" secondAttribute="bottom" constant="20" id="bdB-GU-2SD"/>
+                            <constraint firstItem="SVh-0I-K1M" firstAttribute="top" secondItem="DZd-qh-9i3" secondAttribute="bottom" constant="14" id="crY-Jm-ppa"/>
+                            <constraint firstAttribute="centerX" secondItem="5j5-TN-JPH" secondAttribute="centerX" constant="-0.5" id="dTv-4j-Wg9"/>
+                            <constraint firstItem="SVh-0I-K1M" firstAttribute="leading" secondItem="tNn-ma-nDn" secondAttribute="trailing" constant="177" id="jkf-IY-QYm"/>
+                            <constraint firstItem="rQd-0W-b7Q" firstAttribute="leading" secondItem="sz4-n2-4Y4" secondAttribute="leadingMargin" constant="85" id="kqY-Sw-czk"/>
+                            <constraint firstItem="tNn-ma-nDn" firstAttribute="top" secondItem="rQd-0W-b7Q" secondAttribute="bottom" constant="8" id="nRy-vb-KZi"/>
+                            <constraint firstItem="DZd-qh-9i3" firstAttribute="top" secondItem="loF-DO-Od1" secondAttribute="bottom" constant="31" id="o5N-WD-AoP"/>
+                            <constraint firstItem="5j5-TN-JPH" firstAttribute="leading" secondItem="loF-DO-Od1" secondAttribute="trailing" constant="201" id="oiN-OO-jkx"/>
+                            <constraint firstItem="5j5-TN-JPH" firstAttribute="top" secondItem="SVh-0I-K1M" secondAttribute="bottom" constant="14" id="ssp-uE-42a"/>
+                            <constraint firstAttribute="centerX" secondItem="tNn-ma-nDn" secondAttribute="centerX" id="xJ6-ad-14f"/>
+                            <constraint firstAttribute="centerX" secondItem="rQd-0W-b7Q" secondAttribute="centerX" constant="-0.5" id="xL0-30-tbI"/>
+                            <constraint firstItem="rQd-0W-b7Q" firstAttribute="top" secondItem="fzY-rA-Lmi" secondAttribute="bottom" constant="117" id="zkp-F5-QpN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kqY-Sw-czk"/>
+                                <exclude reference="zkp-F5-QpN"/>
+                                <exclude reference="6fg-uy-KmL"/>
+                                <exclude reference="AvW-BT-DzJ"/>
+                                <exclude reference="P7t-uM-L0j"/>
+                                <exclude reference="RmZ-jX-Hiq"/>
+                                <exclude reference="9fD-RY-Ls2"/>
+                                <exclude reference="Rlm-A2-yWj"/>
+                                <exclude reference="ONK-MG-4ud"/>
+                                <exclude reference="Utk-ye-gyE"/>
+                                <exclude reference="T49-Cs-acq"/>
+                                <exclude reference="jkf-IY-QYm"/>
+                                <exclude reference="oiN-OO-jkx"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="accuracyLabel" destination="q1R-SM-CGq" id="yfA-zE-DpV"/>
-                        <outlet property="gameTimeLabel" destination="dq5-nL-MTC" id="sL8-DY-ILS"/>
-                        <outlet property="nameOfPlayerLabel" destination="She-L7-Mmo" id="x6G-d0-3pI"/>
-                        <outlet property="resultLabel" destination="FX0-pc-RiJ" id="LIb-Dq-TNa"/>
+                        <outlet property="accuracyLabelOne" destination="tNn-ma-nDn" id="7iV-53-lUk"/>
+                        <outlet property="accuracyLabelTwo" destination="SVh-0I-K1M" id="laC-3I-jD2"/>
+                        <outlet property="playerOneNameLabel" destination="rQd-0W-b7Q" id="ZEq-Ij-Ihs"/>
+                        <outlet property="playerTwoNameLabel" destination="DZd-qh-9i3" id="16F-MT-L4T"/>
+                        <outlet property="resultOneLabel" destination="loF-DO-Od1" id="KLz-Lk-n4o"/>
+                        <outlet property="resultTwoLabel" destination="5j5-TN-JPH" id="OhI-22-uTD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pa2-QB-FCY" userLabel="First Responder" sceneMemberID="firstResponder"/>

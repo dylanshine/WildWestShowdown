@@ -181,6 +181,7 @@
 		FC2B6F351B4DEEBD0053D83D /* Wild West Showdown */ = {
 			isa = PBXGroup;
 			children = (
+				FC4906471B5884B1005D376F /* Custom Views */,
 				FCE969B21B571D12007E357E /* Fonts */,
 				FCF9964F1B5190C400910B1A /* Sounds */,
 				FCF996451B518E5A00910B1A /* Models */,
@@ -210,8 +211,6 @@
 				FC2B6F431B4DEEBD0053D83D /* Images.xcassets */,
 				FC2B6F451B4DEEBD0053D83D /* LaunchScreen.xib */,
 				FC2B6F361B4DEEBD0053D83D /* Supporting Files */,
-				FCE0BCEE1B541A9E00EB0BE5 /* CapturePreviewView.h */,
-				FCE0BCEF1B541A9E00EB0BE5 /* CapturePreviewView.m */,
 			);
 			name = "Wild West Showdown";
 			path = Duelist;
@@ -253,6 +252,15 @@
 				FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */,
 			);
 			name = GameKit;
+			sourceTree = "<group>";
+		};
+		FC4906471B5884B1005D376F /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				FCE0BCEE1B541A9E00EB0BE5 /* CapturePreviewView.h */,
+				FCE0BCEF1B541A9E00EB0BE5 /* CapturePreviewView.m */,
+			);
+			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 		FCBC47AE1B4E2A2D00B26900 /* Multipeer Connectivity */ = {
