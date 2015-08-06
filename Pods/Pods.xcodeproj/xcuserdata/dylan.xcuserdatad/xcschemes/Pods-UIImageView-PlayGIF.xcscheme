@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A51C268707D4BC3E6599FAF"
-               BuildableName = "libPods-SVProgressHUD.a"
-               BlueprintName = "Pods-SVProgressHUD"
+               BlueprintIdentifier = "8AACD684671C4CFB6E418DAC"
+               BuildableName = "libPods-UIImageView-PlayGIF.a"
+               BlueprintName = "Pods-UIImageView-PlayGIF"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

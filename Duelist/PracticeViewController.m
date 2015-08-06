@@ -14,10 +14,14 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SoundPlayer.h"
 #import "PracticeMode.h"
+#import "YFGIFImageView.h"
+#import "UIImageView+PlayGIF.h"
 
 
 @interface PracticeViewController() <AVCaptureVideoDataOutputSampleBufferDelegate>
 
+@property (weak, nonatomic) IBOutlet YFGIFImageView *gifImageView;
+@property (nonatomic) NSDictionary *gifDataDict;
 @property (nonatomic) PracticeMode *practice;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
@@ -37,6 +41,9 @@
     [self setupAVCapture];
      self.practice = [[PracticeMode alloc] init];
     [self setupGestures];
+
+    self.gifImageView.gifData = self.gifDataDict[@"holstered"];
+    [self.gifImageView startGIF];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -66,11 +73,15 @@
 
 #pragma mark - Practice Action Gestures
 - (void)fireTap {
+    self.gifImageView.gifData = self.gifDataDict[@"fire"];
     [self.practice fire];
+    self.gifImageView.gifData = self.gifDataDict[@"forward"];
 }
 
 - (void)pullHammerSwipe {
+    self.gifImageView.gifData = self.gifDataDict[@"pull"];
     [self.practice pullHammer];
+    
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -78,6 +89,7 @@
 }
 
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    self.gifImageView.gifData = self.gifDataDict[@"reload"];
     [self.practice reload];
 }
 
@@ -333,6 +345,21 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 -(BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+-(NSDictionary *)gifDataDict {
+    if (!_gifDataDict) {
+        _gifDataDict = @{@"fire":[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"fire.gif" ofType:nil]],
+                         @"cocked":[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cocked.gif" ofType:nil]],
+                         @"side2first":[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"sidetofirst.gif" ofType:nil]],
+                         @"side":[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"side.gif" ofType:nil]],
+                         @"pull":[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"hammerPull.gif" ofType:nil]],
+                         @"reload":[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"reload.gif" ofType:nil]],
+                         @"first2side":[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"firsttoside.gif" ofType:nil]],
+                         @"holstered":[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"holstered.gif" ofType:nil]],
+                         @"forward":[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"forward.gif" ofType:nil]]};
+    }
+    return _gifDataDict;
 }
 
 @end

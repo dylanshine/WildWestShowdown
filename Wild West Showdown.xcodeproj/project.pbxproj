@@ -18,6 +18,15 @@
 		FC2B6F5D1B4DF3DA0053D83D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2B6F5C1B4DF3DA0053D83D /* GameKit.framework */; };
 		FC2B6F611B4DF6C20053D83D /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */; };
 		FC2B6F641B4E02960053D83D /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B6F631B4E02960053D83D /* MainNavigationController.m */; };
+		FC33960D1B657946009A3CB9 /* cocked.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC3396041B657946009A3CB9 /* cocked.gif */; };
+		FC33960E1B657946009A3CB9 /* fire.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC3396051B657946009A3CB9 /* fire.gif */; };
+		FC33960F1B657946009A3CB9 /* firsttoside.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC3396061B657946009A3CB9 /* firsttoside.gif */; };
+		FC3396101B657946009A3CB9 /* forward.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC3396071B657946009A3CB9 /* forward.gif */; };
+		FC3396111B657946009A3CB9 /* hammerPull.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC3396081B657946009A3CB9 /* hammerPull.gif */; };
+		FC3396121B657946009A3CB9 /* holstered.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC3396091B657946009A3CB9 /* holstered.gif */; };
+		FC3396131B657946009A3CB9 /* reload.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC33960A1B657946009A3CB9 /* reload.gif */; };
+		FC3396141B657946009A3CB9 /* side.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC33960B1B657946009A3CB9 /* side.gif */; };
+		FC3396151B657946009A3CB9 /* sidetofirst.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC33960C1B657946009A3CB9 /* sidetofirst.gif */; };
 		FC49063E1B58060C005D376F /* PracticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49063D1B58060C005D376F /* PracticeViewController.m */; };
 		FC4906441B5809D4005D376F /* PracticeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4906431B5809D4005D376F /* PracticeMode.m */; };
 		FC49064C1B59780D005D376F /* RosewoodStd-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC49064B1B59780D005D376F /* RosewoodStd-Regular.otf */; };
@@ -79,6 +88,15 @@
 		FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		FC2B6F621B4E02960053D83D /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
 		FC2B6F631B4E02960053D83D /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		FC3396041B657946009A3CB9 /* cocked.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cocked.gif; sourceTree = "<group>"; };
+		FC3396051B657946009A3CB9 /* fire.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fire.gif; sourceTree = "<group>"; };
+		FC3396061B657946009A3CB9 /* firsttoside.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = firsttoside.gif; sourceTree = "<group>"; };
+		FC3396071B657946009A3CB9 /* forward.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = forward.gif; sourceTree = "<group>"; };
+		FC3396081B657946009A3CB9 /* hammerPull.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hammerPull.gif; sourceTree = "<group>"; };
+		FC3396091B657946009A3CB9 /* holstered.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = holstered.gif; sourceTree = "<group>"; };
+		FC33960A1B657946009A3CB9 /* reload.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = reload.gif; sourceTree = "<group>"; };
+		FC33960B1B657946009A3CB9 /* side.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = side.gif; sourceTree = "<group>"; };
+		FC33960C1B657946009A3CB9 /* sidetofirst.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sidetofirst.gif; sourceTree = "<group>"; };
 		FC49063C1B58060C005D376F /* PracticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeViewController.h; sourceTree = "<group>"; };
 		FC49063D1B58060C005D376F /* PracticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeViewController.m; sourceTree = "<group>"; };
 		FC4906421B5809D4005D376F /* PracticeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeMode.h; sourceTree = "<group>"; };
@@ -183,6 +201,7 @@
 		FC2B6F351B4DEEBD0053D83D /* Wild West Showdown */ = {
 			isa = PBXGroup;
 			children = (
+				FC3396031B657708009A3CB9 /* Gifs */,
 				FC4906471B5884B1005D376F /* Custom Views */,
 				FCE969B21B571D12007E357E /* Fonts */,
 				FCF9964F1B5190C400910B1A /* Sounds */,
@@ -254,6 +273,22 @@
 				FC2B6F601B4DF6C20053D83D /* GameKitHelper.m */,
 			);
 			name = GameKit;
+			sourceTree = "<group>";
+		};
+		FC3396031B657708009A3CB9 /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				FC3396041B657946009A3CB9 /* cocked.gif */,
+				FC3396051B657946009A3CB9 /* fire.gif */,
+				FC3396061B657946009A3CB9 /* firsttoside.gif */,
+				FC3396071B657946009A3CB9 /* forward.gif */,
+				FC3396081B657946009A3CB9 /* hammerPull.gif */,
+				FC3396091B657946009A3CB9 /* holstered.gif */,
+				FC33960A1B657946009A3CB9 /* reload.gif */,
+				FC33960B1B657946009A3CB9 /* side.gif */,
+				FC33960C1B657946009A3CB9 /* sidetofirst.gif */,
+			);
+			name = Gifs;
 			sourceTree = "<group>";
 		};
 		FC4906471B5884B1005D376F /* Custom Views */ = {
@@ -404,20 +439,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCE969B41B571D39007E357E /* CoffeeTinInitials.ttf in Resources */,
+				FC3396141B657946009A3CB9 /* side.gif in Resources */,
+				FC3396131B657946009A3CB9 /* reload.gif in Resources */,
 				FCF996511B5190DB00910B1A /* fire1.wav in Resources */,
 				FCE620C51B5579850085389C /* defaultSettings.plist in Resources */,
 				FCE0BCE61B525EC100EB0BE5 /* heartbeat.wav in Resources */,
+				FC33960F1B657946009A3CB9 /* firsttoside.gif in Resources */,
 				FCF996561B5190E600910B1A /* pull1.wav in Resources */,
 				FC2B6F421B4DEEBD0053D83D /* Main.storyboard in Resources */,
 				FCF996551B5190E600910B1A /* dryfire1.wav in Resources */,
+				FC3396111B657946009A3CB9 /* hammerPull.gif in Resources */,
 				FCD32F541B5468CF0025D421 /* tumbleTownShorten.mp3 in Resources */,
 				FC2B6F471B4DEEBD0053D83D /* LaunchScreen.xib in Resources */,
+				FC3396121B657946009A3CB9 /* holstered.gif in Resources */,
+				FC3396151B657946009A3CB9 /* sidetofirst.gif in Resources */,
 				FCD32F591B5480140025D421 /* revolverClick.mp3 in Resources */,
 				FC49064C1B59780D005D376F /* RosewoodStd-Regular.otf in Resources */,
 				FCE620CE1B56160C0085389C /* boots.wav in Resources */,
+				FC33960D1B657946009A3CB9 /* cocked.gif in Resources */,
 				FCE969B61B572478007E357E /* duel.mp3 in Resources */,
 				FCE0BCE81B52613700EB0BE5 /* draw.wav in Resources */,
+				FC3396101B657946009A3CB9 /* forward.gif in Resources */,
 				FCF996571B5190E600910B1A /* reload.mp3 in Resources */,
+				FC33960E1B657946009A3CB9 /* fire.gif in Resources */,
 				FC2B6F441B4DEEBD0053D83D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

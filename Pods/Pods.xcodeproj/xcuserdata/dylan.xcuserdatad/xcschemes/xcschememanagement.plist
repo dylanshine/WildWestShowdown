@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-UIImageView-PlayGIF.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E9FF12F6B160FFA06DE8BC5</key>
+		<key>412CB0698015799DE1887DB5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A9852B42E850B731E38FCE3</key>
+		<key>7A51C268707D4BC3E6599FAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74FB23C18DA8B70550397991</key>
+		<key>7E142B12569DA4DC684BD240</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F44E9B5E94708E4B3681D1D</key>
+		<key>7F3AA3296FA39255617A0323</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C317D08DC985ADBFC8ED25E8</key>
+		<key>8AACD684671C4CFB6E418DAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE35C0F48A791D9FD9FE1E09</key>
 		<dict>
 			<key>primary</key>
 			<true/>
